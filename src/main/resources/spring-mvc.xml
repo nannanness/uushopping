@@ -11,8 +11,18 @@
     <!--视图解析器-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/manager/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/shop/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/user/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
     <mvc:resources mapping="/resources/**" location="/resources/"/>

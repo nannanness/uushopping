@@ -9,24 +9,24 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--视图解析器-->
-
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="viewClass" value="org.uushopping.utils.DefaultJstlView"></property>
         <property name="prefix" value="/WEB-INF/jsp/manager/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="viewClass" value="org.uushopping.utils.DefaultJstlView"></property>
         <property name="prefix" value="/WEB-INF/jsp/shop/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.uushoppping.utils.DefaultJstlView"></property>
+        <property name="viewClass" value="org.uushopping.utils.DefaultJstlView"></property>
         <property name="prefix" value="/WEB-INF/jsp/user/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    <mvc:resources mapping="/theme/**" location="/theme/"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <context:component-scan base-package="org.uushoppping.controller" />
+    <context:component-scan base-package="org.uushopping.controller" />
     <!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
     <mvc:annotation-driven/>
     <!-- ================================================================= -->

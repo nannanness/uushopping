@@ -92,7 +92,7 @@
 		<tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
           <td>1</td>
-          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.jsp','10001','500','400')">张三</u></td>
+          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张三','/pageJump/member-show.do','10001','500','400')">张三</u></td>
           <td>男</td>
           <td>13000000000</td>
           <td>admin@mail.com</td>
@@ -109,7 +109,7 @@
         <tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
           <td>2</td>
-          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','member-show.jsp','1031','500','400')">张小泉</u></td>
+          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','/pageJump/member-show.do','1031','500','400')">张小泉</u></td>
           <td>男</td>
           <td>13000000000</td>
           <td>admin@mail.com</td>
@@ -127,7 +127,7 @@
          <tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
           <td>3</td>
-          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','member-show.jsp','10301','500','400')">张小泉</u></td>
+          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','/pageJump/member-show.do','10301','500','400')">张小泉</u></td>
           <td>男</td>
           <td>13000000000</td>
           <td>admin@mail.com</td>
@@ -145,7 +145,7 @@
          <tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
           <td>4</td>
-          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','member-show.jsp','10001','500','400')">张小泉</u></td>
+          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','/pageJump/member-show.do','10001','500','400')">张小泉</u></td>
           <td>男</td>
           <td>13000000000</td>
           <td>admin@mail.com</td>
@@ -163,7 +163,7 @@
          <tr>
           <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
           <td>5</td>
-          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','member-show.jsp','10001','500','400')">张小泉</u></td>
+          <td><u style="cursor:pointer" class="text-primary" onclick="member_show('张小泉','/pageJump/member-show.do','10001','500','400')">张小泉</u></td>
           <td>男</td>
           <td>13000000000</td>
           <td>admin@mail.com</td>

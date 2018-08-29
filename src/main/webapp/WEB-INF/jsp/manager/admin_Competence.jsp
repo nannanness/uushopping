@@ -27,7 +27,7 @@
  <div class="margin clearfix">
    <div class="border clearfix">
        <span class="l_f">
-        <a href="Competence.jsp" id="Competence_add" class="btn btn-warning" title="添加权限"><i class="fa fa-plus"></i> 添加权限</a>
+        <a href="/pageJump/Competence.do" id="Competence_add" class="btn btn-warning" title="添加权限"><i class="fa fa-plus"></i> 添加权限</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>5</b>类</span>

@@ -233,7 +233,7 @@ var setting = {
 				zTree.expandNode(treeNode);
 				return false;
 			} else {
-				demoIframe.attr("src",treeNode.file + ".jsp");
+				demoIframe.attr("src","/pageJump/" + treeNode.file + ".do");
 				return true;
 			}
 		}

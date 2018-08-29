@@ -135,31 +135,31 @@
  <div class="clearfix">
   <div class="home_btn">
      <div>
-     <a href="picture-add.jsp"  title="添加商品" class="btn  btn-info btn-sm no-radius">
+     <a href="/pageJump/picture-add.do"  title="添加商品" class="btn  btn-info btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-addp.png" /></i>
      <h5 class="margin-top">添加商品</h5>
      </a>
-     <a href="Category_Manage.jsp"  title="产品分类" class="btn  btn-primary btn-sm no-radius">
+     <a href="/pageJump/Category_Manage.do"  title="产品分类" class="btn  btn-primary btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-cpgl.png" /></i>
      <h5 class="margin-top">产品分类</h5>
      </a>
-     <a href="admin_info.jsp"  title="个人信息" class="btn  btn-success btn-sm no-radius">
+     <a href="/pageJump/admin_info.do"  title="个人信息" class="btn  btn-success btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-grxx.png" /></i>
      <h5 class="margin-top">个人信息</h5>
      </a>
-     <a href="Systems.jsp"  title="系统设置" class="btn  btn-info btn-sm no-radius">
+     <a href="/pageJump/Systems.do"  title="系统设置" class="btn  btn-info btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/xtsz.png" /></i>
      <h5 class="margin-top">系统设置</h5>
      </a>
-     <a href="Order_handling.jsp"  title="商品订单" class="btn  btn-purple btn-sm no-radius">
+     <a href="/pageJump/Order_handling.do"  title="商品订单" class="btn  btn-purple btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-gwcc.png" /></i>
      <h5 class="margin-top">商品订单</h5>
      </a>
-     <a href="picture-add.jsp"  title="添加广告" class="btn  btn-pink btn-sm no-radius">
+     <a href="/pageJump/picture-add.do"  title="添加广告" class="btn  btn-pink btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-ad.png" /></i>
      <h5 class="margin-top">添加广告</h5>
      </a>
-      <a href="article_add.jsp"  title="添加文章" class="btn  btn-info btn-sm no-radius">
+      <a href="/pageJump/article_add.do"  title="添加文章" class="btn  btn-info btn-sm no-radius">
      <i class="bigger-200"><img src="/resources/images/icon-addwz.png" /></i>
      <h5 class="margin-top">添加文章</h5>
      </a>

@@ -13,14 +13,15 @@
         This setting forces generated keys to be used if set to true,
          as some drivers deny compatibility but still work -->
         <setting name="useGeneratedKeys" value="true"/>
+
     </settings>
 
     <typeAliases>
-        <package name="org.uushopping.pojo"></package>
+        <package name="org.uushoppping.pojo"></package>
     </typeAliases>
     <!-- Continue editing here -->
 
     <mappers>
-        <package name="org.uushoppping.mapper"></package>
+        <package name="org.uushopping.mapper"></package>
     </mappers>
 </configuration>

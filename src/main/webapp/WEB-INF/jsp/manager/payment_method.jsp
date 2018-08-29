@@ -238,7 +238,7 @@ $('.details_btn').on('click', function(){
 	
 });
 function Paymentdetails(id){
-	window.location.href = "Payment_details.jsp?="+id;
+	window.location.href = "/pageJump/Payment_details.do?="+id;
 };
 
 </script>

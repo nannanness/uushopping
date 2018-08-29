@@ -60,7 +60,7 @@
         <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
         <a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
         <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-        <a href="javascript:ovid()" name="Ads_list.jsp" class="btn btn-xs btn-pink ads_link" onclick="AdlistOrders('561');" title="幻灯片广告列表"><i class="fa  fa-bars  bigger-120"></i></a>
+        <a href="javascript:void()" name="/pageJump/Ads_list.do" class="btn btn-xs btn-pink ads_link" onclick="AdlistOrders('561');" title="幻灯片广告列表"><i class="fa  fa-bars  bigger-120"></i></a>
        </td>
       </tr>
     </tbody>
@@ -178,7 +178,7 @@ $('.Order_form ,.ads_link').on('click', function(){
 	
 });
 function AdlistOrders(id){
-	window.location.href = "Ads_list.jsp?="+id;
+	window.location.href = "/pageJump/Ads_list.do?="+id;
 };
 </script>
 <script type="text/javascript">

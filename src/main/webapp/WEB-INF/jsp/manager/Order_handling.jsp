@@ -88,7 +88,7 @@
       <td></td>
      <td>
      <a onClick="Delivery_stop(this,'10001')"  href="javascript:;" title="发货"  class="btn btn-xs btn-success"><i class="fa fa-cubes bigger-120"></i></a> 
-     <a title="订单详细"  href="order_detailed.jsp"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
+     <a title="订单详细"  href="/pageJump/order_detailed.do"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
      <a title="删除" href="javascript:;"  onclick="Order_form_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>    
      </td>
      </tr>
@@ -111,7 +111,7 @@
       <td class="td-status"><span class="label label-success radius">已发货</span></td>
       <td></td>
      <td>
-     <a title="订单详细"  href="order_detailed.jsp"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
+     <a title="订单详细"  href="/pageJump/order_detailed.do"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
      <a title="删除" href="javascript:;"  onclick="Order_form_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>    
      </td>
      </tr>
@@ -129,7 +129,7 @@
       <td class="td-status"><span class="label label-success radius">失败</span></td>
       <td>支付失败</td>
      <td>
-     <a title="订单详细"  href="order_detailed.jsp"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
+     <a title="订单详细"  href="/pageJump/order_detailed.do"  class="btn btn-xs btn-info order_detailed" ><i class="fa fa-list bigger-120"></i></a>
      <a title="删除" href="javascript:;"  onclick="Order_form_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>    
      </td>
      </tr>

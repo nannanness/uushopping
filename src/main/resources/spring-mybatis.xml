@@ -28,7 +28,7 @@
     <!-- 基于扫描的动态代理 -->
     <bean id="mapperFactory" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-        <property name="basePackage" value="org.uushoppping.mapper"></property>
+        <property name="basePackage" value="org.uushopping.mapper"></property>
     </bean>
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager"
@@ -36,5 +36,6 @@
         <property name="dataSource" ref="dataResources" />
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    <context:component-scan base-package="org.uushoppping.pojo" />
+    <context:component-scan base-package="org.uushopping.pojo" />
+    <context:component-scan base-package="org.uushopping.service.impl"/>
 </beans>

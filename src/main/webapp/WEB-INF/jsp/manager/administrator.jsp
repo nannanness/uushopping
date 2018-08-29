@@ -185,6 +185,7 @@
 		</div>
 		<div> 
         <input class="btn btn-primary radius" type="submit" id="Add_Administrator" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        </div>
 	</form>
    </div>
  </div>

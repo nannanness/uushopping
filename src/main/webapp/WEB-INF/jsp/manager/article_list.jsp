@@ -57,7 +57,7 @@
  <div class="Ads_list">
     <div class="border clearfix">
        <span class="l_f">
-        <a href="article_add.jsp"  title="添加快讯" id="add_page" class="btn btn-warning"><i class="fa fa-plus"></i> 添加快讯</a>
+        <a href="/pageJump/article_add.do"  title="添加快讯" id="add_page" class="btn btn-warning"><i class="fa fa-plus"></i> 添加快讯</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>45</b>条文章</span>

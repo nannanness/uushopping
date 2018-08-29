@@ -176,7 +176,7 @@ $('.change_Password').on('click', function(){
 	 icon:2,
     }, 
 	function(){
-	  location.href="login-system.jsp";
+	  location.href="/pageJump/login-system.do";
         
     });
 });

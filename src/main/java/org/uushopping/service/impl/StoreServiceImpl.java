@@ -17,4 +17,10 @@ public class StoreServiceImpl implements IStoreService {
         List<Store> list = storeMapper.getAllStore();
         return list;
     }
+
+
+    @Override
+    public void addStore(Store store) {
+        storeMapper.addStore(store);
+    }
 }

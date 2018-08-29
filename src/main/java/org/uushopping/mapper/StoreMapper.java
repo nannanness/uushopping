@@ -8,4 +8,6 @@ import java.util.List;
 public interface StoreMapper {
 
     public List<Store> getAllStore();
+
+    public void addStore(Store store);
 }

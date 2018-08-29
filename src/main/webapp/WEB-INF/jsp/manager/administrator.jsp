@@ -34,7 +34,7 @@
     <div class="search_style">
      
       <ul class="search_content clearfix">
-       <li><label class="l_f">管理员名称</label><input name="" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
+       <li><label class="l_f">卖家名称</label><input name="" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
        <li><label class="l_f">添加时间</label><input class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
        <li style="width:90px;"><button type="button" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
       </ul>
@@ -54,12 +54,12 @@
 		<thead>
 		 <tr>
 				<th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
-				<th width="100px">编号</th>
+				<th width="150px">店铺编号</th>
 				<th width="150px">姓名</th>
 				<th width="150px">手机</th>
 				<th width="150px">邮箱</th>
                 <th width="100px">角色</th>				
-				<th width="180px">加入时间</th>
+				<th width="150px">加入时间</th>
 				<th width="70px">状态</th>                
 				<th width="220px">操作</th>
 			</tr>
@@ -69,10 +69,10 @@
 		<tr>
 			<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
 			<td>${store.storeId}</td>
-			<td>${store.storeName}</td>
+			<td>${store.storeMan}</td>
 			<td>${store.storePhone}</td>
 			<td>${store.storeEmail}</td>
-			<td>店铺</td>
+			<td>店主</td>
 			<td>${store.storeDate}</td>
 			<td class="td-status"><span class="label label-success radius">${store.storeFlag}</span></td>
 			<td class="td-manage">
@@ -105,48 +105,39 @@
 </div>
  <!--添加管理员-->
  <div id="add_administrator_style" class="add_menber" style="display:none">
-    <form action="" method="post" id="form-admin-add">
+    <form action="/storeController/add_store.do" method="post" id="form-admin-add">
 		<div class="form-group">
-			<label class="form-label"><span class="c-red">*</span>管理员：</label>
+			<label class="form-label"><span class="c-red">*</span>店铺：</label>
 			<div class="formControls">
-				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">
+				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="storeName" datatype="*2-16" nullmsg="用户名不能为空">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
 		<div class="form-group">
 			<label class="form-label"><span class="c-red">*</span>初始密码：</label>
 			<div class="formControls">
-			<input type="password" placeholder="密码" name="userpassword" autocomplete="off" value="" class="input-text" datatype="*6-20" nullmsg="密码不能为空">
+			<input type="password" placeholder="密码" name="storePassword" id="storePassword" autocomplete="off" value="" class="input-text" datatype="*6-20" nullmsg="密码不能为空">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
 		<div class="form-group">
 			<label class="form-label "><span class="c-red">*</span>确认密码：</label>
 			<div class="formControls ">
-		<input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="userpassword" id="newpassword2" name="newpassword2">
-			</div>
-			<div class="col-4"> <span class="Validform_checktip"></span></div>
-		</div>
-		<div class="form-group">
-			<label class="form-label "><span class="c-red">*</span>性别：</label>
-			<div class="formControls  skin-minimal">
-		      <label><input name="form-field-radio" type="radio" class="ace" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
-            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;
-            <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>
+		<input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="storePassword" id="storePassword2" name="storePassword2">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
 		<div class="form-group">
 			<label class="form-label "><span class="c-red">*</span>手机：</label>
 			<div class="formControls ">
-				<input type="text" class="input-text" value="" placeholder="" id="user-tel" name="user-tel" datatype="m" nullmsg="手机不能为空">
+				<input type="text" class="input-text" value="" placeholder="" id="userTel" name="storePhone" datatype="m" nullmsg="手机不能为空">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
 		<div class="form-group">
 			<label class="form-label"><span class="c-red">*</span>邮箱：</label>
 			<div class="formControls ">
-				<input type="text" class="input-text" placeholder="@" name="email" id="email" datatype="e" nullmsg="请输入邮箱！">
+				<input type="text" class="input-text" placeholder="@" name="storeEmail" id="email" datatype="e" nullmsg="请输入邮箱！">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
@@ -154,17 +145,14 @@
 			<label class="form-label">角色：</label>
 			<div class="formControls "> <span class="select-box" style="width:150px;">
 				<select class="select" name="admin-role" size="1">
-					<option value="0">超级管理员</option>
-					<option value="1">管理员</option>
-					<option value="2">栏目主辑</option>
-					<option value="3">栏目编辑</option>
+					<option value="0">店主</option>
 				</select>
 				</span> </div>
 		</div>
 		<div class="form-group">
-			<label class="form-label">备注：</label>
+			<label class="form-label">店铺介绍：</label>
 			<div class="formControls">
-				<textarea name="" cols="" rows="" class="textarea" placeholder="说点什么.100个字符以内" dragonfly="true" onkeyup="checkLength(this);"></textarea>
+				<textarea name="storeIntroduction" cols="" rows="" class="textarea" placeholder="说点什么.100个字符以内" dragonfly="true" onkeyup="checkLength(this);"></textarea>
 				<span class="wordage">剩余字数：<span id="sy" style="color:Red;">100</span>字</span>
 			</div>
 			<div class="col-4"> </div>
@@ -280,6 +268,9 @@ function member_del(obj,id){
 		layer.msg('已删除!',{icon:1,time:1000});
 	});
 }
+
+
+
 /*添加管理员*/
 $('#administrator_add').on('click', function(){
 	layer.open({
@@ -292,10 +283,8 @@ $('#administrator_add').on('click', function(){
 	});
 })
 	//表单验证提交
-$("#form-admin-add").Validform({
-		
-		 tiptype:2,
-	
+var validDemo = $("#form-admin-add").Validform({
+	 	tiptype:2,
 		callback:function(data){
 		//form[0].submit();
 		if(data.status==1){ 
@@ -308,10 +297,8 @@ $("#form-admin-add").Validform({
             } 		  
 			var index =parent.$("#iframe").attr("src");
 			parent.layer.close(index);
-			//
 		}
-		
-		
-	});	
+	});
+
 </script>
 

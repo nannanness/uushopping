@@ -7,4 +7,6 @@ import java.util.List;
 public interface IStoreService {
 
     public List<Store> getAllStore();
+
+    public void addStore(Store store);
 }

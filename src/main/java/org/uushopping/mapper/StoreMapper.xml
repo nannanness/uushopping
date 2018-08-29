@@ -6,4 +6,7 @@
     <select id="getAllStore" resultType="org.uushopping.pojo.Store">
         select * from store;
     </select>
+    <insert id="addStore" parameterType="org.uushopping.pojo.Store">
+        insert into store(storeName, storePassword, storePhone, storeEmail, storeIntroduction) values(#{storeName}, #{storePassword}, #{storePhone}, #{storeEmail}, #{storeIntroduction});
+    </insert>
 </mapper>

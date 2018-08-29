@@ -4,7 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.uushopping.mapper.SuperManagerMapper">
     <!--查询sql语句-->
-    <select id="findSuperManagerInfoById" resultType="org.uushopping.pojo.SuperManager" parameterType="int">
+    <select id="findSuperManagerInfoById" resultType="org.uushopping.pojo.SuperManager" >
         select * from supermanager where managerId=#{managerId}
+    </select>
+
+    <select id="findSuperManagerInfoByNameAndPassword" resultType="org.uushopping.pojo.SuperManager">
+        select * from supermanager where managerName = #{arg0} and managerPassword = #{arg1}
     </select>
 </mapper>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,69 +49,54 @@
      </div>
      <!--管理员列表-->
      <div class="clearfix administrator_style" id="administrator">
-      <div class="left_style">
-      <div id="scrollsidebar" class="left_Treeview">
-        <div class="show_btn" id="rightArrow"><span></span></div>
-        <div class="widget-box side_content" >
-         <div class="side_title"><a title="隐藏" class="close_btn"><span></span></a></div>
-         <div class="side_list"><div class="widget-header header-color-green2"><h4 class="lighter smaller">管理员分类列表</h4></div>
-         <div class="widget-body">
-           <ul class="b_P_Sort_list">
-           <li><i class="fa fa-users green"></i> <a href="#">全部（6）</a></li>
-            <li><i class="fa fa-users orange"></i> <a href="#">超级管理员（1）</a></li>
-            <li><i class="fa fa-users orange"></i> <a href="#">卖家（5）</a></li>
-           </ul>
-        </div>
-       </div>
-      </div>  
-      </div>
-      </div>
-      <div class="table_menu_list"  id="testIframe" >
+      <div class="table_menu_list"  id="testIframe" style="width: 94% ; margin: 0 10px">
            <table class="table table-striped table-bordered table-hover" id="sample_table">
 		<thead>
 		 <tr>
 				<th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
-				<th width="80px">编号</th>
-				<th width="250px">登录名</th>
-				<th width="100px">手机</th>
-				<th width="100px">邮箱</th>
+				<th width="100px">编号</th>
+				<th width="150px">姓名</th>
+				<th width="150px">手机</th>
+				<th width="150px">邮箱</th>
                 <th width="100px">角色</th>				
 				<th width="180px">加入时间</th>
 				<th width="70px">状态</th>                
-				<th width="200px">操作</th>
+				<th width="220px">操作</th>
 			</tr>
 		</thead>
 	<tbody>
-     <tr>
-      <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-      <td>1</td>
-      <td>admin</td>
-      <td>18934334544</td>
-      <td>2345454@qq.com</td>
-      <td>超级管理员</td>
-      <td>2016-6-29 12:34</td>
-      <td class="td-status"><span class="label label-success radius">已启用</span></td>
-      <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>  
-        <a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-       </td>
-     </tr>
-       <tr>
-      <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-      <td>2</td>
-      <td>admin12345</td>
-      <td>18934334544</td>
-      <td>2345454@qq.com</td>
-      <td>管理员</td>
-      <td>2016-6-29 12:34</td>
-      <td class="td-status"><span class="label label-success radius">已启用</span></td>
-      <td class="td-manage">
-        <a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
-        <a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-        <a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-       </td>
-     </tr>    
+	<c:forEach var="store" items="${list}">
+		<tr>
+			<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
+			<td>${store.storeId}</td>
+			<td>${store.storeName}</td>
+			<td>${store.storePhone}</td>
+			<td>${store.storeEmail}</td>
+			<td>店铺</td>
+			<td>${store.storeDate}</td>
+			<td class="td-status"><span class="label label-success radius">${store.storeFlag}</span></td>
+			<td class="td-manage">
+				<a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>
+				<a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
+				<a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+			</td>
+		</tr>
+	</c:forEach>
+    <%--<tr>--%>
+      <%--<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>--%>
+      <%--<td>2</td>--%>
+      <%--<td>admin12345</td>--%>
+      <%--<td>18934334544</td>--%>
+      <%--<td>2345454@qq.com</td>--%>
+      <%--<td>管理员</td>--%>
+      <%--<td>2016-6-29 12:34</td>--%>
+      <%--<td class="td-status"><span class="label label-success radius">已启用</span></td>--%>
+      <%--<td class="td-manage">--%>
+        <%--<a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   --%>
+        <%--<a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>--%>
+        <%--<a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>--%>
+       <%--</td>--%>
+     <%--</tr>--%>
     </tbody>
     </table>
       </div>
@@ -258,16 +244,7 @@ function checkLength(which) {
 		return true;
 	}
 };
-//初始化宽度、高度  
- $(".widget-box").height($(window).height()-215); 
-$(".table_menu_list").width($(window).width()-260);
- $(".table_menu_list").height($(window).height()-215);
-  //当文档窗口发生改变时 触发  
-    $(window).resize(function(){
-	$(".widget-box").height($(window).height()-215);
-	 $(".table_menu_list").width($(window).width()-260);
-	  $(".table_menu_list").height($(window).height()-215);
-	})
+//初始化宽度、高度
  laydate({
     elem: '#start',
     event: 'focus' 

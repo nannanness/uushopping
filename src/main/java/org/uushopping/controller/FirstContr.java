@@ -15,14 +15,12 @@ public class FirstContr {
     //返回首页
     @RequestMapping("/index.do")
     public void indexRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
     //用户登录
     @RequestMapping("/login.do")
     public void loginRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
     }
     //用户注册
@@ -80,9 +78,5 @@ public class FirstContr {
     public void do_successRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.getRequestDispatcher("/WEB-INF/view/d-success.jsp").forward(request, response);
     }
-
-
-
-
 
 }

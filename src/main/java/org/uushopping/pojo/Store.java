@@ -25,14 +25,14 @@ public class Store {
     // 商店负责人
     private String storeMan;
     // 联系电话
-    private int storePhone;
+    private String storePhone;
     // 邮箱地址
     private String storeEmail;
 
     public Store() {
     }
 
-    public Store(String storeName, String storeSort, String storeLogo, String storeIntroduction, String storeDate, String storeFlag, String storePassword, String storeMan, int storePhone, String storeEmail) {
+    public Store(String storeName, String storeSort, String storeLogo, String storeIntroduction, String storeDate, String storeFlag, String storePassword, String storeMan, String storePhone, String storeEmail) {
         this.storeName = storeName;
         this.storeSort = storeSort;
         this.storeLogo = storeLogo;
@@ -45,7 +45,7 @@ public class Store {
         this.storeEmail = storeEmail;
     }
 
-    public Store(int storeId, String storeName, String storeSort, String storeLogo, String storeIntroduction, String storeDate, String storeFlag, String storePassword, String storeMan, int storePhone, String storeEmail) {
+    public Store(int storeId, String storeName, String storeSort, String storeLogo, String storeIntroduction, String storeDate, String storeFlag, String storePassword, String storeMan, String storePhone, String storeEmail) {
         this.storeId = storeId;
         this.storeName = storeName;
         this.storeSort = storeSort;
@@ -131,11 +131,11 @@ public class Store {
         this.storeMan = storeMan;
     }
 
-    public int getStorePhone() {
+    public String getStorePhone() {
         return storePhone;
     }
 
-    public void setStorePhone(int storePhone) {
+    public void setStorePhone(String storePhone) {
         this.storePhone = storePhone;
     }
 

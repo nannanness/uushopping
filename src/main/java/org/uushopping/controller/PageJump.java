@@ -10,19 +10,28 @@ import org.uushopping.service.ISuperManagerService;
 @Controller
 @RequestMapping("/pageJump")
 public class PageJump {
-    @Autowired
-    ISuperManagerService superManagerService;
     @RequestMapping("/index-system.do")
     public ModelAndView toManager(ModelAndView modelAndView){
         modelAndView.setViewName("index-system");
         System.out.println("----------index-system----------");
         return modelAndView;
     }
-
+    @RequestMapping("/index-business.do")
+    public ModelAndView toShop(ModelAndView modelAndView){
+        modelAndView.setViewName("index-business");
+        System.out.println("----------index-business----------");
+        return modelAndView;
+    }
     @RequestMapping("/home.do")
     public ModelAndView toHome(ModelAndView modelAndView){
         modelAndView.setViewName("home");
         System.out.println("----------home----------");
+        return modelAndView;
+    }
+    @RequestMapping("/home-business.do")
+    public ModelAndView toHomeBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("home-business");
+        System.out.println("----------home-business----------");
         return modelAndView;
     }
 
@@ -36,9 +45,6 @@ public class PageJump {
     @RequestMapping("/admin_info.do")
     public ModelAndView toAdminInfo(ModelAndView modelAndView){
         modelAndView.setViewName("admin_info");
-        System.out.println("admin_info");
-        SuperManager superManager = superManagerService.getSuperManagerInfoById(1);
-        System.out.println(superManager);
         return modelAndView;
     }
 
@@ -47,10 +53,20 @@ public class PageJump {
         modelAndView.setViewName("Products_List");
         return modelAndView;
     }
+    @RequestMapping("/Products_List-business.do")
+    public ModelAndView toProductsListBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Products_List-business");
+        return modelAndView;
+    }
 
     @RequestMapping("/Category_Manage.do")
     public ModelAndView toCategoryManage(ModelAndView modelAndView){
         modelAndView.setViewName("Category_Manage");
+        return modelAndView;
+    }
+    @RequestMapping("/Category_Manage-business.do")
+    public ModelAndView toCategoryManageBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Category_Manage-business");
         return modelAndView;
     }
 
@@ -65,10 +81,20 @@ public class PageJump {
         modelAndView.setViewName("transaction");
         return modelAndView;
     }
+    @RequestMapping("/transaction-business.do")
+    public ModelAndView toTransactionBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("transaction-business");
+        return modelAndView;
+    }
 
     @RequestMapping("/Order_Chart.do")
     public ModelAndView toOrderChart(ModelAndView modelAndView){
         modelAndView.setViewName("Order_Chart");
+        return modelAndView;
+    }
+    @RequestMapping("/Order_Chart-business.do")
+    public ModelAndView toOrderChartBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Order_Chart-business");
         return modelAndView;
     }
 
@@ -77,10 +103,20 @@ public class PageJump {
         modelAndView.setViewName("Amounts");
         return modelAndView;
     }
+    @RequestMapping("/Amounts-business.do")
+    public ModelAndView toAmountsBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Amounts-business");
+        return modelAndView;
+    }
 
     @RequestMapping("/Order_handling.do")
     public ModelAndView toOrderHandling(ModelAndView modelAndView){
         modelAndView.setViewName("Order_handling");
+        return modelAndView;
+    }
+    @RequestMapping("/Order_handling-business.do")
+    public ModelAndView toOrderHandlingBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Order_handling-business");
         return modelAndView;
     }
 
@@ -89,12 +125,35 @@ public class PageJump {
         modelAndView.setViewName("Refund");
         return modelAndView;
     }
+    @RequestMapping("/Refund-business.do")
+    public ModelAndView toRefundBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Refund-business");
+        return modelAndView;
+    }
+    @RequestMapping("/login.do")
+    public ModelAndView toLogin(ModelAndView modelAndView){
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+    @RequestMapping("/login-business.do")
+    public ModelAndView toLoginBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("login-business");
+        return modelAndView;
+    }
+
+
+    @RequestMapping("/Refund_detailed-business.do")
+    public ModelAndView toRefundBusinessDetailed(ModelAndView modelAndView){
+        modelAndView.setViewName("Refund_detailed-business");
+        return modelAndView;
+    }
 
     @RequestMapping("/payment_method.do")
     public ModelAndView toPaymentMethod(ModelAndView modelAndView){
         modelAndView.setViewName("payment_method");
         return modelAndView;
     }
+
 
     @RequestMapping("/user_list.do")
     public ModelAndView toUserList(ModelAndView modelAndView){
@@ -105,6 +164,11 @@ public class PageJump {
     @RequestMapping("/integration.do")
     public ModelAndView toIntegration(ModelAndView modelAndView){
         modelAndView.setViewName("integration");
+        return modelAndView;
+    }
+    @RequestMapping("/integration-business.do")
+    public ModelAndView toIntegrationBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("integration-business");
         return modelAndView;
     }
 
@@ -144,20 +208,26 @@ public class PageJump {
         return modelAndView;
     }
 
-    @RequestMapping("/administrator.do")
-    public ModelAndView toAdministrator(ModelAndView modelAndView){
-        modelAndView.setViewName("administrator");
+    @RequestMapping("/picture-add.do")
+    public ModelAndView toPictureAdd(ModelAndView modelAndView){
+        modelAndView.setViewName("picture-add");
         return modelAndView;
     }
+    @RequestMapping("/picture-add-business.do")
+    public ModelAndView toPictureAddBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("picture-add-business");
+        return modelAndView;
+    }
+
     @RequestMapping("/login-system.do")
     public ModelAndView toLoginSystem(ModelAndView modelAndView){
         modelAndView.setViewName("login-system");
         return modelAndView;
     }
 
-    @RequestMapping("/picture-add.do")
-    public ModelAndView toPictureAdd(ModelAndView modelAndView){
-        modelAndView.setViewName("picture-add");
+    @RequestMapping("/Refund_detailed.do")
+    public ModelAndView toRefundDetailed(ModelAndView modelAndView){
+        modelAndView.setViewName("Refund_detailed");
         return modelAndView;
     }
 
@@ -166,7 +236,6 @@ public class PageJump {
         modelAndView.setViewName("article_add");
         return modelAndView;
     }
-
 
     @RequestMapping("/Competence.do")
     public ModelAndView toCompetence(ModelAndView modelAndView){
@@ -179,28 +248,32 @@ public class PageJump {
         modelAndView.setViewName("product-category-add");
         return modelAndView;
     }
-
-    @RequestMapping("/index-business.do")
-    public ModelAndView toIndexBusiness(ModelAndView modelAndView){
-        modelAndView.setViewName("index-business");
+    @RequestMapping("/product-category-add-business.do")
+    public ModelAndView toProductCategoryAddBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("product-category-add-business");
         return modelAndView;
     }
+    @RequestMapping("/Guestbook-business.do")
+    public ModelAndView toGuestbookBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("Guestbook-business");
+        return modelAndView;
+    }
+
 
     @RequestMapping("/order_detailed.do")
     public ModelAndView toOrderDetailed(ModelAndView modelAndView){
         modelAndView.setViewName("order_detailed");
         return modelAndView;
     }
+    @RequestMapping("/order_detailed-business.do")
+    public ModelAndView toOrderDetailedBusiness(ModelAndView modelAndView){
+        modelAndView.setViewName("order_detailed-business");
+        return modelAndView;
+    }
 
     @RequestMapping("/Payment_details.do")
     public ModelAndView toPaymentDetails(ModelAndView modelAndView){
         modelAndView.setViewName("Payment_details");
-        return modelAndView;
-    }
-
-    @RequestMapping("/Refund_detailed.do")
-    public ModelAndView toRefundDetailed(ModelAndView modelAndView){
-        modelAndView.setViewName("Refund_detailed");
         return modelAndView;
     }
 
@@ -221,5 +294,4 @@ public class PageJump {
         modelAndView.setViewName("member-show");
         return modelAndView;
     }
-
 }

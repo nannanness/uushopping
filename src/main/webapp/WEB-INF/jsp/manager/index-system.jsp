@@ -205,7 +205,8 @@ function link_operating(name,title){
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
 						<small>					
-						<img src="/resources/images/logo.png" width="470px">
+						<%--<img src="/resources/images/logo.png" width="470px">--%>
+							<h2 style="line-height: 80px">UU购物管理系统</h2>
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -342,7 +343,7 @@ function link_operating(name,title){
 							<ul class="submenu">
 							
 								<!-- <li class="home"><a href="javascript:void(0)" name="admin_Competence.html" title="权限管理"  class="iframeurl"><i class="icon-double-angle-right"></i>权限管理</a></li> -->
-                                <li class="home"><a href="javascript:void(0)" name="/pageJump/administrator.do" title="卖家列表" class="iframeurl"><i class="icon-double-angle-right"></i>卖家列表</a></li>
+                                <li class="home"><a href="javascript:void(0)" name="/storeController/administrator.do" title="卖家列表" class="iframeurl"><i class="icon-double-angle-right"></i>卖家列表</a></li>
 								  
 							</ul>
 						</li>
@@ -376,7 +377,7 @@ function link_operating(name,title){
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="index-system.jsp">首页</a>
+								<a href="/pageJump/index-system.do">首页</a>
 							</li>
 							<li class="active"><span class="Current_page iframeurl"></span></li>
                             <li class="active" id="parentIframe"><span class="parentIframe iframeurl"></span></li>

@@ -21,12 +21,12 @@ public class HarvestAddress {
     // 收货人
     private String harvestMan;
     // 收获人电话
-    private int harvestManPhone;
+    private String harvestManPhone;
 
     public HarvestAddress() {
     }
 
-    public HarvestAddress(int userId, String province, String city, String county, String street, String harvestMan, int harvestManPhone) {
+    public HarvestAddress(int userId, String province, String city, String county, String street, String harvestMan, String harvestManPhone) {
         this.userId = userId;
         this.province = province;
         this.city = city;
@@ -36,7 +36,7 @@ public class HarvestAddress {
         this.harvestManPhone = harvestManPhone;
     }
 
-    public HarvestAddress(int harvestAddressId, int userId, String province, String city, String county, String street, String harvestMan, int harvestManPhone) {
+    public HarvestAddress(int harvestAddressId, int userId, String province, String city, String county, String street, String harvestMan, String harvestManPhone) {
         this.harvestAddressId = harvestAddressId;
         this.userId = userId;
         this.province = province;
@@ -103,11 +103,11 @@ public class HarvestAddress {
         this.harvestMan = harvestMan;
     }
 
-    public int getHarvestManPhone() {
+    public String getHarvestManPhone() {
         return harvestManPhone;
     }
 
-    public void setHarvestManPhone(int harvestManPhone) {
+    public void setHarvestManPhone(String harvestManPhone) {
         this.harvestManPhone = harvestManPhone;
     }
 

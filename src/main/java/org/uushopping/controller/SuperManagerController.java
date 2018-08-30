@@ -18,10 +18,8 @@ public class SuperManagerController {
     public ModelAndView superManager(ModelAndView modelAndView){
         ModelAndView modelAndView1;
         SuperManager superManager = service.getSuperManagerInfoById(1);
-        System.out.println(superManager);
-        modelAndView.addObject("super",superManager);
+        modelAndView.addObject("manager",superManager);
         modelAndView.setViewName("admin_info");
         return modelAndView;
     }
-
 }

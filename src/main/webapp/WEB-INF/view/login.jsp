@@ -124,7 +124,7 @@
                                 <li class="fore1">
                                     <span>打开</span>
                                     <a href="">
-                                        <span class="red">手机歪秀购物 </span>
+                                        <span class="red">手机UU购物 </span>
                                     </a>
                                 </li>
                                 <li>扫一扫登录</li>

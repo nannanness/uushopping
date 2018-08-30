@@ -69,7 +69,7 @@
 	<c:forEach var="store" items="${list}">
 		<tr>
 			<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-			<td>${store.storeId}</td>
+			<td class="storeId">${store.storeId}</td>
 			<td>${store.storeMan}</td>
 			<td>${store.storePhone}</td>
 			<td>${store.storeEmail}</td>
@@ -77,9 +77,9 @@
 			<td>${store.storeDate}</td>
 			<td class="td-status"><span class="label label-success radius">${store.storeFlag}</span></td>
 			<td class="td-manage">
-				<a href="javascript:;" title="通过审核"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>
-				<a title="挂起店铺" href="javascript:void(0);" class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-				<a title="下架店铺" href="javascript:void(0);" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+				<a title="上架店铺" href="javascript:void(0);" class="btn btn-xs btn-success pass"><i class="fa fa-check  bigger-120"></i></a>
+				<a title="挂起店铺" href="javascript:void(0);" class="btn btn-xs btn-info hang" ><i class="fa fa-edit bigger-120"></i></a>
+				<a title="下架店铺" href="javascript:void(0);" class="btn btn-xs btn-warning Obtained" ><i class="fa fa-trash  bigger-120"></i></a>
 			</td>
 		</tr>
 	</c:forEach>
@@ -206,6 +206,64 @@ $(function() {
 		spacingw:50,//设置隐藏时的距离
 	    spacingh:270,//设置显示时间距
 	});
+
+	$(".pass").click(function () {
+        var index = $(".pass").index($(this));
+		var flag = $(".td-status").eq(index).children().text();
+		var storeId = $(".storeId").eq(index).text();
+		if("审核中" == flag || "挂起" == flag){
+            $.get(
+                '/storeController/pass.do',
+                {"storeId":storeId},
+                function (data) {
+					if("true" == data["flag"]){
+                        $(".td-status").eq(index).children().text("已通过");
+                    }
+                },
+                "json"
+            )
+		}else {
+            alert("该店铺不能上架！");
+		}
+    });
+    $(".hang").click(function () {
+        var index = $(".hang").index($(this));
+        var flag = $(".td-status").eq(index).children().text();
+        var storeId = $(".storeId").eq(index).text();
+        if("已通过" == flag){
+            $.get(
+                '/storeController/hang.do',
+                {"storeId":storeId},
+                function (data) {
+                    if("true" == data["flag"]){
+                        $(".td-status").eq(index).children().text("挂起");
+                    }
+                },
+                "json"
+            )
+        }else {
+            alert("该店铺不能挂起！");
+        }
+    });
+    $(".Obtained").click(function () {
+        var index = $(".Obtained").index($(this));
+        var flag = $(".td-status").eq(index).children().text();
+        var storeId = $(".storeId").eq(index).text();
+        if("已下架" != flag){
+            $.get(
+                '/storeController/Obtained.do',
+                {"storeId":storeId},
+                function (data) {
+                    if("true" == data["flag"]){
+                        $(".td-status").eq(index).children().text("已下架");
+                    }
+                },
+				"json"
+            )
+        }else {
+            alert("该店铺已经下架！");
+        }
+    });
 });
 //字数限制
 function checkLength(which) {
@@ -230,39 +288,6 @@ function checkLength(which) {
     elem: '#start',
     event: 'focus' 
 });
-
-/*用户-停用*/
-function member_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs " onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="fa fa-close bigger-120"></i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
-	});
-}
-/*用户-启用*/
-function member_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs btn-success" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="fa fa-check  bigger-120"></i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!',{icon: 6,time:1000});
-	});
-}
-/*产品-编辑*/
-function member_edit(title,url,id,w,h){
-	layer_show(title,url,w,h);
-}
-
-/*产品-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
-}
-
-
 
 /*添加店主*/
 $('#administrator_add').on('click', function(){

@@ -28,4 +28,14 @@ public class StoreServiceImpl implements IStoreService {
     public List<Store> search(String arg0) {
         return storeMapper.search(arg0);
     }
+
+    @Override
+    public String getFlag(int storeId) {
+        return storeMapper.getFlag(storeId);
+    }
+
+    @Override
+    public void setFlag(String flag, int storeId) {
+        storeMapper.setFlag(flag, storeId);
+    }
 }

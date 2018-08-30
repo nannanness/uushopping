@@ -26,7 +26,7 @@
 
 <body class="login-layout Reg_log_style">
 <div class="logintop">    
-    <span>欢迎后台管理界面平台</span>    
+    <span>欢迎使用后台管理平台</span>
     <ul>
     <li><a href="#">返回首页</a></li>
     <li><a href="#">帮助</a></li>

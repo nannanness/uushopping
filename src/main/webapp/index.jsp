@@ -15,7 +15,7 @@
     <meta name="Description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
-    <title>歪秀购物</title>
+    <title>UU购物</title>
     <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="theme/css/base.css">
     <link rel="stylesheet" type="text/css" href="theme/css/home.css">

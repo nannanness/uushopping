@@ -15,8 +15,8 @@
     <meta name="Description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
-    <meta content="歪秀购物, 购物, 大家电, 手机" name="keywords">
-    <meta content="歪秀购物，购物商城。" name="description">
+    <meta content="UU购物, 购物, 大家电, 手机" name="keywords">
+    <meta content="UU购物，购物商城。" name="description">
     <title>账户安全中心</title>
     <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="theme/css/base.css">

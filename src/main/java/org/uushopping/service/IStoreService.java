@@ -11,4 +11,8 @@ public interface IStoreService {
     public void addStore(Store store);
 
     public List<Store> search(String arg0);
+
+    public String getFlag(int storeId);
+
+    public void setFlag(String flag, int storeId);
 }

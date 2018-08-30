@@ -5,21 +5,21 @@
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
- <link href="/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/resources/css/style.css"/>
-        <link href="/resources/assets/css/codemirror.css" rel="stylesheet">
-        <link rel="stylesheet" href="/resources/assets/css/ace.min.css" />
-        <link rel="stylesheet" href="/resources/font/css/font-awesome.min.css" />
+ <link href="../resources/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../resources/css/style.css"/>
+        <link href="../resources/assets/css/codemirror.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/assets/css/ace.min.css" />
+        <link rel="stylesheet" href="../resources/font/css/font-awesome.min.css" />
         <!--[if lte IE 8]>
-		  <link rel="stylesheet" href="/resources/assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="../resources/assets/css/ace-ie.min.css" />
 		<![endif]-->
-		<script src="/resources/js/jquery-1.9.1.min.js"></script>
-		<script src="/resources/assets/layer/layer.js" type="text/javascript" ></script>
-        <script src="/resources/assets/laydate/laydate.js" type="text/javascript"></script>
-        <script src="/resources/assets/js/bootstrap.min.js"></script>
-		<script src="/resources/assets/js/typeahead-bs2.min.js"></script>
-		<script src="/resources/assets/js/jquery.dataTables.min.js"></script>
-		<script src="/resources/assets/js/jquery.dataTables.bootstrap.js"></script>
+		<script src="../resources/js/jquery-1.9.1.min.js"></script>
+		<script src="../resources/assets/layer/layer.js" type="text/javascript" ></script>
+        <script src="../resources/assets/laydate/laydate.js" type="text/javascript"></script>
+        <script src="../resources/assets/js/bootstrap.min.js"></script>
+		<script src="../resources/assets/js/typeahead-bs2.min.js"></script>
+		<script src="../resources/assets/js/jquery.dataTables.min.js"></script>
+		<script src="../resources/assets/js/jquery.dataTables.bootstrap.js"></script>
 
     <title>个人信息管理</title>
 </head>
@@ -31,13 +31,13 @@
             <div class="type_title">管理员信息 </div>
             <div class="xinxi">
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名： </label>
-                    <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="张小泉" class="col-xs-7 text_info" disabled="disabled">
+                    <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="${manager.managerName}" class="col-xs-7 text_info" disabled="disabled">
                         &nbsp;&nbsp;&nbsp;<a href="javascript:ovid()" onclick="change_Password()" class="btn btn-warning btn-xs">修改密码</a></div>
 
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别： </label>
                     <div class="col-sm-9">
-                        <span class="sex">男</span>
+                        <span class="sex">${manager.managerSex}</span>
                         <div class="add_sex">
                             <label><input name="form-field-radio" type="radio" class="ace" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
                             <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;
@@ -46,22 +46,22 @@
                     </div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">年龄： </label>
-                    <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="24" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="${manager.managerAge}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">移动电话： </label>
-                    <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="13567878908" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="${manager.managerPhone}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">电子邮箱： </label>
-                    <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="567890@qq.com" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="${manager.managerEmail}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">QQ： </label>
-                    <div class="col-sm-9"><input type="text" name="QQ" id="website-title" value="456789787" class="col-xs-7 text_info" disabled="disabled"> </div>
+                    <div class="col-sm-9"><input type="text" name="QQ" id="website-title" value="${manager.managerQQ}" class="col-xs-7 text_info" disabled="disabled"> </div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">权限： </label>
                     <div class="col-sm-9" > <span>普通管理员</span></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">注册时间： </label>
-                    <div class="col-sm-9" > <span>2016-7-5</span></div>
+                    <div class="col-sm-9" > <span>${manager.managerDate}</span></div>
                 </div>
                 <div class="Button_operation clearfix">
                     <button onclick="modify();" class="btn btn-danger radius" type="submit">修改信息</button>
@@ -88,31 +88,31 @@
                     <tbody>
                     <tr>
                         <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-                        <td>15686</td>
+                        <td>${manager.managerId}</td>
                         <td>1</td>
                         <td>登录成功!</td>
-                        <td>江苏南京</td>
-                        <td>admin</td>
+                        <td>山西晋中</td>
+                        <td>${manager.managerName}</td>
                         <td>61.233.7.80</td>
-                        <td>2014-6-11 11:11:42</td>
+                        <td>${manager.managerDate}</td>
                     </tr>
                     <tr>
                         <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
                         <td>15686</td>
                         <td>1</td>
                         <td>登录成功!</td>
-                        <td>江苏南京</td>
+                        <td>山西晋中</td>
                         <td>admin</td>
                         <td>61.233.7.80</td>
                         <td>2014-6-11 11:11:42</td>
                     </tr>
                     <tr>
                         <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-                        <td>15686</td>
+                        <td>${manager.managerId}</td>
                         <td>1</td>
                         <td>登录成功!</td>
-                        <td>江苏南京</td>
-                        <td>admin</td>
+                        <td>山西晋中</td>
+                        <td>${manager.managerName}</td>
                         <td>61.233.7.80</td>
                         <td>2014-6-11 11:11:42</td>
                     </tr>

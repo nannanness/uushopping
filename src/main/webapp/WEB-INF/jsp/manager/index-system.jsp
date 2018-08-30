@@ -222,7 +222,7 @@ function link_operating(name,title){
 				</a>
 				<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 				 <li><a href="javascript:void(0)" name="/pageJump/Systems.do" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
-				 <li><a href="javascript:void(0)" name="/pageJump/admin_info.do" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
+				 <li><a href="javascript:void(0)" name="/supermanager/admin-info.do" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
 				 <li class="divider"></li>
 				 <li><a href="javascript:void(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
 				</ul>
@@ -348,7 +348,7 @@ function link_operating(name,title){
 							</ul>
 						</li>
 						
-						<li><a href="javascript:void(0)" name="/pageJump/admin_info.do" title="个人信息" class="iframeurl"><i class="icon-group"></i><span class="menu-text">个人信息</span></a></li>
+						<li><a href="javascript:void(0)" name="/supermanager/admin-info.do" title="个人信息" class="iframeurl"><i class="icon-group"></i><span class="menu-text">个人信息</span></a></li>
 					</ul>
 					</div>
 					<script type="text/javascript">

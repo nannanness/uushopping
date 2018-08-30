@@ -1,5 +1,7 @@
 package org.uushopping.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.uushopping.pojo.Store;
 import org.uushopping.service.IStoreService;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.List;
 
 @Controller
@@ -45,5 +51,45 @@ public class StoreController {
         modelAndView.setViewName("administrator");
         modelAndView.addObject("list" , list);
         return modelAndView;
+    }
+
+    @RequestMapping("/pass.do")
+    public void pass(HttpServletResponse response , @RequestParam("storeId") int storeId) throws IOException {
+        PrintWriter out = response.getWriter();
+        String newFlag = storeService.getFlag(storeId);
+        System.out.println(storeId + "id=============pass");
+        System.out.println(storeId);
+        if("审核中".equals(newFlag) || "挂起".equals(newFlag)){
+            storeService.setFlag("已通过", storeId);
+            out.write(toJsonStr());
+        }
+    }
+
+    @RequestMapping("/hang.do")
+    public void hang(HttpServletResponse response , @RequestParam("storeId") int storeId) throws IOException {
+        PrintWriter out = response.getWriter();
+        String newFlag = storeService.getFlag(storeId);
+        System.out.println(storeId + "id=============hang");
+        if("已通过".equals(newFlag)){
+            storeService.setFlag("挂起", storeId);
+            out.write(toJsonStr());
+        }
+    }
+
+    @RequestMapping("/Obtained.do")
+    public void Obtained(HttpServletResponse response , @RequestParam("storeId") int storeId) throws IOException {
+        PrintWriter out = response.getWriter();
+        String newFlag = storeService.getFlag(storeId);
+        System.out.println(storeId + "id=============ob");
+        if(!"已下架".equals(newFlag)){
+            storeService.setFlag("已下架", storeId);
+            out.write(toJsonStr());
+        }
+    }
+
+    public String toJsonStr(){
+        JSONObject json = JSONObject.parseObject("{\"flag\":\"true\"}");
+        String strJson = json.toJSONString();
+        return strJson;
     }
 }

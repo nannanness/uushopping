@@ -12,4 +12,10 @@
     <select id="search" resultType="org.uushopping.pojo.Store">
         select * from store where storeName like "%"#{arg0}"%";
     </select>
+    <select id="getFlag" parameterType="int" resultType="string">
+        select storeFlag from store where storeId = #{arg0};
+    </select>
+    <update id="setFlag" >
+        update store set storeFlag = #{arg0} where storeId = #{arg1};
+    </update>
 </mapper>

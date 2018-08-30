@@ -28,7 +28,10 @@ public class TestDemo {
 //        System.out.println(storeMapper);
 //        List<Store> list = storeMapper.getAllStore();
 //        System.out.println(list + "-------------------");
-        System.out.println(storeMapper.search("米")+"--------------");
+//        System.out.println(storeMapper.search("米")+"--------------");
+//        System.out.println(storeMapper.getFlag(1));
+
+        storeMapper.setFlag("已下架", 2);
     }
 
 }

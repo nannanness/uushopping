@@ -32,12 +32,13 @@
   <div class="administrator">
        <div class="d_Confirm_Order_style">
     <div class="search_style">
-     
-      <ul class="search_content clearfix">
-       <li><label class="l_f">卖家名称</label><input name="" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
-       <li><label class="l_f">添加时间</label><input class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
-       <li style="width:90px;"><button type="button" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
-      </ul>
+		<form action="/storeController/search.do" method="post">
+			<ul class="search_content clearfix">
+				<li><label class="l_f">卖家名称</label><input  name="text" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
+				<li><label class="l_f">添加时间</label><input  name="laydate" class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
+				<li style="width:90px;"><button type="submit"  id="btn_search" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
+			</ul>
+		</form>
     </div>
     <!--操作-->
      <div class="border clearfix">
@@ -58,7 +59,7 @@
 				<th width="150px">姓名</th>
 				<th width="150px">手机</th>
 				<th width="150px">邮箱</th>
-                <th width="100px">角色</th>				
+                <th width="100px">店铺</th>
 				<th width="150px">加入时间</th>
 				<th width="70px">状态</th>                
 				<th width="220px">操作</th>
@@ -72,31 +73,16 @@
 			<td>${store.storeMan}</td>
 			<td>${store.storePhone}</td>
 			<td>${store.storeEmail}</td>
-			<td>店主</td>
+			<td>${store.storeName}</td>
 			<td>${store.storeDate}</td>
 			<td class="td-status"><span class="label label-success radius">${store.storeFlag}</span></td>
 			<td class="td-manage">
-				<a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>
-				<a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-				<a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+				<a href="javascript:;" title="通过审核"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>
+				<a title="挂起店铺" href="javascript:void(0);" class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
+				<a title="下架店铺" href="javascript:void(0);" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
 			</td>
 		</tr>
 	</c:forEach>
-    <%--<tr>--%>
-      <%--<td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>--%>
-      <%--<td>2</td>--%>
-      <%--<td>admin12345</td>--%>
-      <%--<td>18934334544</td>--%>
-      <%--<td>2345454@qq.com</td>--%>
-      <%--<td>管理员</td>--%>
-      <%--<td>2016-6-29 12:34</td>--%>
-      <%--<td class="td-status"><span class="label label-success radius">已启用</span></td>--%>
-      <%--<td class="td-manage">--%>
-        <%--<a onClick="member_stop(this,'10001')"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   --%>
-        <%--<a title="编辑" onclick="member_edit('编辑','member-add.jsp','4','','510')" href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>--%>
-        <%--<a title="删除" href="javascript:;"  onclick="member_del(this,'1')" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>--%>
-       <%--</td>--%>
-     <%--</tr>--%>
     </tbody>
     </table>
       </div>
@@ -110,6 +96,13 @@
 			<label class="form-label"><span class="c-red">*</span>店铺：</label>
 			<div class="formControls">
 				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="storeName" datatype="*2-16" nullmsg="用户名不能为空">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip"></span></div>
+		</div>
+		<div class="form-group">
+			<label class="form-label"><span class="c-red">*</span>店主：</label>
+			<div class="formControls">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="storeMan" datatype="*2-16" nullmsg="用户名不能为空">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>
@@ -168,7 +161,7 @@
 <script type="text/javascript">
 jQuery(function($) {
 		var oTable1 = $('#sample_table').dataTable( {
-		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+		"aaSorting": [[ 1, "asc" ]],//默认第几个排序
 		"bStateSave": true,//状态保存
 		"aoColumnDefs": [
 		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
@@ -271,11 +264,11 @@ function member_del(obj,id){
 
 
 
-/*添加管理员*/
+/*添加店主*/
 $('#administrator_add').on('click', function(){
 	layer.open({
     type: 1,
-	title:'添加管理员',
+	title:'添加店主',
 	area: ['700px',''],
 	shadeClose: false,
 	content: $('#add_administrator_style'),

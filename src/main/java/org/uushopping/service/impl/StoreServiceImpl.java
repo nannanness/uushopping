@@ -23,4 +23,9 @@ public class StoreServiceImpl implements IStoreService {
     public void addStore(Store store) {
         storeMapper.addStore(store);
     }
+
+    @Override
+    public List<Store> search(String arg0) {
+        return storeMapper.search(arg0);
+    }
 }

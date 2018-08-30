@@ -25,9 +25,10 @@ public class TestDemo {
     }
     @Test
     public void storeTest(){
-        System.out.println(storeMapper);
-        List<Store> list = storeMapper.getAllStore();
-        System.out.println(list + "-------------------");
+//        System.out.println(storeMapper);
+//        List<Store> list = storeMapper.getAllStore();
+//        System.out.println(list + "-------------------");
+        System.out.println(storeMapper.search("米")+"--------------");
     }
 
 }

@@ -66,8 +66,8 @@ $.extend( $.fn.dataTableExt.oPagination, {
  
             $(nPaging).append(
                 '<ul class="pagination">'+
-                    '<li class="prev disabled"><a href="#">上一页</a></li>'+
-                    '<li class="next disabled"><a href="#">下一页</a></li>'+
+                    '<li class="prev"><a href="#">上一页</a></li>'+
+                    '<li class="next"><a href="#">下一页</a></li>'+
                 '</ul>'
             );
             var els = $('a', nPaging);

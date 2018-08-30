@@ -25,15 +25,25 @@ public class StoreController {
     }
 
     @RequestMapping("/add_store.do")
-    public ModelAndView addStore(ModelAndView modelAndView, @RequestParam String storeName, @RequestParam String storePassword, @RequestParam String storePassword2, @RequestParam String storePhone, @RequestParam String storeEmail, @RequestParam String storeIntroduction){
+    public ModelAndView addStore(ModelAndView modelAndView, @RequestParam String storeName,@RequestParam String storeMan, @RequestParam String storePassword, @RequestParam String storePassword2, @RequestParam String storePhone, @RequestParam String storeEmail, @RequestParam String storeIntroduction){
         Store store = new Store();
         store.setStoreName(storeName);
+        store.setStoreMan(storeMan);
         store.setStorePassword(storePassword);
         store.setStorePhone(storePhone);
         store.setStoreEmail(storeEmail);
         store.setStoreIntroduction(storeIntroduction);
         storeService.addStore(store);
         getAllStore(modelAndView);
+        return modelAndView;
+    }
+
+    @RequestMapping("/search.do")
+    public ModelAndView search(ModelAndView modelAndView , @RequestParam("text") String arg0 , @RequestParam("laydate") String arg1){
+        List<Store> list = storeService.search(arg0);
+        System.out.println(arg1);
+        modelAndView.setViewName("administrator");
+        modelAndView.addObject("list" , list);
         return modelAndView;
     }
 }

@@ -88,7 +88,7 @@
            <tr><td class="name">未处理订单：</td><td class="munber"><a href="#">0</a>&nbsp;个</td></tr>
            <tr><td class="name">待发货订单：</td><td class="munber"><a href="#">10</a>&nbsp;个</td></tr>
            <tr><td class="name">待结算订单：</td><td class="munber"><a href="#">13</a>&nbsp;个</td></tr>
-           <tr><td class="name">已成交订单数：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
+           <tr><td class="name">已成交订单：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
            <tr><td class="name">交易失败：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
            </tbody>
           </table>
@@ -101,8 +101,7 @@
            <tr><td class="name">回收站商品：</td><td class="munber"><a href="#">10</a>&nbsp;个</td></tr>
            <tr><td class="name">上架商品：</td><td class="munber"><a href="#">13</a>&nbsp;个</td></tr>
            <tr><td class="name">下架商品：</td><td class="munber"><a href="#">26</a>&nbsp;个</td></tr>
-           <tr><td class="name">商品评论：</td><td class="munber"><a href="#">21s6</a>&nbsp;条</td></tr>
-
+           <tr><td class="name">商品评论：</td><td class="munber"><a href="#">216</a>&nbsp;条</td></tr>
            </tbody>
           </table>
          </div> 
@@ -118,7 +117,7 @@
           </table>
          </div>  -->
              <!--<div class="t_Record">
-               <div id="main" style="height:300px; overflow:hidden; width:100%; overflow:auto" ></div>     
+               <div id="main" style="height:300px; overflow:hidden; width:100%; overflow:auto" ></div>
               </div> -->
          <div class="news_style">
           <div class="title_name">最新消息</div>
@@ -128,11 +127,14 @@
            <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
            <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
            <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
+           <li><i class="icon-bell red"></i><a href="#">后台系统找那个是开通了。</a></li>
+
+
           </ul>
-         </div> 
+         </div>
          </div>
  <!--记录-->
- <div class="clearfix">
+ <div class="clearfix" style="margin-top:40px">
   <div class="home_btn">
      <div>
      <a href="/pageJump/picture-add-business.do" title="添加商品" class="btn  btn-info btn-sm no-radius">

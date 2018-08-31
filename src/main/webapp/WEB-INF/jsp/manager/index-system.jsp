@@ -172,13 +172,12 @@ $('.change_Password').on('click', function(){
 });
   $('#Exit_system').on('click', function(){
       layer.confirm('是否确定退出系统？', {
-     btn: ['是','否'] ,//按钮
-	 icon:2,
-    }, 
-	function(){
-	  location.href="/pageJump/login-system.do";
-        
-    });
+      		btn: ['是','否'] ,//按钮
+	  		icon:2,
+	  },
+		function(){
+	  		window.location.href="${pageContext.request.contextPath}/login-system.jsp";
+	    });
 });
 });
 function link_operating(name,title){
@@ -286,7 +285,7 @@ function link_operating(name,title){
 					<li>
 					<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text"> 图片管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
-						<li class="home"><a href="javascript:void(0)" name="/pageJump/advertising.do" title="广告管理" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
+						<li class="home"><a href="javascript:void(0)" name="/carouselMapController/advertising.do" title="广告管理" class="iframeurl"><i class="icon-double-angle-right"></i>广告管理</a></li>
 						<!-- <li class="home"><a href="javascript:void(0)" name="Sort_ads.html" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li> -->
 							</ul>
 						</li>

@@ -6,6 +6,8 @@ import java.util.Objects;
  * 购物车商品表
  */
 public class ShopCarCommodity {
+    //购物车编号
+    private  int shopUnm;
     // 购物车id
     private int shopCarId;
     // 商品id
@@ -20,14 +22,16 @@ public class ShopCarCommodity {
     public ShopCarCommodity() {
     }
 
-    public ShopCarCommodity(int commodityId, int storeId, int commodityCount, int amountPrice) {
+    public ShopCarCommodity(int shopCarId, int commodityId, int storeId, int commodityCount, int amountPrice) {
+        this.shopCarId = shopCarId;
         this.commodityId = commodityId;
         this.storeId = storeId;
         this.commodityCount = commodityCount;
         this.amountPrice = amountPrice;
     }
 
-    public ShopCarCommodity(int shopCarId, int commodityId, int storeId, int commodityCount, int amountPrice) {
+    public ShopCarCommodity(int shopUnm, int shopCarId, int commodityId, int storeId, int commodityCount, int amountPrice) {
+        this.shopUnm = shopUnm;
         this.shopCarId = shopCarId;
         this.commodityId = commodityId;
         this.storeId = storeId;
@@ -75,12 +79,21 @@ public class ShopCarCommodity {
         this.amountPrice = amountPrice;
     }
 
+    public int getShopUnm() {
+        return shopUnm;
+    }
+
+    public void setShopUnm(int shopUnm) {
+        this.shopUnm = shopUnm;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShopCarCommodity that = (ShopCarCommodity) o;
-        return shopCarId == that.shopCarId &&
+        return shopUnm == that.shopUnm &&
+                shopCarId == that.shopCarId &&
                 commodityId == that.commodityId &&
                 storeId == that.storeId &&
                 commodityCount == that.commodityCount &&
@@ -90,13 +103,14 @@ public class ShopCarCommodity {
     @Override
     public int hashCode() {
 
-        return Objects.hash(shopCarId, commodityId, storeId, commodityCount, amountPrice);
+        return Objects.hash(shopUnm, shopCarId, commodityId, storeId, commodityCount, amountPrice);
     }
 
     @Override
     public String toString() {
         return "ShopCarCommodity{" +
-                "shopCarId=" + shopCarId +
+                "shopUnm=" + shopUnm +
+                ", shopCarId=" + shopCarId +
                 ", commodityId=" + commodityId +
                 ", storeId=" + storeId +
                 ", commodityCount=" + commodityCount +

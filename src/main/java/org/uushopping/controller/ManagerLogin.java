@@ -9,6 +9,9 @@ import org.uushopping.mapper.SuperManagerMapper;
 import org.uushopping.pojo.SuperManager;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/managerLogin")
@@ -17,10 +20,14 @@ public class ManagerLogin {
     SuperManagerMapper superManagerMapper;
 
     @RequestMapping("/sideIn.do")
-    public ModelAndView sideIn(ModelAndView modelAndView , @RequestParam("name") String name , @RequestParam("password") String password){
+    public ModelAndView sideIn(HttpSession session,ModelAndView modelAndView , @RequestParam("name") String name , @RequestParam("password") String password){
         SuperManager superManager = superManagerMapper.findSuperManagerInfoByNameAndPassword(name,password);
         if (superManager != null){
+            Date date = new Date();
+            String sql = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
             modelAndView.setViewName("index-system");
+            session.setAttribute("superManager",superManager);
+            superManagerMapper.insertManagerHistory(superManager.getManagerId(),sql);
         }
         return modelAndView;
     }

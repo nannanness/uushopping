@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.uushopping.mapper.CarouselMapMapper">
+    <!--查询sql语句-->
+    <select id="findAllCarousel" resultType="org.uushopping.pojo.CarouselMap" >
+        select * from carouselmap;
+    </select>
+    <update id="takeFlag">
+        update carouselmap set carouselMapFlag = #{arg0} , carouselMapOrder = #{arg1} where carouselMapId = #{arg2};
+    </update>
+    <select id="getFlag" parameterType="int" resultType="string">
+        select carouselMapFlag from carouselmap where carouselMapId = #{arg0};
+    </select>
+    <select id="getCountFlag"  parameterType="string" resultType="int">
+        select count(*) from carouselmap where carouselMapFlag = #{arg0};
+    </select>
+    <select id="getOrder" parameterType="int" resultType="int">
+        select carouselMapOrder from carouselmap where carouselMapId = #{arg0};
+    </select>
+    <insert id="uploadCarouselAddress" >
+        insert into carouselmap(carouselMapOrder , carouselMapAddress , carouselMapDate ,carouselMapFlag) values(0 , #{arg0} , #{arg1} , "隐藏中");
+    </insert>
+</mapper>

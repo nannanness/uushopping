@@ -19,6 +19,135 @@
     <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="theme/css/base.css">
     <link rel="stylesheet" type="text/css" href="theme/css/login.css">
+    <script type="text/javascript" src="..\resources\js\jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var username = $("#username");
+            var ifUsername = false;
+            var usernameText ;
+            username.blur(function () {
+                usernameText = username.val();
+                $.get(
+                    "/check/username.do?usernamaText="+usernameText,
+                    function (data) {
+                       if(data =="可以使用" ){
+                           ifUsername = true;
+                           $("#usernameWarn").attr("style","color:green;font-size: 15px;width:70px");
+                       }else {
+                           ifUsername = false;
+                           $("#usernameWarn").attr("style","color:red;font-size: 15px;width:100px");
+                       }
+                        $("#usernameWarn").html(data);
+                    }
+                );
+            });
+            var ifPassword = false;
+            var password = $("#password");
+            var password1 = $("#password1");
+            var passwordText;
+            password1.keyup(function () {
+                if(password.val() == password1.val()){
+                    $("#passwordwarn").attr("style","color:green;font-size: 15px;width:100px");
+                    $("#passwordwarn").html("密码输入一致");
+                    ifPassword = true;
+                }else {
+                    $("#passwordwarn").attr("style","color:red;font-size: 15px;width:100px");
+                    $("#passwordwarn").html("密码输入不一致");
+                    ifPassword = false;
+                }
+                passwordText = password1.val();
+
+            });
+            var iphone = $("#iphone");
+            var ifIphone = false;
+            var phoneText;
+            iphone.blur(function () {
+                phoneText = iphone.val();
+                var isPhone = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号码
+                if (isPhone.test(phoneText)) {
+                    $.get(
+                        "/check/phoneNum.do?phoneText="+phoneText,
+                        function (data) {
+                            if(data){
+                                $("#phonewarn").attr("style","color:green;font-size: 15px;width:120px");
+                                $("#phonewarn").html("手机号可以使用!")
+                                ifIphone =true;
+                            }else {
+                                $("#phonewarn").attr("style","color:red;font-size: 15px;width:150px");
+                                $("#phonewarn").html("已经注册,请重新输入!")
+                                ifIphone = false;
+                            }
+                        }
+                    );
+                }else {
+                    $("#phonewarn").attr("style","color:red;font-size: 15px;width:120px");
+                    $("#phonewarn").html("手机号格式不对")
+                    ifIphone = false;
+                }
+            });
+            var code = 1111111111111;
+            $("#getCode").click(function () {
+                if(ifIphone){
+                    var countdown=60;
+                    var resettim = setInterval(function() {
+                        if (countdown == 0) {
+                            $("#getCode").attr("disabled",false);
+                            $("#getCode").text("获取短信验证码");
+                            countdown = 60;
+                            clearInterval(resettim) ;
+
+                        } else {
+                            $("#getCode").attr("disabled", true);
+                            $("#getCode").text("重新发送验证码(" + countdown + ")");
+                            countdown--;
+                        }
+                        if(countdown==50){
+                            $.get(
+                                "/check/addCheckCode.do",
+                                function (data) {
+                                    code =data;
+                                    console.log(data)
+                                }
+                            )
+                        }
+                    },1000);
+                }
+            });
+            var ifCcode =false;
+            $("#message").blur(function () {
+                var codeT = $("#message").val();
+                if(code == codeT){
+                    $("#codewarn").attr("style","color:green;font-size: 15px;width:80px");
+                    $("#codewarn").html("验证码正确");
+                    ifCcode =true;
+                }else {
+                    $("#codewarn").attr("style","color:red;font-size: 15px;width:80px");
+                    $("#codewarn").html("验证码有误");
+                    ifCcode =false;
+                }
+            });
+            $("#register").click(function () {
+                var readme = $("#readme").is(':checked');
+                if(!readme){
+                    alert("同意后再注册")
+                }else if (ifCcode && ifUsername) {
+                    $.get(
+                        "/check/register.do?usernameText="+usernameText+"&passwordText="+passwordText+"&getphone="+phoneText,
+                        function () {
+                            alert("注册成功");
+                            window.location.href="/login.do";
+                        }
+                    )
+                }
+
+            });
+
+
+
+
+
+        })
+    </script>
 </head>
 <body>
 
@@ -41,25 +170,29 @@
             <div class="H-over">
                 <form>
                     <div class="login-input">
-                        <label><i class="heart">*</i>用户名：</label>
+                        <label><i class="heart" >*</i>用户名：</label>
                         <input type="text" class="list-input1" id="username" name="info[username]" placeholder="">
+                        &nbsp;&nbsp;<label id="usernameWarn" ></label>
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>请设置密码：</label>
-                        <input type="text" class="list-input" id="password" name="info[password]" placeholder="">
+                        <input type="password" class="list-input" id="password" name="info[password]" placeholder="">
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>请确认密码：</label>
-                        <input type="text" class="list-input" id="password1" name="info[password]" placeholder="">
+                        <input type="password" class="list-input" id="password1" name="info[password]" placeholder="">
+                        &nbsp;&nbsp;<label id="passwordwarn"></label>
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>手机号：</label>
                         <input type="text" class="list-iphone" id="iphone" name="info[password]" placeholder="">
-                        <a href="#" class="obtain">获取短信验证码</a>
+                        <a href="javascript:void(0)" class="obtain" id="getCode">获取短信验证码</a>
+                        &nbsp;&nbsp;<label id="phonewarn"></label>
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>短信验证码：</label>
                         <input type="text" class="list-notes" id="message" name="info[password]" placeholder="">
+                        &nbsp;&nbsp;<label id="codewarn"></label>
                     </div>
                     <div class="item-ifo">
                         <input type="checkbox" onclick="agreeonProtocol();" id="readme" checked="checked" class="checkbox">
@@ -67,7 +200,7 @@
                         <span class="clr"></span>
                     </div>
                     <div class="login-button">
-                        <a href="#">立即注册</a>
+                        <button id="register" ><a href="javascript:void(0)">立即注册</a></button>
                     </div>
                 </form>
             </div>

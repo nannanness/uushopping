@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,7 +30,7 @@
  <div class="search_style">
      
       <ul class="search_content clearfix">
-       <li><label class="l_f">留言</label><input name="" type="text" class="text_add" placeholder="输入留言信息" style=" width:250px"></li>
+       <li><label class="l_f">评价</label><input name="" type="text" class="text_add" placeholder="输入评价信息" style=" width:250px"></li>
        <li><label class="l_f">时间</label><input class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
        <li style="width:90px;"><button type="button" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
       </ul>
@@ -37,10 +38,10 @@
     <div class="border clearfix">
        <span class="l_f">
         <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;批量删除</a>
-        <a href="javascript:ovid()" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>&nbsp;已浏览</a>
-        <a href="javascript:ovid()" class="btn btn-yellow"><i class="fa fa-times"></i>&nbsp;未浏览</a>
+        <%--<a href="javascript:ovid()" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>&nbsp;已浏览</a>--%>
+        <%--<a href="javascript:ovid()" class="btn btn-yellow"><i class="fa fa-times"></i>&nbsp;未浏览</a>--%>
        </span>
-       <span class="r_f">共：<b>2334</b>条</span>
+       <span class="r_f">共：<b>${guestbookBusinessList.size()}</b>条</span>
      </div>
     <!--留言列表-->
     <div class="Guestbook_list">
@@ -49,28 +50,32 @@
 		 <tr>
           <th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
           <th width="80">ID</th>
-          <th width="150px">用户名</th>
-          <th width="">留言内容</th>
+          <th width="100px">用户名</th>
+          <th width="">评价内容</th>
           <th width="200px">时间</th>
-          <th width="70">状态</th>                
+          <th width="120">评价种类</th>
           <th width="250">操作</th>
           </tr>
       </thead>
 	<tbody>
+    <c:forEach var="guestbookList" items="${guestbookBusinessList}">
 		<tr>
      <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-          <td>1</td>
-          <td><u style="cursor:pointer"  class="text-primary" onclick="member_show('张小泉','member-show.jsp','1031','500','400')">张小泉</u></td>
-          <td class="text-l">
-          <a href="javascript:;" onclick="Guestbook_iew('12')">“第二届中国无锡水蜜桃开摘节”同时开幕，为期三个月的蜜桃季全面启动。值此京东“618品质狂欢节”之际，中国特产无锡馆限量上线618份8只装精品水蜜桃，61.8元全国包邮限时抢购。为了保证水蜜桃从枝头到达您的手中依旧鲜甜如初，京东采用递送升级服务，从下单到包装全程冷链运输。</a>
-          <td>2016-6-11 11:11:42</td>
-          <td class="td-status"><span class="label label-success radius">已浏览</span></td>
-          <td class="td-manage">
-           <a onClick="member_stop(this,'10001')"  href="javascript:;" title="已浏览"  class="btn btn-xs btn-success"><i class="fa fa-check  bigger-120"></i></a>   
-        <a  onclick="member_edit('回复','member-add.jsp','4','','510')" title="回复"  href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-        <a  href="javascript:;"  onclick="member_del(this,'1')" title="删除" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
-          </td>
+
+            <%--<form action="/guestbookBusinessController/delete.do" method="post">--%>
+                <td name="commentId">${guestbookList.commentId}</td>
+                <td><u style="cursor:pointer"  class="text-primary" onclick="member_show('张小泉','member-show.jsp','1031','500','400')">${guestbookList.username}</u></td>
+                <td class="text-l">
+                    <a href="javascript:;" onclick="Guestbook_iew('12')">${guestbookList.commentContent}</a>
+                <td>${guestbookList.commentDate}</td>
+                <td class="td-status"><span class="  radius">${guestbookList.commentGrade}</span></td>
+                <td class="td-manage">
+                    <a  onclick="member_edit('回复','member-add.jsp','4','','510')" title="回复"  href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
+                    <a  href="/guestbookBusinessController/delete.do?commentId=${guestbookList.commentId}"  onclick="member_del(this,'1')" title="删除" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+                </td>
+            <%--</form>--%>
         </tr>
+    </c:forEach>
         </tbody>
       </table>
     </div>
@@ -106,9 +111,19 @@ function member_show(title,url,id,w,h){
 /*留言-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
+        // var commentId;
+        // commentId=$(obj).parents("tr").children("commentId");
 		$(obj).parents("tr").remove();
 		layer.msg('已删除!',{icon:1,time:1000});
+		// request("/guestbookBusinessController/delete.do",id);
+        // $.ajax("/guestbookBusinessController/delete.do",{
+         //    type:"post",
+         //    dataType:'json',
+         //    cache:false,
+        // })
+        // location.href="/guestbookBusinessController/delete.do"
 	});
+
 }
 
 /*checkbox激发事件*/

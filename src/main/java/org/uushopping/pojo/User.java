@@ -18,7 +18,7 @@ public class User {
     // 客户头像
     private String userAvatar;
     // 客户性别
-    private String sex;
+    private String userSex;
     // 客户电话
     private String userPhone;
     // 客户地址
@@ -26,22 +26,22 @@ public class User {
     // 客户邮箱
     private String userEmail;
     // 客户状态 用来标识客户是否做了哪些操作
-    private int userFlag;
+    private String userFlag;
     // 注册时间
-    private Date userRegistrationDate;
+    private String userRegistrationDate;
     // 用户浏览次数
     private int userLookCount;
 
     public User() {
     }
 
-    public User(int userId, String username, String userPassword, int securityQuestionId, String userAvatar, String sex, String userPhone, String userAddress, String userEmail, int userFlag, Date userRegistrationDate, int userLookCount) {
+    public User(int userId, String username, String userPassword, int securityQuestionId, String userAvatar, String userSex, String userPhone, String userAddress, String userEmail, String userFlag, String userRegistrationDate, int userLookCount) {
         this.userId = userId;
         this.username = username;
         this.userPassword = userPassword;
         this.securityQuestionId = securityQuestionId;
         this.userAvatar = userAvatar;
-        this.sex = sex;
+        this.userSex = userSex;
         this.userPhone = userPhone;
         this.userAddress = userAddress;
         this.userEmail = userEmail;
@@ -50,12 +50,12 @@ public class User {
         this.userLookCount = userLookCount;
     }
 
-    public User(String username, String userPassword, int securityQuestionId, String userAvatar, String sex, String userPhone, String userAddress, String userEmail, int userFlag, Date userRegistrationDate, int userLookCount) {
+    public User(String username, String userPassword, int securityQuestionId, String userAvatar, String userSex, String userPhone, String userAddress, String userEmail, String userFlag, String userRegistrationDate, int userLookCount) {
         this.username = username;
         this.userPassword = userPassword;
         this.securityQuestionId = securityQuestionId;
         this.userAvatar = userAvatar;
-        this.sex = sex;
+        this.userSex = userSex;
         this.userPhone = userPhone;
         this.userAddress = userAddress;
         this.userEmail = userEmail;
@@ -104,12 +104,12 @@ public class User {
         this.userAvatar = userAvatar;
     }
 
-    public String getSex() {
-        return sex;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
     }
 
     public String getUserPhone() {
@@ -136,19 +136,19 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public int getUserFlag() {
+    public String getUserFlag() {
         return userFlag;
     }
 
-    public void setUserFlag(int userFlag) {
+    public void setUserFlag(String userFlag) {
         this.userFlag = userFlag;
     }
 
-    public Date getUserRegistrationDate() {
+    public String getUserRegistrationDate() {
         return userRegistrationDate;
     }
 
-    public void setUserRegistrationDate(Date userRegistrationDate) {
+    public void setUserRegistrationDate(String userRegistrationDate) {
         this.userRegistrationDate = userRegistrationDate;
     }
 
@@ -167,22 +167,22 @@ public class User {
         User user = (User) o;
         return userId == user.userId &&
                 securityQuestionId == user.securityQuestionId &&
-                userFlag == user.userFlag &&
                 userLookCount == user.userLookCount &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(userPassword, user.userPassword) &&
                 Objects.equals(userAvatar, user.userAvatar) &&
-                Objects.equals(sex, user.sex) &&
+                Objects.equals(userSex, user.userSex) &&
                 Objects.equals(userPhone, user.userPhone) &&
                 Objects.equals(userAddress, user.userAddress) &&
                 Objects.equals(userEmail, user.userEmail) &&
+                Objects.equals(userFlag, user.userFlag) &&
                 Objects.equals(userRegistrationDate, user.userRegistrationDate);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(userId, username, userPassword, securityQuestionId, userAvatar, sex, userPhone, userAddress, userEmail, userFlag, userRegistrationDate, userLookCount);
+        return Objects.hash(userId, username, userPassword, securityQuestionId, userAvatar, userSex, userPhone, userAddress, userEmail, userFlag, userRegistrationDate, userLookCount);
     }
 
     @Override
@@ -193,12 +193,12 @@ public class User {
                 ", userPassword='" + userPassword + '\'' +
                 ", securityQuestionId=" + securityQuestionId +
                 ", userAvatar='" + userAvatar + '\'' +
-                ", sex='" + sex + '\'' +
+                ", userSex='" + userSex + '\'' +
                 ", userPhone='" + userPhone + '\'' +
                 ", userAddress='" + userAddress + '\'' +
                 ", userEmail='" + userEmail + '\'' +
-                ", userFlag=" + userFlag +
-                ", userRegistrationDate=" + userRegistrationDate +
+                ", userFlag='" + userFlag + '\'' +
+                ", userRegistrationDate='" + userRegistrationDate + '\'' +
                 ", userLookCount=" + userLookCount +
                 '}';
     }

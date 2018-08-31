@@ -21,6 +21,7 @@
 		<![endif]-->
 		<script src="../resources/js/jquery-1.9.1.min.js"></script>
         <script src="../resources/assets/layer/layer.js" type="text/javascript"></script>
+		<script src="../../../theme/js/checkcode.js"></script>
 <title>登录</title>
 </head>
 
@@ -28,7 +29,7 @@
 <div class="logintop">    
     <span>欢迎后台管理界面平台</span>    
     <ul>
-    <li><a href="#">返回首页</a></li>
+    <li><a href="/index.do">返回首页</a></li>
     <li><a href="#">帮助</a></li>
     <li><a href="#">关于</a></li>
     </ul>    
@@ -53,12 +54,15 @@
 
 											<div class="login_icon"><img src="../resources/images/login.png" /></div>
 
-											<form class="">
+											<form action="/shopController/index-business.do" method="post">
 												<fieldset>
 										<ul>
-   <li class="frame_style form_error"><label class="user_icon"></label><input name="用户名" type="text"  id="username"/><i>用户名</i></li>
-   <li class="frame_style form_error"><label class="password_icon"></label><input name="密码" type="password"   id="userpwd"/><i>密码</i></li>
-   <li class="frame_style form_error"><label class="Codes_icon"></label><input name="验证码" type="text"   id="Codes_text"/><i>验证码</i><div class="Codes_region"></div></li>
+   <li class="frame_style form_error"><label class="user_icon"></label><input name="businessname" type="text"  id="username" /><i>用户名</i></li>
+   <li class="frame_style form_error"><label class="password_icon"></label><input name="businesspwd" type="password"   id="userpwd"/><i>密码</i></li>
+   <li class="frame_style form_error"><label class="Codes_icon"></label><input name="authcode" type="text"   id="authcode"/><i>验证码</i><div class="Codes_region">
+	   <input type = "button" id="code"  class="verify-code-business" style="width: 80px">
+	   <a href="javascript:;" onclick='createCode();'>看不清换一张</a>
+   </div></li>
    
   </ul>
 													<div class="space"></div>
@@ -69,9 +73,10 @@
 															<span class="lbl">保存密码</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="login_btn">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" onClick="validate()" id="login_btn">
 															<i class="icon-key"></i>
 															登录
+															<%--<a href="/shopController/index-business.do">登陆</a>--%>
 														</button>
 													</div>
 
@@ -108,25 +113,25 @@ $('#login_btn').on('click', function(){
      $("input[type$='text'],input[type$='password']").each(function(n){
           if($(this).val()=="")
           {
-               
+
 			   layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
-                title: '提示框',				
-				icon:0,								
-          }); 
+                title: '提示框',
+				icon:0,
+          });
 		    num++;
-            return false;            
-          } 
+            return false;
+          }
 		 });
-		  if(num>0){  return false;}	 	
+		  if(num>0){  return false;}
           else{
-			  layer.alert('登录成功！',{
-               title: '提示框',				
-			   icon:1,		
-			  });
-	          location.href="/pageJump/index-business.do";
-			   layer.close(index);	
-		  }		  		     						
-		
+			  // layer.alert('登录成功！',{
+               // title: '提示框',
+			  //  icon:1,
+			  // });
+	          location.href="/shopController/index-business.do";
+			   layer.close(index);
+		  }
+
 	});
   $(document).ready(function(){
 	 $("input[type='text'],input[type='password']").blur(function(){

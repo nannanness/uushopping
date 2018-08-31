@@ -50,7 +50,7 @@
                     <div class="msg-wrap"></div>
                     <div class="mc">
                         <div class="form">
-                            <form action="" id="formlogin" method="post" onSubmit="return false;">
+                            <form action="/funclogin.do" id="formlogin" method="post">
                                 <div class="item item-fore1 item-error">
                                     <label for="loginname" class="login-label name-label"></label>
                                     <input type="text" name="loginname" id="loginname" class="itxt" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
@@ -59,7 +59,7 @@
                                 <!-- 密码输入框fore2 -->
                                 <div id="entry" class="item item-fore2" style="visibility: visible">
                                     <label class="login-label pwd-label" for="nloginpwd"></label>
-                                    <input type="password" name="" id="nloginpwd" name="nloginpwd" class="itxt itxt-error" tabindex="2" autocomplete="off" placeholder="密码">
+                                    <input type="password"id="nloginpwd" name="nloginpwd" class="itxt itxt-error" tabindex="2" autocomplete="off" placeholder="密码">
                                     <span class="clear-btn" style="display: inline;"></span>
                                     <span class="capslock" style="display: none;">
   			  					<b></b>
@@ -87,7 +87,8 @@
                                 <!-- 登录按钮开始 -->
                                 <div class="item item-fore5">
                                     <div class="login-btn">
-                                        <a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" onClick="validate()">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+                                        <label id="erromissage" style="display: none">${requestScope.flage}</label>
+                                        <a href="javascript:void(0);" class="btn-img btn-entry" id="loginsubmit" tabindex="6" onClick="validate()">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
                                     </div>
                                 </div>
                             </form>

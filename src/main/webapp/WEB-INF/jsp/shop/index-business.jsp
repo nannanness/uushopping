@@ -236,14 +236,14 @@
 			<ul class="nav ace-nav">
 				<li class="light-blue">
 					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-						<span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>商家</span>
+						<span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>${shoplogin.storeMan}</span>
 						<i class="icon-caret-down"></i>
 					</a>
 					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<%--<li><a href="javascript:void(0)" name="Systems-business.jsp" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>--%>
 						<%--<li><a href="javascript:void(0)" name="admin_info-business.jsp" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>--%>
 						<li class="divider"></li>
-						<li><a href="javascript:ovid(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
+						<li><a href="/shopController/login-business.do" id="Exit_system"><i class="icon-off"></i>退出</a></li>
 					</ul>
 				</li>
 				<!-- <li class="purple">
@@ -411,7 +411,7 @@
                           </li> -->
 					<li><a href="#" class="dropdown-toggle"><i class="icon-comments-alt"></i><span class="menu-text"> 消息管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Guestbook-business.do" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
+							<li class="home"><a href="javascript:void(0)" name="/guestbookBusinessController/Guestbook-business.do" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
 							<!-- <li class="home"><a href="javascript:void(0)" name="Feedback.html" title="意见反馈" class="iframeurl"><i class="icon-double-angle-right"></i>意见反馈</a></li> -->
 						</ul>
 					</li>

@@ -10,21 +10,21 @@ public class ShopCar {
     private int shopCarId;
     // 客户id
     private int userId;
-    // 购物车总金额
-    private int shopCarAmount;
+    // 当前用户购物车商品数量
+    private int shopCarComdiAmount;
 
     public ShopCar() {
     }
 
-    public ShopCar(int userId, int shopCarAmount) {
+    public ShopCar(int userId, int shopCarComdiAmount) {
         this.userId = userId;
-        this.shopCarAmount = shopCarAmount;
+        this.shopCarComdiAmount = shopCarComdiAmount;
     }
 
-    public ShopCar(int shopCarId, int userId, int shopCarAmount) {
+    public ShopCar(int shopCarId, int userId, int shopCarComdiAmount) {
         this.shopCarId = shopCarId;
         this.userId = userId;
-        this.shopCarAmount = shopCarAmount;
+        this.shopCarComdiAmount = shopCarComdiAmount;
     }
 
     public int getShopCarId() {
@@ -43,12 +43,12 @@ public class ShopCar {
         this.userId = userId;
     }
 
-    public int getShopCarAmount() {
-        return shopCarAmount;
+    public int getshopCarComdiAmount() {
+        return shopCarComdiAmount;
     }
 
-    public void setShopCarAmount(int shopCarAmount) {
-        this.shopCarAmount = shopCarAmount;
+    public void setshopCarComdiAmount(int shopCarComdiAmount) {
+        this.shopCarComdiAmount = shopCarComdiAmount;
     }
 
     @Override
@@ -58,13 +58,13 @@ public class ShopCar {
         ShopCar shopCar = (ShopCar) o;
         return shopCarId == shopCar.shopCarId &&
                 userId == shopCar.userId &&
-                shopCarAmount == shopCar.shopCarAmount;
+                shopCarComdiAmount == shopCar.shopCarComdiAmount;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(shopCarId, userId, shopCarAmount);
+        return Objects.hash(shopCarId, userId, shopCarComdiAmount);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class ShopCar {
         return "ShopCar{" +
                 "shopCarId=" + shopCarId +
                 ", userId=" + userId +
-                ", shopCarAmount=" + shopCarAmount +
+                ", shopCarComdiAmount=" + shopCarComdiAmount +
                 '}';
     }
 }

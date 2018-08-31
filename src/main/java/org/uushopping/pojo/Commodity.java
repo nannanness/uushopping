@@ -15,7 +15,7 @@ public class Commodity {
     // 商品详细信息（商品介绍）
     private String commodityDetails;
     // 商品单价
-    private int commodityPrice;
+    private double commodityPrice;
     // 商品分类
     private int commodityTypeId;
     // 商品尺寸
@@ -29,11 +29,11 @@ public class Commodity {
     // 商品款式
     private String commodityStyle;
     // 累计销量
-    private int salesVolume;
+    private String salesVolume;
     // 累计评论
-    private int cumulativeComment;
+    private String cumulativeComment;
     // 商品库存
-    private int commodityStock;
+    private String commodityStock;
     // 商品状态
     private String commodityFlag;
     // 商品品牌
@@ -46,7 +46,7 @@ public class Commodity {
     public Commodity() {
     }
 
-    public Commodity(int storeId, String commodityName, String commodityDetails, int commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, int salesVolume, int cumulativeComment, int commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
+    public Commodity(int storeId, String commodityName, String commodityDetails, double commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
         this.storeId = storeId;
         this.commodityName = commodityName;
         this.commodityDetails = commodityDetails;
@@ -66,7 +66,7 @@ public class Commodity {
         this.commodityMaterial = commodityMaterial;
     }
 
-    public Commodity(int commodityId, int storeId, String commodityName, String commodityDetails, int commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, int salesVolume, int cumulativeComment, int commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
+    public Commodity(int commodityId, int storeId, String commodityName, String commodityDetails, double commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
         this.commodityId = commodityId;
         this.storeId = storeId;
         this.commodityName = commodityName;
@@ -119,11 +119,11 @@ public class Commodity {
         this.commodityDetails = commodityDetails;
     }
 
-    public int getCommodityPrice() {
+    public double getCommodityPrice() {
         return commodityPrice;
     }
 
-    public void setCommodityPrice(int commodityPrice) {
+    public void setCommodityPrice(double commodityPrice) {
         this.commodityPrice = commodityPrice;
     }
 
@@ -175,27 +175,27 @@ public class Commodity {
         this.commodityStyle = commodityStyle;
     }
 
-    public int getSalesVolume() {
+    public String getSalesVolume() {
         return salesVolume;
     }
 
-    public void setSalesVolume(int salesVolume) {
+    public void setSalesVolume(String salesVolume) {
         this.salesVolume = salesVolume;
     }
 
-    public int getCumulativeComment() {
+    public String getCumulativeComment() {
         return cumulativeComment;
     }
 
-    public void setCumulativeComment(int cumulativeComment) {
+    public void setCumulativeComment(String cumulativeComment) {
         this.cumulativeComment = cumulativeComment;
     }
 
-    public int getCommodityStock() {
+    public String getCommodityStock() {
         return commodityStock;
     }
 
-    public void setCommodityStock(int commodityStock) {
+    public void setCommodityStock(String commodityStock) {
         this.commodityStock = commodityStock;
     }
 
@@ -238,18 +238,18 @@ public class Commodity {
         Commodity commodity = (Commodity) o;
         return commodityId == commodity.commodityId &&
                 storeId == commodity.storeId &&
-                commodityPrice == commodity.commodityPrice &&
+                Double.compare(commodity.commodityPrice, commodityPrice) == 0 &&
                 commodityTypeId == commodity.commodityTypeId &&
                 commodityImageId == commodity.commodityImageId &&
-                salesVolume == commodity.salesVolume &&
-                cumulativeComment == commodity.cumulativeComment &&
-                commodityStock == commodity.commodityStock &&
                 Objects.equals(commodityName, commodity.commodityName) &&
                 Objects.equals(commodityDetails, commodity.commodityDetails) &&
                 Objects.equals(commoditySize, commodity.commoditySize) &&
                 Objects.equals(commodityVersion, commodity.commodityVersion) &&
                 Objects.equals(addedTime, commodity.addedTime) &&
                 Objects.equals(commodityStyle, commodity.commodityStyle) &&
+                Objects.equals(salesVolume, commodity.salesVolume) &&
+                Objects.equals(cumulativeComment, commodity.cumulativeComment) &&
+                Objects.equals(commodityStock, commodity.commodityStock) &&
                 Objects.equals(commodityFlag, commodity.commodityFlag) &&
                 Objects.equals(commodityBrand, commodity.commodityBrand) &&
                 Objects.equals(commodityFrom, commodity.commodityFrom) &&
@@ -276,9 +276,9 @@ public class Commodity {
                 ", commodityImageId=" + commodityImageId +
                 ", addedTime='" + addedTime + '\'' +
                 ", commodityStyle='" + commodityStyle + '\'' +
-                ", salesVolume=" + salesVolume +
-                ", cumulativeComment=" + cumulativeComment +
-                ", commodityStock=" + commodityStock +
+                ", salesVolume='" + salesVolume + '\'' +
+                ", cumulativeComment='" + cumulativeComment + '\'' +
+                ", commodityStock='" + commodityStock + '\'' +
                 ", commodityFlag='" + commodityFlag + '\'' +
                 ", commodityBrand='" + commodityBrand + '\'' +
                 ", commodityFrom='" + commodityFrom + '\'' +

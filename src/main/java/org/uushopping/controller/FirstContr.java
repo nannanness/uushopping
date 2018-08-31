@@ -3,12 +3,18 @@ package org.uushopping.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.uushopping.pojo.Commodity;
+import org.uushopping.pojo.User;
+import org.uushopping.service.Ifunc;
 
 
-
+import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class FirstContr {
@@ -17,6 +23,31 @@ public class FirstContr {
     public void indexRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
+    }
+    //实现登录功能
+    @Resource
+    private Ifunc ifunc;
+    @RequestMapping("/funclogin.do")
+    public void funclogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String isName = request.getParameter("loginname");
+        String isPasswd = request.getParameter("nloginpwd");
+        User user = ifunc.funLogin(isName, isPasswd);
+        HttpSession session = request.getSession();
+        if (user != null) {
+            int uId = user.getUserId();
+            int getShopCarCommdiNum = ifunc.funCurrUserShopCarCommdiNun(uId);
+            int getShopCarNum = ifunc.funCurrUserShopCarNum(uId);
+            session.setAttribute("ShopCarNum",getShopCarNum);
+            session.setAttribute("flage", true);
+            session.setAttribute("userId",user.getUserId());
+            session.setAttribute("CurrUserShopCarCommdiNun",getShopCarCommdiNum);
+            session.setAttribute("username", "欢迎用户:" + isName);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } else {
+            request.setAttribute("flage","错误");
+            request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+
+        }
     }
     //用户登录
     @RequestMapping("/login.do")
@@ -78,5 +109,28 @@ public class FirstContr {
     public void do_successRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.getRequestDispatcher("/WEB-INF/view/d-success.jsp").forward(request, response);
     }
+    //购物车
+    @RequestMapping("/shopcart.do")
+    public void shopcartRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+       int isshopNum = Integer.parseInt(request.getParameter("getshopcarnum"));
+       List<Commodity> commodity = ifunc.funCurrUserShopCarCommdiInfor(isshopNum);
+        HttpSession session = request.getSession();
+        System.out.println(commodity);
+        session.setAttribute("commodity",commodity);
+        request.getRequestDispatcher("/WEB-INF/view/shopcart.jsp").forward(request, response);
+    }
+    //全部商品
+    @RequestMapping("/all-cl.do")
+    public void jumpAllCl(HttpServletRequest request ,HttpServletResponse response ) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/view/all-cl.jsp").forward(request,response);
+    }
+    //用户退出
+    @RequestMapping("/logout.do")
+    public void logout(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().invalidate();
+        request.getSession().setAttribute("username","");
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
+    }
+
 
 }

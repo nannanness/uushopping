@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +21,6 @@
 		<script src="../resources/assets/js/typeahead-bs2.min.js"></script>
 		<script src="../resources/assets/js/jquery.dataTables.min.js"></script>
 		<script src="../resources/assets/js/jquery.dataTables.bootstrap.js"></script>
-
     <title>个人信息管理</title>
 </head>
 
@@ -30,10 +30,10 @@
         <div class="admin_modify_style" id="Personal">
             <div class="type_title">管理员信息 </div>
             <div class="xinxi">
+                <form action="/" method="post">
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名： </label>
                     <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="${manager.managerName}" class="col-xs-7 text_info" disabled="disabled">
                         &nbsp;&nbsp;&nbsp;<a href="javascript:ovid()" onclick="change_Password()" class="btn btn-warning btn-xs">修改密码</a></div>
-
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别： </label>
                     <div class="col-sm-9">
@@ -67,6 +67,7 @@
                     <button onclick="modify();" class="btn btn-danger radius" type="submit">修改信息</button>
                     <button onclick="save_info();" class="btn btn-success radius" type="button">保存修改</button>
                 </div>
+                </form>
             </div>
         </div>
         <div class="recording_style">
@@ -77,7 +78,6 @@
                     <tr class="text-c">
                         <th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
                         <th width="80">ID</th>
-                        <th width="100">类型</th>
                         <th>内容</th>
                         <th width="17%">登录地点</th>
                         <th width="10%">用户名</th>
@@ -86,36 +86,18 @@
                     </tr>
                     </thead>
                     <tbody>
+
+                    <c:forEach items="${mh}" var="mHistory">
                     <tr>
                         <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-                        <td>${manager.managerId}</td>
-                        <td>1</td>
+                        <td>${mHistory.managerId}</td>
                         <td>登录成功!</td>
-                        <td>山西晋中</td>
+                        <td>${mHistory.loginPlace}</td>
                         <td>${manager.managerName}</td>
-                        <td>61.233.7.80</td>
-                        <td>${manager.managerDate}</td>
+                        <td>${mHistory.loginIP}</td>
+                        <td>${date}</td>
                     </tr>
-                    <tr>
-                        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-                        <td>15686</td>
-                        <td>1</td>
-                        <td>登录成功!</td>
-                        <td>山西晋中</td>
-                        <td>admin</td>
-                        <td>61.233.7.80</td>
-                        <td>2014-6-11 11:11:42</td>
-                    </tr>
-                    <tr>
-                        <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-                        <td>${manager.managerId}</td>
-                        <td>1</td>
-                        <td>登录成功!</td>
-                        <td>山西晋中</td>
-                        <td>${manager.managerName}</td>
-                        <td>61.233.7.80</td>
-                        <td>2014-6-11 11:11:42</td>
-                    </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -124,12 +106,13 @@
 </div>
 <!--修改密码样式-->
 <div class="change_Pass_style" id="change_Pass">
+    <form>
     <ul class="xg_style">
         <li><label class="label_name">原&nbsp;&nbsp;密&nbsp;码</label><input name="原密码" type="password" class="" id="password"></li>
         <li><label class="label_name">新&nbsp;&nbsp;密&nbsp;码</label><input name="新密码" type="password" class="" id="Nes_pas"></li>
         <li><label class="label_name">确认密码</label><input name="再次确认密码" type="password" class="" id="c_mew_pas"></li>
-
     </ul>
+    </form>
     <!--       <div class="center"> <button class="btn btn-primary" type="button" id="submit">确认修改</button></div>-->
 </div>
 </body>

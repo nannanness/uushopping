@@ -1,11 +1,8 @@
 package org.uushopping.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.uushopping.pojo.SuperManager;
-import org.uushopping.service.ISuperManagerService;
 
 @Controller
 @RequestMapping("/pageJump")
@@ -130,7 +127,7 @@ public class PageJump {
     }
     @RequestMapping("/login-business.do")
     public ModelAndView toLoginBusiness(ModelAndView modelAndView){
-        modelAndView.setViewName("login-business");
+        modelAndView.setViewName("/login-business.jsp");
         return modelAndView;
     }
 
@@ -246,11 +243,11 @@ public class PageJump {
         modelAndView.setViewName("product-category-add-business");
         return modelAndView;
     }
-    @RequestMapping("/Guestbook-business.do")
-    public ModelAndView toGuestbookBusiness(ModelAndView modelAndView){
-        modelAndView.setViewName("Guestbook-business");
-        return modelAndView;
-    }
+//    @RequestMapping("/Guestbook-business.do")
+//    public ModelAndView toGuestbookBusiness(ModelAndView modelAndView){
+//        modelAndView.setViewName("Guestbook-business");
+//        return modelAndView;
+//    }
 
 
     @RequestMapping("/order_detailed.do")

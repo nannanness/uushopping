@@ -43,10 +43,9 @@
     <!--操作-->
      <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" id="administrator_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加卖家</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        <a href="javascript:void(0)" id="administrator_add" class="btn btn-warning"><i class="fa fa-plus"></i> 添加卖家</a>
        </span>
-       <span class="r_f">共：<b>5</b>人</span>
+       <span class="r_f">共：<b>${list.size()}</b>人</span>
      </div>
      <!--管理员列表-->
      <div class="clearfix administrator_style" id="administrator">
@@ -211,6 +210,7 @@ $(function() {
         var index = $(".pass").index($(this));
 		var flag = $(".td-status").eq(index).children().text();
 		var storeId = $(".storeId").eq(index).text();
+		alert(flag);
 		if("审核中" == flag || "挂起" == flag){
             $.get(
                 '/storeController/pass.do',

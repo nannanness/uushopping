@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.uushopping.mapper.ILogin">
+    <select id="logindo" resultType="org.uushopping.pojo.User">
+        select * from user where username = #{param1} and userPassword = #{param2}
+    </select>
+    <select id="currutUserShopCarNum" resultType="Int">
+        select shopCarComdiAmount from shopcar where userId = #{currUserId}
+    </select>
+    <select id="curruntUserShopCarInfor" resultType="org.uushopping.pojo.Commodity">
+        SELECT * FROM commodity  WHERE commodityId in (SELECT commodityId FROM shopcarcommodity WHERE shopCarId = #{currUserId})
+    </select>
+    <select id="currutUserShopCartel" resultType="Int">
+        select shopCarId from shopcar where userId = #{currUserId}
+    </select>
+</mapper>

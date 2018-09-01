@@ -41,4 +41,9 @@ public class Carousel_mapServiceImpl implements ICarousel_mapManagerService {
     public void uploadCarouselAddress(String address, String date) {
         carouselMapMapper.uploadCarouselAddress(address,date);
     }
+
+    @Override
+    public void deleteCarouselMap(int id) {
+        carouselMapMapper.deleteCarouselMap(id);
+    }
 }

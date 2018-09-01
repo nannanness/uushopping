@@ -14,7 +14,6 @@ public interface UserMapper {
     //查询所有用户的信息
     @Select("select * from user ")
     public List<User> getUsers();
-
     //注册用户
     @Insert("insert into user(username,userPassword,userPhone) VALUES(#{arg0},#{arg1},#{arg2})")
     public void addUser(String username,String password,String phone);

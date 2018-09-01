@@ -42,7 +42,7 @@
      <div class="border clearfix">
        <span class="l_f">
             <a href="javascript:void(0)" id="ads_add" class="btn btn-warning" style="max-width: 111px;max-height: 46px;margin: 0 5px;padding: 3px 10px;border: 5px solid #ffb752;background-color:#ffb752;"><i class="fa fa-plus"></i> 添加广告</a>
-            <a href="javascript:void(0)" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+            <a href="javascript:void(0)" id="ads_delete" class="btn btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
        </span>
        <span class="r_f">共：<b>${carouselMaplist.size()}</b>条广告</span>
      </div>
@@ -59,10 +59,10 @@
                   <th width="150px">操作</th>
               </tr>
               </thead>
-              <tbody>
+              <tbody id="all_ad">
               <c:forEach var="carouselMap" items="${carouselMaplist}">
                   <tr>
-                      <td class="checkbox_all"><label><input type="checkbox" name="checkOne" class="ace single" value=""><span class="lbl"></span></label></td>
+                      <td class="checkbox_all"><label><input type="checkbox" name="checkOne" class="ace single" value="${carouselMap.carouselMapId}"><span class="lbl"></span></label></td>
                       <td class="carouselMapId">${carouselMap.carouselMapId}</td>
                       <td class="carouselMapFlag">${carouselMap.carouselMapFlag}</td>
                       <td class="carouselMapOrder"><b>${carouselMap.carouselMapOrder}</b></td>
@@ -82,16 +82,43 @@
 </body>
 </html>
 <script>
-    $("#total").click(function () {
-        var flag = $(this)[0].checked;
-        alert(flag)
-        if(flag == true){
-            $(".single").attr("checked",true);
-        }else if(flag == false){
-            $(".single").attr("checked",false);
-        }
+    // 复选框的全选和全不选
+    $(function() {
+        $("#total").click(function() {
+            $(".single").prop("checked", this.checked); // this指代的你当前选择的这个元素的JS对象
+        });
 
-    })
+        $("#ads_delete").click(function () {
+            var arr = [];
+            $("#all_ad :checked").each(function(i){
+                arr[i] = $(this).val();
+            });
+            if(arr.length > 0){
+                var jsonCheckId = arr.join(",");
+                $.get(
+                    '/carouselMapController/delete.do',
+                    {"jsonCheckId":jsonCheckId},
+                    function (data) {
+                        alert("删除成功！")
+                        location.reload(true);
+                    },
+                    "json"
+                )
+            }
+        })
+    });
+</script>
+<script>
+    // $("#total").click(function () {
+    //     var flag = $(this)[0].checked;
+    //     alert(flag)
+    //     if(flag == true){
+    //         $(".single").attr("checked",true);
+    //     }else if(flag == false){
+    //         $(".single").attr("checked",false);
+    //     }
+    //
+    // })
     
     $(".btn_show").on('click',function () {
         var index = $(".btn_show").index($(this));
@@ -178,10 +205,9 @@
             '<img >' +
             '</div>'
             ),
-            $img = $li.find('img');
+        $img = $li.find('img');
         $('#img_demo').html('');
         $('#img_demo').append( $li );
-        window.location.href = "/carouselMapController/advertising.do";
         // 创建缩略图
         // 如果为非图片文件，可以不用调用此方法。
         // thumbnailWidth x thumbnailHeight 为 100 x 100
@@ -195,7 +221,8 @@
     });
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
     uploaderAd.on( 'uploadSuccess', function( file ) {
-        window.location.href = "/carouselMapController/advertising.do";
+        alert("上传成功！")
+        location.reload(true);
     });
 </script>
 <script>

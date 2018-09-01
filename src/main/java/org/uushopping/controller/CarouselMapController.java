@@ -63,7 +63,8 @@ public class CarouselMapController {
     }
 
     @RequestMapping("/upload_ad.do")
-    public void uploadAd(HttpServletRequest request,ModelAndView modelAndView) throws IOException {
+    public void uploadAd(HttpServletResponse response , HttpServletRequest request,ModelAndView modelAndView) throws IOException {
+        PrintWriter out = response.getWriter();
         String path = "";
         String pathDie = "resources/img/ad/";
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);//判断是否是表单文件类型
@@ -92,8 +93,20 @@ public class CarouselMapController {
         }
         String dateStr = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         carouselMapManagerService.uploadCarouselAddress("/"+ pathDie,dateStr);
-//        modelAndView.setViewName("forward:carouselMapController/advertising.do");
-//        return modelAndView;
+        out.write("{\"name\":\"flash\"}");
+    }
 
+    @RequestMapping("/delete.do")
+    public void delete(HttpServletResponse response , @RequestParam("jsonCheckId") String jsonCheckId) throws IOException {
+        PrintWriter out = response.getWriter();
+        String[] stringIds = jsonCheckId.split(",");
+        int[] ints = new int[stringIds.length];
+        for(int i=0;i<stringIds.length;i++){
+            ints[i] = Integer.parseInt(stringIds[i]);
+        }
+        for(int i : ints){
+            carouselMapManagerService.deleteCarouselMap(i);
+        }
+        out.write("{\"name\":\"flash\"}");
     }
 }

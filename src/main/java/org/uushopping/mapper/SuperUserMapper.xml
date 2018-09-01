@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.uushopping.mapper.SuperUserMapper">
+    <insert id="insertUser" parameterType="org.uushopping.pojo.User">
+        insert into user(username,userSex,userPhone,userAddress,userEmail)values(#{param1},#{param2},#{param3},#{param4},#{param5})
+    </insert>
+    <select id="selectUser" resultType="org.uushopping.pojo.User">
+        select userFlag from user where userId = #{userId}
+    </select>
+    <update id="updateUser" >
+        update user set userFlag=#{arg0} where userId=#{arg1}
+    </update>
+</mapper>

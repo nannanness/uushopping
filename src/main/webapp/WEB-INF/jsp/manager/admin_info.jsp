@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,14 +30,13 @@
         <div class="admin_modify_style" id="Personal">
             <div class="type_title">管理员信息 </div>
             <div class="xinxi">
-                <form action="/" method="post">
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名： </label>
-                    <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="${manager.managerName}" class="col-xs-7 text_info" disabled="disabled">
-                        &nbsp;&nbsp;&nbsp;<a href="javascript:ovid()" onclick="change_Password()" class="btn btn-warning btn-xs">修改密码</a></div>
+                    <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="${mm.managerName}" class="col-xs-7 text_info" disabled="disabled">
+                        &nbsp;&nbsp;</div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别： </label>
                     <div class="col-sm-9">
-                        <span class="sex">${manager.managerSex}</span>
+                        <span class="sex">${mm.managerSex}</span>
                         <div class="add_sex">
                             <label><input name="form-field-radio" type="radio" class="ace" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
                             <label><input name="form-field-radio" type="radio" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;
@@ -46,28 +45,27 @@
                     </div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">年龄： </label>
-                    <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="${manager.managerAge}" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="${mm.managerAge}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">移动电话： </label>
-                    <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="${manager.managerPhone}" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="${mm.managerPhone}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">电子邮箱： </label>
-                    <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="${manager.managerEmail}" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="${mm.managerEmail}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">QQ： </label>
-                    <div class="col-sm-9"><input type="text" name="QQ" id="website-title" value="${manager.managerQQ}" class="col-xs-7 text_info" disabled="disabled"> </div>
+                    <div class="col-sm-9"><input type="text" name="QQ" id="website-title" value="${mm.managerQQ}" class="col-xs-7 text_info" disabled="disabled"> </div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">权限： </label>
                     <div class="col-sm-9" > <span>普通管理员</span></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">注册时间： </label>
-                    <div class="col-sm-9" > <span>${manager.managerDate}</span></div>
+                    <div class="col-sm-9" > <span>${mm.managerDate}</span></div>
                 </div>
                 <div class="Button_operation clearfix">
                     <button onclick="modify();" class="btn btn-danger radius" type="submit">修改信息</button>
                     <button onclick="save_info();" class="btn btn-success radius" type="button">保存修改</button>
                 </div>
-                </form>
             </div>
         </div>
         <div class="recording_style">
@@ -93,9 +91,9 @@
                         <td>${mHistory.managerId}</td>
                         <td>登录成功!</td>
                         <td>${mHistory.loginPlace}</td>
-                        <td>${manager.managerName}</td>
+                        <td>${mm.managerName}</td>
                         <td>${mHistory.loginIP}</td>
-                        <td>${date}</td>
+                        <td>${mHistory.loginDate}</td>
                     </tr>
                     </c:forEach>
                     </tbody>

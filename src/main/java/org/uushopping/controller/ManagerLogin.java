@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.uushopping.mapper.SuperManagerMapper;
 import org.uushopping.pojo.SuperManager;
@@ -15,6 +16,7 @@ import java.util.Date;
 
 @Controller
 @RequestMapping("/managerLogin")
+@SessionAttributes("superManagerId")
 public class ManagerLogin {
     @Autowired
     SuperManagerMapper superManagerMapper;
@@ -26,7 +28,8 @@ public class ManagerLogin {
             Date date = new Date();
             String sql = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
             modelAndView.setViewName("index-system");
-            session.setAttribute("superManager",superManager);
+            int superMangerId = superManager.getManagerId();
+            session.setAttribute("superManagerId",superMangerId);
             superManagerMapper.insertManagerHistory(superManager.getManagerId(),sql);
         }
         return modelAndView;

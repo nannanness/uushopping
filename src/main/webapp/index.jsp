@@ -71,8 +71,7 @@
                 <li id="doregister" ><a href="register.do">免费注册</a> </li>
                 <li id="successregister" style="display: none;"><a href="/logout.do">退出登录</a> </li>
                 <li class="headerul">|</li>
-                <li><a href="/shopController/login-business.do">商家登陆</a></li>
-
+                <li><a href="/pageJump/login-business.do">商家登陆</a></li>
             </ul>
         </div>
     </div>
@@ -85,7 +84,7 @@
                 <button class="button" onclick="search('key');return false;">搜索</button>
             </form>
         </div>
-        <div class="header-cart fr hdin" style="visibility: hidden"><a href="shopcart.do?getshopcarnum=${sessionScope.ShopCarNum}"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
+        <div class="header-cart fr hdin" style="visibility: hidden"><a href="shopcart.do"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
         <div class="head-mountain"></div>
     </div>
     <div class="yHeader">
@@ -111,23 +110,23 @@
                     <div class="yMenuListConin">
                         <div class="yMenuLCinList fl">
                             &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=手机">手机</a>
-                            &nbsp; &nbsp; &nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=电脑">电脑</a>
+                            &nbsp; &nbsp; &nbsp;<a href="javascript:void(0)">电脑</a>
 
                         </div>
                     </div>
 
                     <div class="yMenuListConin">
                         <div class="yMenuLCinList fl">
-                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="/erji-class.do?oneClass=服装&erJiClass=男鞋">男鞋</a>
-                            &nbsp; &nbsp; &nbsp;<a href="/erji-class.do?oneClass=服装&erJiClass=男鞋</a>
+                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="javascript:void(0)">男鞋</a>
+                            &nbsp; &nbsp; &nbsp;<a href="javascript:void(0)">女鞋</a>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <ul class="yMenuIndex"></div>
-                <li><a href="all-class.do?oneClass=服装" target="_blank">服装城</a></li>
-                <li><a href="all-class.do?oneClass=数码" target="_blank">数码城</a></li>
+            <ul class="yMenuIndex">
+                <li><a href="all-class.do?oneClass=数码" target="_blank">服装城</a></li>
+                <li><a href="all-class.do?oneClass=服装" target="_blank">数码城</a></li>
                 <li><a href="/all-cl.do" target="_blank">全部商品</a></li>
 
             </ul>

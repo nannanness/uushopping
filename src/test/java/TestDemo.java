@@ -13,11 +13,12 @@ import org.uushopping.mapper.StoreMapper;
 import org.uushopping.mapper.SuperManagerMapper;
 
 import org.uushopping.pojo.CarouselMap;
-
-
+import org.uushopping.pojo.Store;
 import org.uushopping.pojo.GuestbookBusiness;
-import org.uushopping.service.IGuestbookBusinessService;
+import org.uushopping.pojo.User;
 import org.uushopping.service.ISuperManagerService;
+import org.uushopping.service.ISuperUserService;
+import org.uushopping.service.IUserService;
 
 
 import java.text.SimpleDateFormat;
@@ -37,18 +38,26 @@ public class TestDemo {
 
     @Autowired
     GuestbookBusinessMapper guestbookBusinessMapper;
-    @Autowired
-    IGuestbookBusinessService iGuestbookBusinessService;
+
     @Autowired
     ISuperManagerService service;
+    @Autowired
+    IUserService iUserService;
 
+    @Autowired
+    ISuperUserService iSuperUserService;
     @Test
     public void superManagerTest() {
-//        System.out.println(superManagerMapper.findSuperManagerInfoById(1));
+        System.out.println(superManagerMapper.findSuperManagerInfoById(1));
 //        System.out.println(superManagerMapper.findSuperManagerInfoByNameAndPassword("大毛" , "qqq"));
-        System.out.println(superManagerMapper.findManagerHistoryById(1));
+//        System.out.println(superManagerMapper.findManagerHistoryById(1));
         System.out.println(service.findManagerHistoryByID(1));
-        service.insertManagerHistory(1,"1234");
+//        service.insertManagerHistory(1,"1234");
+//       List<User> list = iUserService.getUsers();
+//        System.out.println(list);
+//        User user = iSuperUserService.selectUser("张三","2018-09-12");
+//        System.out.println(user);
+
     }
 
     @Test
@@ -62,8 +71,10 @@ public class TestDemo {
     }
     @Test
     public void guestbookBusinessTest(){
-        guestbookBusinessMapper.deleteByCommentId(11);
-
+        List<GuestbookBusiness> guestbookBusinesses=guestbookBusinessMapper.getAllGuestbookBusiness();
+        for (GuestbookBusiness i:guestbookBusinesses){
+            System.out.println(i);
+        }
 
 
     }
@@ -91,8 +102,10 @@ public class TestDemo {
 //
 //        System.out.println(carouselMapMapper.getOrder(1));
 
-        String dateStr = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
-        carouselMapMapper.uploadCarouselAddress("/resources/img/ad/ll.jpg",dateStr);
+//        String dateStr = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+//        carouselMapMapper.uploadCarouselAddress("/resources/img/ad/ll.jpg",dateStr);
+
+        carouselMapMapper.deleteCarouselMap(2);
     }
 
 }

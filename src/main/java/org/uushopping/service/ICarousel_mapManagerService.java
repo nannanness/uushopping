@@ -18,4 +18,6 @@ public interface ICarousel_mapManagerService {
     public int getCountFlag(String carouselMapFlag);
     // 上传轮播图
     public void uploadCarouselAddress(String address,String date);
+    // 删除轮播图
+    public void deleteCarouselMap(int id);
 }

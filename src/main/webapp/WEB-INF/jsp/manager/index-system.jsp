@@ -311,10 +311,9 @@ function link_operating(name,title){
                   <li>
 					<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 用户管理 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="/pageJump/user_list.do" title="用户列表"  class="iframeurl"><i class="icon-double-angle-right"></i>用户列表</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/supermanager/userlist.do" title="用户列表"  class="iframeurl"><i class="icon-double-angle-right"></i>用户列表</a></li>
                     <!-- <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li> -->
-                    <li class="home"><a href="javascript:void(0)" name="/pageJump/integration.do" title="用户记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>用户记录管理</a></li>
-
+                    <%--<li class="home"><a href="javascript:void(0)" name="/pageJump/integration.do" title="用户记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>用户记录管理</a></li>--%>
                    </ul>
 				  </li>
 				  <li><a href="#" class="dropdown-toggle"><i class="icon-laptop"></i><span class="menu-text"> 店铺管理 </span><b class="arrow icon-angle-down"></b></a>

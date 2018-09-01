@@ -29,14 +29,10 @@ public class SuperManagerServiceImpl implements ISuperManagerService {
     }
 
     @Override
-    public List<ManagerHistory> findManagerHistoryByPage() {
-        return superManagerMapper.findManagerHistoryAll();
-    }
-
-    @Override
     public void insertManagerHistory(int managerId, String loginDate) {
         superManagerMapper.insertManagerHistory(managerId,loginDate);
     }
+
 
 
 }

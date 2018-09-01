@@ -13,8 +13,6 @@ public interface ISuperManagerService {
     public SuperManager findSuperManagerInfoByNameAndPassword(String name , String password);
     //超级管理员登录信息
     public List<ManagerHistory> findManagerHistoryByID(int managerId);
-    //超级管理员登录信息分页
-    public List<ManagerHistory> findManagerHistoryByPage();
     //插入id和时间到管理员记录表中
     public void insertManagerHistory(int managerId,String loginDate);
 }

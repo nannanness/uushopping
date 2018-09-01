@@ -15,25 +15,10 @@
         <setting name="useGeneratedKeys" value="true"/>
 
     </settings>
-    <typeAliases>
-     <package name="org.uushopping.pojo"></package>
-    </typeAliases>
     <!-- Continue editing here -->
+
     <mappers>
         <package name="org.uushopping.mapper"></package>
     </mappers>
-
-    <plugins>
-        <!--com.github.pagehelper为PageHelper类所在包名-->
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <!--数据库方言-->
-            <property name="dialect" value="mysql"/>
-            <!--设置为true是，使用RowBounds分页进行counnt查询，会去查询出总数-->
-            <property name="rowBoundsWithCount" value="true"/>
-        </plugin>
-    </plugins>
-
-
-
 
 </configuration>

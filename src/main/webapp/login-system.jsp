@@ -51,7 +51,7 @@
 
 											<div class="login_icon"><img src="/resources/images/login.png" /></div>
 
-											<form action="/managerLogin/sideIn.do">
+											<form action="/managerLogin/sideIn.do" method="post">
 												<fieldset>
 										<ul>
    <li class="frame_style form_error"><label class="user_icon"></label><input name="name" type="text"  id="username"/><i>用户名</i></li>

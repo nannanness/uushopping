@@ -5,7 +5,7 @@
 <mapper namespace="org.uushopping.mapper.CarouselMapMapper">
     <!--查询sql语句-->
     <select id="findAllCarousel" resultType="org.uushopping.pojo.CarouselMap" >
-        select * from carouselmap;
+        select * from carouselmap order by carouselMapId desc;
     </select>
     <update id="takeFlag">
         update carouselmap set carouselMapFlag = #{arg0} , carouselMapOrder = #{arg1} where carouselMapId = #{arg2};
@@ -22,4 +22,7 @@
     <insert id="uploadCarouselAddress" >
         insert into carouselmap(carouselMapOrder , carouselMapAddress , carouselMapDate ,carouselMapFlag) values(0 , #{arg0} , #{arg1} , "隐藏中");
     </insert>
+    <delete id="deleteCarouselMap" parameterType="int">
+        delete from carouselmap where carouselMapId = #{arg0};
+    </delete>
 </mapper>

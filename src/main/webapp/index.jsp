@@ -71,7 +71,7 @@
                 <li id="doregister" ><a href="register.do">免费注册</a> </li>
                 <li id="successregister" style="display: none;"><a href="/logout.do">退出登录</a> </li>
                 <li class="headerul">|</li>
-                <li><a href="/pageJump/login-business.do">商家登陆</a></li>
+                <li><a href="/shopController/login-business.do">商家登陆</a></li>
             </ul>
         </div>
     </div>

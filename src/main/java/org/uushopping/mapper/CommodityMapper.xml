@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.uushopping.mapper.CommodityMapper">
+    <select id="getAllCommodity" resultType="org.uushopping.pojo.Commodity">
+        select * from commodity;
+    </select>
+    <select id="search" resultType="org.uushopping.pojo.Commodity">
+        select * from commodity where commodityName like "%"#{arg0}"%";
+    </select>
+    <select id="getFlag" parameterType="int" resultType="string">
+        select commodityFlag from commodity where commodityId = #{arg0};
+    </select>
+    <update id="setFlag" >
+        update commodity set commodityFlag = #{arg0} where commodityId = #{arg1};
+    </update>
+</mapper>

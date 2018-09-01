@@ -28,10 +28,12 @@
 <div class="clearfix">
     <div class="admin_info_style">
         <div class="admin_modify_style" id="Personal">
+
             <div class="type_title">管理员信息 </div>
+            <form action="/supermanager/update.do" method="post">
             <div class="xinxi">
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名： </label>
-                    <div class="col-sm-9"><input type="text" name="用户名" id="website-title" value="${mm.managerName}" class="col-xs-7 text_info" disabled="disabled">
+                    <div class="col-sm-9"><input type="text" name="username" id="website-title" value="${mm.managerName}" class="col-xs-7 text_info" disabled="disabled">
                         &nbsp;&nbsp;</div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">性别： </label>
@@ -48,10 +50,10 @@
                     <div class="col-sm-9"><input type="text" name="年龄" id="website-title" value="${mm.managerAge}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">移动电话： </label>
-                    <div class="col-sm-9"><input type="text" name="移动电话" id="website-title" value="${mm.managerPhone}" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="userphone" id="website-title" value="${mm.managerPhone}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">电子邮箱： </label>
-                    <div class="col-sm-9"><input type="text" name="电子邮箱" id="website-title" value="${mm.managerEmail}" class="col-xs-7 text_info" disabled="disabled"></div>
+                    <div class="col-sm-9"><input type="text" name="useremail" id="website-title" value="${mm.managerEmail}" class="col-xs-7 text_info" disabled="disabled"></div>
                 </div>
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">QQ： </label>
                     <div class="col-sm-9"><input type="text" name="QQ" id="website-title" value="${mm.managerQQ}" class="col-xs-7 text_info" disabled="disabled"> </div>
@@ -62,11 +64,8 @@
                 <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">注册时间： </label>
                     <div class="col-sm-9" > <span>${mm.managerDate}</span></div>
                 </div>
-                <div class="Button_operation clearfix">
-                    <button onclick="modify();" class="btn btn-danger radius" type="submit">修改信息</button>
-                    <button onclick="save_info();" class="btn btn-success radius" type="button">保存修改</button>
-                </div>
             </div>
+            </form>
         </div>
         <div class="recording_style">
             <div class="type_title">管理员登录记录 </div>
@@ -102,17 +101,7 @@
         </div>
     </div>
 </div>
-<!--修改密码样式-->
-<div class="change_Pass_style" id="change_Pass">
-    <form>
-    <ul class="xg_style">
-        <li><label class="label_name">原&nbsp;&nbsp;密&nbsp;码</label><input name="原密码" type="password" class="" id="password"></li>
-        <li><label class="label_name">新&nbsp;&nbsp;密&nbsp;码</label><input name="新密码" type="password" class="" id="Nes_pas"></li>
-        <li><label class="label_name">确认密码</label><input name="再次确认密码" type="password" class="" id="c_mew_pas"></li>
-    </ul>
-    </form>
     <!--       <div class="center"> <button class="btn btn-primary" type="button" id="submit">确认修改</button></div>-->
-</div>
 </body>
 </html>
 <script>

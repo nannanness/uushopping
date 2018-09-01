@@ -30,6 +30,14 @@ public class StoreController {
         return modelAndView;
     }
 
+    @RequestMapping("/Shop_list.do")
+    public ModelAndView getAllStoreForShop(ModelAndView modelAndView){
+        List<Store> list = storeService.getAllStore();
+        modelAndView.setViewName("Shop_list");
+        modelAndView.addObject("list" , list);
+        return modelAndView;
+    }
+
     @RequestMapping("/add_store.do")
     public ModelAndView addStore(ModelAndView modelAndView, @RequestParam String storeName,@RequestParam String storeMan, @RequestParam String storePassword, @RequestParam String storePassword2, @RequestParam String storePhone, @RequestParam String storeEmail, @RequestParam String storeIntroduction){
         Store store = new Store();
@@ -45,9 +53,8 @@ public class StoreController {
     }
 
     @RequestMapping("/search.do")
-    public ModelAndView search(ModelAndView modelAndView , @RequestParam("text") String arg0 , @RequestParam("laydate") String arg1){
+    public ModelAndView search(ModelAndView modelAndView , @RequestParam("text") String arg0 ){
         List<Store> list = storeService.search(arg0);
-        System.out.println(arg1);
         modelAndView.setViewName("administrator");
         modelAndView.addObject("list" , list);
         return modelAndView;

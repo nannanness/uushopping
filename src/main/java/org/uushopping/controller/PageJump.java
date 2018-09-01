@@ -38,11 +38,7 @@ public class PageJump {
         System.out.println("----------Systems----------");
         return modelAndView;
     }
-    @RequestMapping("/Products_List.do")
-    public ModelAndView toProductsList(ModelAndView modelAndView){
-        modelAndView.setViewName("Products_List");
-        return modelAndView;
-    }
+
     @RequestMapping("/Products_List-business.do")
     public ModelAndView toProductsListBusiness(ModelAndView modelAndView){
         modelAndView.setViewName("Products_List-business");

@@ -6,6 +6,7 @@ import org.uushopping.pojo.Store;
 import java.util.List;
 @Repository
 public interface StoreMapper {
+    public Store ifExist(String storeMan);
 
     public List<Store> getAllStore();
 

@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -216,12 +217,12 @@ function link_operating(name,title){
                <ul class="nav ace-nav">	
                 <li class="light-blue">
 				<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-				 <span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>超级管理员</span>
+				 <span  class="time"><em id="time"></em></span><span class="user-info"><small>欢迎光临,</small>${supermanager.managerName}</span>
 				 <i class="icon-caret-down"></i>
 				</a>
 				<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-				 <li><a href="javascript:void(0)" name="/pageJump/Systems.do" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
-				 <li><a href="javascript:void(0)" name="/supermanager/admin-info.do" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
+				 <li><a href="javascript:void(0)" name="/supermanager/admin_info.do" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
+				 
 				 <li class="divider"></li>
 				 <li><a href="javascript:void(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
 				</ul>
@@ -276,10 +277,7 @@ function link_operating(name,title){
 				     <li class="home"><a href="javascript:void(0)" name="/pageJump/home.do" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
                      <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 商品管理 </span><b class="arrow icon-angle-down"></b></a>
 					   <ul class="submenu">
-                         <li class="home"><a  href="javascript:void(0)" name="/pageJump/Products_List.do"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>商品列表</a></li>
-						 <!-- <li class="home"><a  href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理"  class="iframeurl"><i class="icon-double-angle-right"></i>品牌管理</a></li> -->
-						 <li class="home"><a href="javascript:void(0)" name="/pageJump/Category_Manage.do" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
-
+                         <li class="home"><a  href="javascript:void(0)" name="/product/Products_List.do"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>商品列表</a></li>
 						</ul>
 					</li>
 					<li>
@@ -294,59 +292,28 @@ function link_operating(name,title){
                     <ul class="submenu">
                     <li class="home"><a href="javascript:void(0)" name="/pageJump/transaction.do" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
 					<li class="home"><a href="javascript:void(0)" name="/pageJump/Order_Chart.do" title="交易订单（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>交易订单(图)</a></li>
-                    <!-- <li class="home"><a href="javascript:void(0)" name="Orderform.html" title="订单管理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单管理</a></li> -->
-                    <li class="home"><a href="javascript:void(0)" name="/pageJump/Amounts.do" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="/pageJump/Order_handling.do" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
-					  <li class="home"><a href="javascript:void(0)" name="/pageJump/Refund.do" title="退款管理"  class="iframeurl"><i class="icon-double-angle-right"></i>退款管理</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/ordermanager/order.do" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
                    </ul>
 				  </li>
-                   <li>
-				   <a href="#" class="dropdown-toggle"><i class="icon-credit-card"></i><span class="menu-text"> 支付管理 </span><b class="arrow icon-angle-down"></b></a>
-				     <ul class="submenu">
-						<!-- <li class="home"><a href="javascript:void(0)" name="Cover_management.html" title="账户管理" class="iframeurl"><i class="icon-double-angle-right"></i>账户管理</a></li> -->
-						 <li class="home"><a href="javascript:void(0)" name="/pageJump/payment_method.do" title="支付方式" class="iframeurl"><i class="icon-double-angle-right"></i>支付方式</a></li>
-						  <!-- <li class="home"><a href="javascript:void(0)" name="Payment_Configure.html" title="支付配置" class="iframeurl"><i class="icon-double-angle-right"></i>支付配置</a></li> -->
-							</ul>
-						</li>
                   <li>
 					<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 用户管理 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
                     <li class="home"><a href="javascript:void(0)" name="/supermanager/userlist.do" title="用户列表"  class="iframeurl"><i class="icon-double-angle-right"></i>用户列表</a></li>
-                    <!-- <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li> -->
-                    <%--<li class="home"><a href="javascript:void(0)" name="/pageJump/integration.do" title="用户记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>用户记录管理</a></li>--%>
                    </ul>
 				  </li>
 				  <li><a href="#" class="dropdown-toggle"><i class="icon-laptop"></i><span class="menu-text"> 店铺管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="/pageJump/Shop_list.do" title="店铺列表" class="iframeurl"><i class="icon-double-angle-right"></i>店铺列表</a></li>
-                                <li class="home"><a href="javascript:void(0)" name="/pageJump/Shops_Audit.do" title="店铺审核" class="iframeurl"><i class="icon-double-angle-right"></i>店铺审核<span class="badge badge-danger">5</span></a></li>
+								<li class="home"><a href="javascript:void(0)" name="/storeController/Shop_list.do" title="店铺列表" class="iframeurl"><i class="icon-double-angle-right"></i>店铺列表</a></li>
 							</ul>
 						</li>
 
-						<li><a href="#" class="dropdown-toggle"><i class="icon-bookmark"></i><span class="menu-text"> 商城快讯 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="/pageJump/article_list.do" title="文章列表" class="iframeurl"><i class="icon-double-angle-right"></i>快讯列表</a></li>
-                                <li class="home"><a href="javascript:void(0)" name="/pageJump/article_Sort.do" title="分类管理" class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
-							</ul>
-						</li>
-                        	<li><a href="#" class="dropdown-toggle"><i class="icon-cogs"></i><span class="menu-text"> 系统管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="/pageJump/Systems.do" title="系统设置" class="iframeurl"><i class="icon-double-angle-right"></i>系统设置</a></li>
-								<li class="home"><a href="javascript:void(0)" name="/pageJump/System_section.do" title="系统栏目管理" class="iframeurl"><i class="icon-double-angle-right"></i>系统栏目管理</a></li>
-							
-                                <li class="home"><a href="javascript:void(0)" name="/pageJump/System_Logs.do" title="系统日志" class="iframeurl"><i class="icon-double-angle-right"></i>系统日志</a></li>
-							</ul>
-						</li>
                         <li><a href="#" class="dropdown-toggle"><i class="icon-group"></i><span class="menu-text"> 卖家管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
-							
-								<!-- <li class="home"><a href="javascript:void(0)" name="admin_Competence.html" title="权限管理"  class="iframeurl"><i class="icon-double-angle-right"></i>权限管理</a></li> -->
                                 <li class="home"><a href="javascript:void(0)" name="/storeController/administrator.do" title="卖家列表" class="iframeurl"><i class="icon-double-angle-right"></i>卖家列表</a></li>
-								  
 							</ul>
 						</li>
 						
-						<li><a href="javascript:void(0)" name="/supermanager/admin-info.do" title="个人信息" class="iframeurl"><i class="icon-group"></i><span class="menu-text">个人信息</span></a></li>
+						<li><a href="javascript:void(0)" name="/supermanager/admin_info.do" title="个人信息" class="iframeurl"><i class="icon-group"></i><span class="menu-text">个人信息</span></a></li>
 					</ul>
 					</div>
 					<script type="text/javascript">
@@ -386,44 +353,7 @@ function link_operating(name,title){
                  <iframe id="iframe" style="border:0; width:100%; background-color:#FFF;"name="iframe" frameborder="0" src="/pageJump/home.do"></iframe>
 			<!-- /.page-content -->
 				</div><!-- /.main-content -->
-                
-                  <div class="ace-settings-container" id="ace-settings-container">
-                      <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-                          <i class="icon-cog bigger-150"></i>
-                      </div>
-  
-                      <div class="ace-settings-box" id="ace-settings-box">
-                          <div>
-                              <div class="pull-left">
-                                  <select id="skin-colorpicker" class="hide">
-                                      <option data-skin="default" value="#438EB9">#438EB9</option>
-                                      <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-                                      <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-                                      <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-                                  </select>
-                              </div>
-                              <span>&nbsp; 选择皮肤</span>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-                              <label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-                              <label class="lbl" for="ace-settings-rtl">切换到左边</label>
-                          </div>
-  
-                          <div>
-                              <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
-                              <label class="lbl" for="ace-settings-add-container">
-                                  切换窄屏
-                                  <b></b>
-                              </label>
-                          </div>
-                      </div>
-                  </div><!-- /#ace-settings-container -->		
+
 	</div><!-- /.main-container-inner -->
 			
 		</div>

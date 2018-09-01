@@ -35,7 +35,6 @@
 		<form action="/storeController/search.do" method="post">
 			<ul class="search_content clearfix">
 				<li><label class="l_f">卖家名称</label><input  name="text" type="text"  class="text_add" placeholder=""  style=" width:400px"/></li>
-				<li><label class="l_f">添加时间</label><input  name="laydate" class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
 				<li style="width:90px;"><button type="submit"  id="btn_search" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
 			</ul>
 		</form>

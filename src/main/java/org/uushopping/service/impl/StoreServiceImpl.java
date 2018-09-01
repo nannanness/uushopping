@@ -18,6 +18,12 @@ public class StoreServiceImpl implements IStoreService {
         return list;
     }
 
+    @Override
+    public Store ifExist(String storeMan) {
+        Store stores = storeMapper.ifExist(storeMan);
+        return stores;
+    }
+
 
     @Override
     public void addStore(Store store) {

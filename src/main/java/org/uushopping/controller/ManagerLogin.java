@@ -27,9 +27,11 @@ public class ManagerLogin {
         if (superManager != null){
             Date date = new Date();
             String sql = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+            modelAndView.addObject("supermanager",superManager);
             modelAndView.setViewName("index-system");
             int superMangerId = superManager.getManagerId();
-            session.setAttribute("superManagerId",superMangerId);
+            session.setAttribute("managerId",superMangerId);
+            System.out.println(superMangerId);
             superManagerMapper.insertManagerHistory(superManager.getManagerId(),sql);
         }
         return modelAndView;

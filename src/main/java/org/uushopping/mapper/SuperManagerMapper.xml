@@ -12,10 +12,14 @@
         select * from supermanager where managerName = #{arg0} and managerPassword = #{arg1}
     </select>
     <select id="findManagerHistoryById" resultType="org.uushopping.pojo.ManagerHistory">
-        select  managerId,loginPlace,loginIP,loginFlag from managerhistory where managerId = #{managerId}
+        select  * from managerhistory where managerId = #{managerId}
     </select>
     <!--管理员登录记录表插入数据-->
     <insert id="insertManagerHistory">
         insert into managerhistory(managerId,loginDate) values(#{arg0},#{arg1});
     </insert>
+    <!--更新数据到管理员表中-->
+    <update id="updateSuperManager">
+        update supermanager set managerName=#{param1},managerPhone=#{param2},managerEmail=#{param3} , managerQQ=#{param4} where managerId=#{param5}
+    </update>
 </mapper>

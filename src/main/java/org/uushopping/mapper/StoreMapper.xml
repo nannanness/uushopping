@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.uushopping.mapper.StoreMapper">
-    <select id="getAllStore" resultType="org.uushopping.pojo.Store">
+<select id="getAllStore" resultType="org.uushopping.pojo.Store">
         select * from store;
     </select>
-    <insert id="addStore" parameterType="org.uushopping.pojo.Store">
+<insert id="addStore" parameterType="org.uushopping.pojo.Store">
         insert into store(storeName, storeMan, storePassword, storePhone, storeEmail, storeIntroduction) values(#{storeName}, #{storeMan}, #{storePassword}, #{storePhone}, #{storeEmail}, #{storeIntroduction});
     </insert>
-    <select id="search" resultType="org.uushopping.pojo.Store">
+<select id="search" resultType="org.uushopping.pojo.Store">
         select * from store where storeName like "%"#{arg0}"%";
     </select>
-    <select id="getFlag" parameterType="int" resultType="string">
+<select id="ifExist" resultType="org.uushopping.pojo.Store">
+        select * from store where storeMan = #{storeMan};
+    </select>
+<select id="getFlag" parameterType="int" resultType="string">
         select storeFlag from store where storeId = #{arg0};
     </select>
-    <update id="setFlag" >
+<update id="setFlag" >
         update store set storeFlag = #{arg0} where storeId = #{arg1};
     </update>
 </mapper>

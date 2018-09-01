@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,23 +30,14 @@
 <div class="margin clearfix">
  <div class="amounts_style">
    <div class="transaction_Money clearfix">
-      <div class="Money"><span >成交总额：1.2234.3456.00元</span><p>最新统计时间:2016-8-2</p></div>
-       <div class="Money"><span ><em>￥</em>3456.00元</span><p>当天成交额</p></div>
-       <div class="l_f Statistics_btn"> 
-       <a href="javascript:ovid()" title="当月统计" onclick="Statistics_btn()" class="btn  btn-info btn-sm no-radius"><i class="bigger fa fa-bar-chart "></i><h5 class="margin-top">当月统计</h5></a>
+       <div class="Money"><span >成交总额：23960元</span><p>最新统计时间:<span>${dateNew}</span></p></div>
+       <div class="l_f Statistics_btn">
      </div>
     </div>
-    <div class="border clearfix">
-      <span class="l_f">
-      <a href="javascript:ovid()" class="btn btn-info">全部订单</a>
-      <a href="javascript:ovid()" class="btn btn-danger">当天订单</a>
-        <a href="javascript:ovid()" class="btn btn-danger">当月订单</a>
-       </span>
-       <span class="r_f">共：<b>2334</b>笔</span>
-     </div>
    <div class="Record_list">
     <table class="table table-striped table-bordered table-hover" id="sample-table">
        <thead>
+
 		 <tr>
            
             <th width="200px">订单编号</th>
@@ -55,46 +47,18 @@
                            
 			</tr>
 		</thead>
-        <tbody> 
+        <tbody>
+        <c:forEach items="${orderList}" var="ol">
         <tr>
          
-         <td>HD2016061200456787</td>
-         <td>2016-6-12</td>
-         <td>234</td>
-         <td>成功</td>         
-        </tr>
-        <tr>
-         
-         <td>HD2016061200456787</td>
-         <td>2016-6-12</td>
-         <td>234</td>
+         <td>${ol.orderId}</td>
+         <td>${ol.orderDate}</td>
+         <td>${ol.orderAmount}</td>
          <td>成功</td>
-         
+
+
         </tr>
-        <tr>
-         
-         <td>HD2016061200456787</td>
-         <td>2016-6-12</td>
-         <td>234</td>
-         <td>成功</td>
-         
-        </tr>
-        <tr>
-         
-         <td>HD2016061200456787</td>
-         <td>2016-6-12</td>
-         <td>234</td>
-         <td>成功</td>
-         
-        </tr>
-        <tr>
-         
-         <td>HD2016061200456787</td>
-         <td>2016-6-12</td>
-         <td>234</td>
-         <td>成功</td>
-         
-        </tr>
+        </c:forEach>
         </tbody>
         </table> 
     
@@ -127,18 +91,6 @@ $(function() {
 						
 				});
 })
-//当月统计
-function Statistics_btn(){	
-	var index = layer.open({
-        type: 1,
-        title: '当月销售统计',
-		maxmin: true, 
-		shadeClose:false,
-        area : ['1000px' , ''],
-        content:$('#Statistics'),
-		btn:['确定','取消'],		
-	})
-	//layer.full(index);
 	}
 	//统计
 	        require.config({

@@ -9,6 +9,8 @@ import org.uushopping.pojo.GuestbookBusiness;
 import org.uushopping.service.IGuestbookBusinessService;
 
 
+import javax.servlet.http.HttpServletResponse;
+import java.lang.reflect.Array;
 import java.util.List;
 
 @Controller
@@ -37,5 +39,16 @@ public ModelAndView search(ModelAndView modelAndView , @RequestParam("text") Str
         modelAndView.setViewName("Guestbook-business");
         return modelAndView;
 }
+    @RequestMapping("/deleteSome.do")
+    public void deteleSome(HttpServletResponse response, @RequestParam("ids") String ids){
+        System.out.println(ids);
+        String[] aa=ids.split(",");
 
+        for ( int i = 0; i <aa.length; i++){
+            System.out.println(aa[i]);
+            System.out.println(Integer.valueOf(aa[i]));
+            iGuestbookBusinessService.deleteCommentId(Integer.valueOf(aa[i]));
+        }
+
+    }
 }

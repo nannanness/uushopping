@@ -27,17 +27,10 @@
 <body>
 <div class="margin clearfix">
  <div class="Guestbook_style">
- <div class="search_style">
-     
-      <ul class="search_content clearfix">
-       <li><label class="l_f">评价</label><input name="" type="text" class="text_add" placeholder="输入评价信息" style=" width:250px"></li>
-       <li><label class="l_f">时间</label><input class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
-       <li style="width:90px;"><button type="button" class="btn_search"><i class="fa fa-search"></i>查询</button></li>
-      </ul>
-    </div>
+
     <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;批量删除</a>
+        <a href="javascript:ovid();"  id="btn" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;批量删除</a>
         <%--<a href="javascript:ovid()" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>&nbsp;已浏览</a>--%>
         <%--<a href="javascript:ovid()" class="btn btn-yellow"><i class="fa fa-times"></i>&nbsp;未浏览</a>--%>
        </span>
@@ -60,7 +53,7 @@
 	<tbody>
     <c:forEach var="guestbookList" items="${guestbookBusinessList}">
 		<tr>
-     <td><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
+     <td><label><input value="${guestbookList.commentId}" id="box_${guestbookList.commentId}" type="checkbox" class="ace"><span class="lbl"></span></label></td>
 
             <%--<form action="/guestbookBusinessController/delete.do" method="post">--%>
                 <td name="commentId">${guestbookList.commentId}</td>
@@ -71,7 +64,7 @@
                 <td class="td-status"><span class="  radius">${guestbookList.commentGrade}</span></td>
                 <td class="td-manage">
                     <a  onclick="member_edit('回复','member-add.jsp','4','','510')" title="回复"  href="javascript:;"  class="btn btn-xs btn-info" ><i class="fa fa-edit bigger-120"></i></a>
-                    <a  href="/guestbookBusinessController/delete.do?commentId=${guestbookList.commentId}"  onclick="member_del(this,'1')" title="删除" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
+                    <a  href="javascript:ovid();"  onclick="member_del(this,'${guestbookList.commentId}')" title="删除" class="btn btn-xs btn-warning" ><i class="fa fa-trash  bigger-120"></i></a>
                 </td>
             <%--</form>--%>
         </tr>
@@ -114,19 +107,57 @@ function member_del(obj,id){
         // var commentId;
         // commentId=$(obj).parents("tr").children("commentId");
 		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-		// request("/guestbookBusinessController/delete.do",id);
-        // $.ajax("/guestbookBusinessController/delete.do",{
-         //    type:"post",
-         //    dataType:'json',
-         //    cache:false,
-        // })
+        window.location.href="/guestbookBusinessController/delete.do?commentId="+id;
+        // window.location.href="/guestbookBusinessController/Guestbook-business.do";
+        layer.msg('已删除!',{icon:1,time:5000});
+        window.location.reload();
         // location.href="/guestbookBusinessController/delete.do"
+
+
 	});
-
 }
+//批量删除
+ $("#btn").click(function(){
+     /**获取下面选中的checkbox*/
+     var checkedbox = $("input[id^='box_']:checked");
+     if(checkedbox.length == 0){
+         alert("请选择要删除的评价！！！");
+     }else{
+         if(confirm("你确定要删除吗？？？")){
+             /**
+              如下面，如果调用map方法，
+              会把函数里面的返回值作为jquery对象--res返回
+              注意，这里的res.toArray()等同于res.toArray().join(",");
+              它默认就是这样做的呢，这个需要记住嘛
+              */
+             var ids = new Array();
+             checkedbox.each(function(){
+                 ids.push(this.value);
+             });
+             // alert(ids);
+             ids = ids.join(",")
+             $.ajax({
+                 url : "/guestbookBusinessController/deleteSome.do",
+                 type : "post",
+                 data :{"ids":ids},
+                 success : function(data) {
+                     if ($.trim(data)=="success") {
+                        alert("处理成功！");
+                     }else{
+                         alert("处理失败！");
+                     }
+                 }
 
-/*checkbox激发事件*/
+             });
+         }
+         window.location.reload();
+
+     }
+
+ });
+
+
+ /*checkbox激发事件*/
 $('#checkbox').on('click',function(){
 	if($('input[name="checkbox"]').prop("checked")){
 		 $('.Reply_style').css('display','block');

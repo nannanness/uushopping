@@ -30,7 +30,7 @@
     <span>欢迎后台管理界面平台</span>    
     <ul>
     <li><a href="/index.do">返回首页</a></li>
-    <li><a href="#">帮助</a></li>
+    <li><a href="/shopController/register-business.do">注册商家</a></li>
     <li><a href="#">关于</a></li>
     </ul>    
     </div>

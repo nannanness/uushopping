@@ -39,15 +39,13 @@ public class SuperManagerController {
     @Autowired
     ISuperUserService userService;
 
-    @RequestMapping("/admin-info.do")
+    @RequestMapping("/admin_info.do")
     public ModelAndView superManager(HttpSession session, ModelAndView modelAndView) throws ParseException {
+//        //查到管理员登录记录
+//        int superManagerId = (int) session.getAttribute("superManagerId");
         //得到超级管理员的记录
         SuperManager smInfo = service.getSuperManagerInfoById(1);
-        System.out.println(smInfo);
-        //查到管理员登录记录
-        int superManagerId = (int) session.getAttribute("superManagerId");
-        List<ManagerHistory> mhList = service.findManagerHistoryByID(superManagerId);
-        System.out.println(mhList);
+        List<ManagerHistory> mhList = service.findManagerHistoryByID(1);
         modelAndView.addObject("mm", smInfo);
         modelAndView.addObject("mh", mhList);
         modelAndView.setViewName("admin_info");
@@ -76,6 +74,12 @@ public class SuperManagerController {
             String strJson = json.toJSONString();
             writer.write(strJson);
         }
+    }
+    @RequestMapping("/update.do")
+    public ModelAndView updateSuper(HttpSession session,ModelAndView modelAndView,String username,String userphone,String useremail,String QQ){
+        service.updateSM(username,userphone,useremail,QQ,1);
+        modelAndView.setViewName("admin_info");
+        return modelAndView;
     }
 }
 

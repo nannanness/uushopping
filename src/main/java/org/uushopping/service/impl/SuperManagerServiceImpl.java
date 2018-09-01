@@ -24,6 +24,11 @@ public class SuperManagerServiceImpl implements ISuperManagerService {
     }
 
     @Override
+    public void updateSM(String name,String phone, String email, String qq,int id) {
+        superManagerMapper.updateSuperManager(name, phone, email, qq,id);
+    }
+
+    @Override
     public List<ManagerHistory> findManagerHistoryByID(int managerId) {
         return superManagerMapper.findManagerHistoryById(managerId);
     }

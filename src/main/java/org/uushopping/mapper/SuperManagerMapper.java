@@ -16,6 +16,8 @@ public interface SuperManagerMapper {
     public SuperManager findSuperManagerInfoById(int managerId);
     //查找超级管理员信息
     public SuperManager findSuperManagerInfoByNameAndPassword(String name , String password);
+    //更新超级管理员信息表
+    public void updateSuperManager(String name,String phone,String email,String qq,int id);
     //查找管理员登录记录
     public List<ManagerHistory> findManagerHistoryById(int managerId);
     //插入时间和id插入到记录历史表中

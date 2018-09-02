@@ -65,7 +65,7 @@ h2, h3 { font-family: "microsoft yahei";font-weight:100;}
 .blue { color:#ea4949;}
 
 .fl {float:left;}
-.fr {float:right;margin-top: 8px}
+.fr {float:right;}
 .words-text .red {color:#ea4949;}
 .red {color:#ea4949;}
 .container {width:1200px; margin:0 auto; position:relative; padding-top:20px; padding-bottom:5px;}
@@ -107,7 +107,7 @@ h2, h3 { font-family: "microsoft yahei";font-weight:100;}
 .menu a{display:block;height:35px;line-height:35px;padding:0 0 0 10px;}
 .menu a.tit{background:url(../icon/arrow.gif) no-repeat;background-position:70px 15px;}
 #pc-nav.current a.tit{background-position:75px -16px;position:relative;z-index:9;}
-.menu .subnav{display:none;background:#fff;position:absolute;left:4px;width:102px; border-top:1px solid #f5f5f5; z-index:2;}
+.menu .subnav{display:none;background:#fff;position:absolute;top:27px;left:4px;width:102px; border-top:1px solid #f5f5f5; z-index:2;}
 #pc-nav.current .subnav{display:block;}
 .menu .subnav a{border:none;}
 .footer {padding-top:40px; padding-bottom:10px; text-align:left; border-bottom:1px solid #333;}
@@ -118,7 +118,7 @@ h2, h3 { font-family: "microsoft yahei";font-weight:100;}
 .footer-text a {padding-right:10px; display:block; color:#9c9c9c; float:left;}
 .footer-text .footer-about {padding-bottom:10px;}
 .button    { background:#ea4949; width:82px; height:36px; border:none; color:#fff; cursor: pointer; float: left; font-size: 16px; line-height: 1; font-weight:normal}
-.button:hover{ background:#ea4949}.search-text {border-color:#ea4949; border-style:solid; border-width:2px 0 2px 2px; color:#666; float:left; font-size:14px;  height:36px; line-height:24px; margin-bottom:4px; outline:none; padding:4px;  width:454px;}
+.button:hover{ background:#ea4949}.search-text {border-color:#ea4949; border-style:solid; border-width:2px 0 2px 2px; color:#666; float:left; font-size:14px;  height:24px; line-height:24px; margin-bottom:4px; outline:none; padding:4px;  width:454px;}
 
 /*.head-amount   { background:url("../icon/cart.png") no-repeat; width:22px;  height:29px;  position:absolute; left:8em; top:-2em; font-size:11px; color:#fff; display:inline-block; text-align:center; line-height:24px; }*/
 .header-cart {margin-right:22px; position:relative; z-index:1;}

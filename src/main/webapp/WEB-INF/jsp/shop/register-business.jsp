@@ -15,7 +15,7 @@
     <meta name="Description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
-    <title>用户注册</title>
+    <title>商家注册</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../../theme/icon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../../theme/css/base.css">
     <link rel="stylesheet" type="text/css" href="../../../theme/css/login.css">
@@ -59,11 +59,6 @@
 
             });
             var iphone = $("#iphone");
-            var storeSort=$("#storeSort");
-            var storeName=$("#storeName");
-            var storeIntroduction=$("#storeIntroduction");
-            var storeEmail=$("#storeEmail");
-
             var ifIphone = false;
             var phoneText;
             iphone.blur(function () {
@@ -136,8 +131,11 @@
                 if(!readme){
                     alert("同意后再注册")
                 }else if (ifCcode && ifstoreMan) {
+                    var storeName = $("#storeName").val();
+                    var storeIntroduction = $("#storeIntroduction").val();
+                    var storeEmail = $("#storeEmail").val();
                     $.get(
-                        "/storeController/add_store.do?storeMan="+storeManText+"&password="+passwordText+"&storePhone="+phoneText+"&storeName="+storeName.val()+"&storeIntroduction="+storeIntroduction.val()+"&storeEmail="+storeEmail.val(),
+                        "/storeController/add_store.do?storeMan="+storeManText+"&storePassword="+passwordText+"&storePhone="+phoneText+"&storeName="+storeName+"&storeIntroduction="+storeIntroduction+"&storeEmail="+storeEmail,
                         function () {
                             alert("注册成功");
                             window.location.href="/shopController/login-business.do";
@@ -206,18 +204,18 @@
                     <%--</div>--%>
                     <div class="login-input">
                         <label><i class="heart">*</i>商铺名字：</label>
-                        <input type="text" class="list-notes"  name="storeName" placeholder="">
-                        &nbsp;&nbsp;<label id="storeName"></label>
+                        <input type="text" class="list-notes" id="storeName" placeholder="">
+                        &nbsp;&nbsp;
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>商铺介绍：</label>
-                        <textarea type="text" class="list-input"  name="storeIntroduction" placeholder=""style="width: 400px;height: 200px"></textarea>
+                        <textarea type="text" class="list-input"  id="storeIntroduction" placeholder=""style="width: 400px;height: 200px"></textarea>
                         &nbsp;&nbsp;
                     </div>
                     <div class="login-input">
                         <label><i class="heart">*</i>商铺邮箱：</label>
-                        <input type="text" class="list-input"  name="storeEmail" placeholder="">
-                        &nbsp;&nbsp;<label id="storeEmail"></label>
+                        <input type="text" class="list-input"  id="storeEmail" placeholder="">
+                        &nbsp;&nbsp;
                     </div>
                     <div class="item-ifo">
                         <input type="checkbox" onclick="agreeonProtocol();" id="readme" checked="checked" class="checkbox">
@@ -225,7 +223,7 @@
                         <span class="clr"></span>
                     </div>
                     <div class="login-button" style="padding-bottom: 20px">
-                        <button id="register" ><a href="javascript:void(0)" onclick="vali()">立即注册</a></button>
+                        <button id="register" ><a href="javascript:void(0)">立即注册</a></button>
                     </div>
                 </form>
             </div>

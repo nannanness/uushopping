@@ -25,7 +25,9 @@ public class OrderController {
     public ModelAndView order(ModelAndView modelAndView){
         List<Orders> list = service.getOrdersAll();
         superManagerService.findManagerHistoryByID(1);
+        int sum = service.sumOrderCount();
         modelAndView.addObject("orderList",list);
+        modelAndView.addObject("sumCount",sum);
         modelAndView.setViewName("Amounts");
         Date date = new Date();
         String sql = new SimpleDateFormat("yyyy-MM-dd").format(date);

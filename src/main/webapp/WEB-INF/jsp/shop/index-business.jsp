@@ -362,9 +362,9 @@
 					<li class="home"><a href="javascript:void(0)" name="/pageJump/home-business.do" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
 					<li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 商品管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
-							<li class="home"><a  href="javascript:void(0)" name="/pageJump/Products_List-business.do"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>商品类表</a></li>
+							<li class="home"><a  href="javascript:void(0)" name="/shopController/Products_List-business.do"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>商品类表</a></li>
 							<!-- <li class="home"><a  href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理"  class="iframeurl"><i class="icon-double-angle-right"></i>品牌管理</a></li> -->
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Category_Manage-business.do" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
+							<%--<li class="home"><a href="javascript:void(0)" name="/pageJump/Category_Manage-business.do" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>--%>
 
 						</ul>
 					</li>
@@ -378,12 +378,12 @@
 					<li>
 						<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 交易管理 </span><b class="arrow icon-angle-down"></b></a>
 						<ul class="submenu">
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/transaction-business.do" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Order_Chart-business.do" title="交易订单（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>交易订单(图)</a></li>
+							<%--<li class="home"><a href="javascript:void(0)" name="/pageJump/transaction-business.do" title="交易信息"  class="iframeurl"><i class="icon-double-angle-right"></i>交易信息</a></li>--%>
+							<%--<li class="home"><a href="javascript:void(0)" name="/pageJump/Order_Chart-business.do" title="交易订单（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>交易订单(图)</a></li>--%>
 							<!-- <li class="home"><a href="javascript:void(0)" name="Orderform.jsp" title="订单管理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单管理</a></li> -->
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Amounts-business.do" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Order_handling-business.do" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/Refund-business.do" title="退款管理"  class="iframeurl"><i class="icon-double-angle-right"></i>退款管理</a></li>
+							<li class="home"><a href="javascript:void(0)" name="/shopController/order.do" title="交易金额"  class="iframeurl"><i class="icon-double-angle-right"></i>交易金额</a></li>
+							<li class="home"><a href="javascript:void(0)" name="/shopController/order_handling-business.do" title="订单处理"  class="iframeurl"><i class="icon-double-angle-right"></i>订单处理</a></li>
+							<li class="home"><a href="javascript:void(0)" name="/shopController/Refund-business.do" title="退款管理"  class="iframeurl"><i class="icon-double-angle-right"></i>退款管理</a></li>
 						</ul>
 					</li>
 					<!-- <li>
@@ -394,15 +394,15 @@
                            <li class="home"><a href="javascript:void(0)" name="Payment_Configure.html" title="支付配置" class="iframeurl"><i class="icon-double-angle-right"></i>支付配置</a></li>
                              </ul>
                          </li> -->
-					<li>
-						<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 用户管理 </span><b class="arrow icon-angle-down"></b></a>
-						<ul class="submenu">
-							<!-- <li class="home"><a href="javascript:void(0)" name="user_list.html" title="会员列表"  class="iframeurl"><i class="icon-double-angle-right"></i>会员列表</a></li> -->
-							<!-- <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li> -->
-							<li class="home"><a href="javascript:void(0)" name="/pageJump/integration-business.do" title="用户记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>用户记录管理</a></li>
+					<%--<li>--%>
+						<%--<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 用户管理 </span><b class="arrow icon-angle-down"></b></a>--%>
+						<%--<ul class="submenu">--%>
+							<%--<!-- <li class="home"><a href="javascript:void(0)" name="user_list.html" title="会员列表"  class="iframeurl"><i class="icon-double-angle-right"></i>会员列表</a></li> -->--%>
+							<%--<!-- <li class="home"><a href="javascript:void(0)" name="member-Grading.html" title="等级管理"  class="iframeurl"><i class="icon-double-angle-right"></i>等级管理</a></li> -->--%>
+							<%--&lt;%&ndash;<li class="home"><a href="javascript:void(0)" name="/pageJump/integration-business.do" title="用户记录管理"  class="iframeurl"><i class="icon-double-angle-right"></i>用户记录管理</a></li>&ndash;%&gt;--%>
 
-						</ul>
-					</li>
+						<%--</ul>--%>
+					<%--</li>--%>
 					<!-- <li><a href="#" class="dropdown-toggle"><i class="icon-laptop"></i><span class="menu-text"> 店铺管理 </span><b class="arrow icon-angle-down"></b></a>
                               <ul class="submenu">
                                   <li class="home"><a href="javascript:void(0)" name="Shop_list.html" title="店铺列表" class="iframeurl"><i class="icon-double-angle-right"></i>店铺列表</a></li>

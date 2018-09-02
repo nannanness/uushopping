@@ -39,4 +39,15 @@ public class Ifunclmpl implements Ifunc {
     public int funCurrUserShopCarNum(int getuserid) {
         return iLogin.currutUserShopCartel(getuserid);
     }
+
+    @Override
+    public List<Commodity> funorderShopCarCommdi(Integer[] ordershopcarcommId) {
+
+        return iLogin.orderShopCarCommdi(ordershopcarcommId);
+    }
+
+    @Override
+    public void joinCommodity(int shopCarId, int commodityId) {
+        iLogin.joinCommodity(shopCarId,commodityId);
+    }
 }

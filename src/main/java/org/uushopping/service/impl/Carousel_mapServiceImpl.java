@@ -46,4 +46,10 @@ public class Carousel_mapServiceImpl implements ICarousel_mapManagerService {
     public void deleteCarouselMap(int id) {
         carouselMapMapper.deleteCarouselMap(id);
     }
+
+    @Override
+    public List<String> getIndexMap() {
+        List<String> adMaps = carouselMapMapper.getIndexMap();
+        return adMaps;
+    }
 }

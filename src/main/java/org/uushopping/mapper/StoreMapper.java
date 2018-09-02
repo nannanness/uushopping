@@ -1,5 +1,6 @@
 package org.uushopping.mapper;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import org.uushopping.pojo.Store;
 
@@ -17,5 +18,9 @@ public interface StoreMapper {
     public String getFlag(int storeId);
 
     public void setFlag(String flag, int storeId);
+
+    //寻找商品对应的店铺
+    @Select("SELECT * from store where storeId =#{arg0};")
+    public Store selectStoreById(int storeId);
 
 }

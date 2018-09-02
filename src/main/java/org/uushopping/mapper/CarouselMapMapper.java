@@ -1,5 +1,6 @@
 package org.uushopping.mapper;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import org.uushopping.pojo.CarouselMap;
 
@@ -20,4 +21,7 @@ public interface CarouselMapMapper {
     public void uploadCarouselAddress(String address,String date);
     // 删除轮播图
     public void deleteCarouselMap(int id);
+    //查询首页轮播图
+    @Select("SELECT carouselMapAddress FROM carouselmap WHERE carouselMapFlag='显示中'")
+    public List<String> getIndexMap();
 }

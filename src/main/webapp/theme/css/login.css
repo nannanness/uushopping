@@ -63,7 +63,7 @@ div{
     position:absolute;
     right:0;
     top:10px;
-    background:url("//login/l") no-repeat;
+    background:url("../login/l") no-repeat;
 }
 .q_link{
     margin:53px 0px 1px 1px;
@@ -233,7 +233,7 @@ div{
     height:38px;
     border:0;
     padding:10px 0 10px 50px;
-    width:285px;
+    width:254px;
     float:none;
     overflow:hidden;
     font-size:14px;
@@ -244,20 +244,20 @@ div{
 .form .itxt02{
     padding:10px 5px;
     width:150px;
-    text-align:center;
+    text-align:center；
 }
 .form .verify-code{/*验证码*/
     cursor:pointer;
     width:90px;
     height:33px;
-    vertical-align:middle;
+    vertical-align:middle；
 }
 .form .item-vcode .placeholder{left:25px}
 .form .item-vcode .itxt02,.form .item-vcode .verify-code{float:left}
 .form .item-vcode a{
     display:inline-block;
     width:38px;
-    float:right;
+    float:right；
 }
 .form .item-vcode:after{
     display:block;
@@ -383,7 +383,7 @@ div{
     top:-2px;
     width:141px;
     height:168px;
-    background:url("//theme/login/phone-orange.png") no-repeat;z-index:99;
+    background:url("../login/phone-orange.png") no-repeat;z-index:99;
 }
 /*扫码登录底部文字*/
 .login-form .qrcode-login .qrcode-panel{
@@ -429,7 +429,7 @@ div{
     width:25px;
     height:25px;
     display:block;
-    background:url("//login/qr-coagent.png") no-repeat;
+    background:url("../login/qr-coagent.png") no-repeat;
     margin:0 auto;
     position:absolute;
     left:0;
@@ -484,7 +484,7 @@ div{
     width:19px;
     height:18px;
     display:block;
-    background:url("//login/QQ-weixin.png") no-repeat;
+    background:url("../login/QQ-weixin.png") no-repeat;
     margin:0 auto;
     position:absolute;
     float:left;

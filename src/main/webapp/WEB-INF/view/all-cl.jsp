@@ -9,16 +9,16 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
 
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
-    <script type="text/javascript" src="theme/js/index.js"></script>
-    <script type="text/javascript" src="theme/js/js-tab.js"></script>
-    <script type="text/javascript" src="theme/js/MSClass.js"></script>
-    <script type="text/javascript" src="theme/js/jcarousellite.js"></script>
-    <script type="text/javascript" src="theme/js/top.js"></script>
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
+    <script type="text/javascript" src="../theme/js/index.js"></script>
+    <script type="text/javascript" src="../theme/js/js-tab.js"></script>
+    <script type="text/javascript" src="../theme/js/MSClass.js"></script>
+    <script type="text/javascript" src="../theme/js/jcarousellite.js"></script>
+    <script type="text/javascript" src="../theme/js/top.js"></script>
     <script type="text/javascript">
         $(function () {
             var getname = $("#sucesslogin").children("a").text();
@@ -31,7 +31,6 @@
                 $("#doregister").hide()
 
             }
-
         });
     </script>
 </head>
@@ -55,8 +54,8 @@
         <div class="pc-nav-digit clearfix">
             <ul>
                 <li>
-                    <div class="digit1"><a href="#"><img src="../theme/img/pd/yue.png"></a></div>
-                    <div class="digit2"><a href="#">家用电器</a></div>
+                    <div class="digit1"><a href="/page.do"><img src="../theme/img/pd/yue.png"></a></div>
+                    <div class="digit2"><a href="/page.do">家用电器</a></div>
                 </li>
                 <li>
                     <div class="digit1"><a href="#"><img src="../theme/img/pd/yue.png"></a></div>

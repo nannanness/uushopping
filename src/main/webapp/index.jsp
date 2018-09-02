@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -28,6 +29,12 @@
     <script type="text/javascript" src="theme/js/top.js"></script>
     <script type="text/javascript">
         $(function(){
+            $.get(
+                "/getDataIndex.do",
+                function () {
+
+                }
+            );
             var  getname = $("#sucesslogin").children("a").text();
             if(getname.length > 0){
                 $("#sucesslogin").show()
@@ -84,7 +91,7 @@
                 <button class="button" onclick="search('key');return false;">搜索</button>
             </form>
         </div>
-        <div class="header-cart fr hdin" style="visibility: hidden"><a href="shopcart.do"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
+        <div class="header-cart fr hdin" style="visibility: hidden"><a href="shopcart.do?getshopcarnum=${sessionScope.ShopCarNum}"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
         <div class="head-mountain"></div>
     </div>
     <div class="yHeader">
@@ -94,41 +101,23 @@
                     全部商品分类
                 </h2>
                 <ul class="pullDownList">
-                    <li>
-                        <i class="listi2"></i>
-                        <a href="all-class.do?oneClass=数码" target="_blank">数码</a>
-                        <span></span>
-                    </li>
-                    <li>
-                        <i class="listi5"></i>
-                        <a href="all-class.do?oneClass=服装" target="_blank">服装</a>
-                        <span></span>
-                    </li>
-
+                    <c:forEach items="${commodityType}" var="type">
+                        <li>
+                            <i class="listi2"></i>
+                            <a href="/ClassCommodityController/all-class.do?commodityType=${type}" target="_blank">${type}</a>
+                            <span></span>
+                        </li>
+                    </c:forEach>
                 </ul>
-                <div class="yMenuListCon">
-                    <div class="yMenuListConin">
-                        <div class="yMenuLCinList fl">
-                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=手机">手机</a>
-                            &nbsp; &nbsp; &nbsp;<a href="javascript:void(0)">电脑</a>
 
-                        </div>
-                    </div>
-
-                    <div class="yMenuListConin">
-                        <div class="yMenuLCinList fl">
-                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="javascript:void(0)">男鞋</a>
-                            &nbsp; &nbsp; &nbsp;<a href="javascript:void(0)">女鞋</a>
-
-                        </div>
-                    </div>
-                </div>
             </div>
             <ul class="yMenuIndex">
-                <li><a href="all-class.do?oneClass=数码" target="_blank">服装城</a></li>
-                <li><a href="all-class.do?oneClass=服装" target="_blank">数码城</a></li>
-                <li><a href="/all-cl.do" target="_blank">全部商品</a></li>
-
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=手机" target="_blank">手机城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=衣服" target="_blank">服装城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=香水" target="_blank">香水有毒</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=护肤品" target="_blank">护肤城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=鞋" target="_blank">潮鞋城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=all" target="_blank">全部商品</a></li>
             </ul>
 
         </div>
@@ -139,9 +128,13 @@
 <!--- banner begin-->
 <section id="pc-banner">
     <div class="yBanner">
+        <%--首页轮播图--%>
         <div class="banner" id="banner" >
-            <a href="javascript:;" class="d1" style="background:url(theme/img/ad/banner1.jpg) center no-repeat;background-color: #f01a38; padding-left:180px;"></a>
-            <a href="javascript:;" class="d1" style="background:url(theme/img/ad/banner2.jpg) center no-repeat;background-color: #a96ae3; padding-left:180px;"></a>
+            <c:forEach items="${adMaps}" var="map">
+                <a href="javascript:;" class="d1" style="background:url(${map}) center no-repeat;background-color: #f01a38; padding-left:180px;"></a>
+            
+            </c:forEach>
+           <%--<a href="javascript:;" class="d1" style="background:url(theme/img/ad/banner2.jpg) center no-repeat;background-color: #a96ae3; padding-left:180px;"></a>--%>
          <div class="d2" id="banner_id">
                 <ul>
                     <li></li>
@@ -155,45 +148,21 @@
         <div style="text-align:center;clear:both"></div>
     </div>
 </section>
-<!-- banner End -->
-
-<!-- 商城资讯 begin -->
-<section id="pc-information">
-    <div class="containers">
-        <div class="pc-info-mess  clearfix" style="position: relative;">
-            <h2 class="fl" style="margin-right:20px;">商城快讯</h2>
-            <div id="MarqueeDiv" class="MarqueeDiv">
-                <a href="new.do">[特惠]新一代Moto 360智能手表登陆</a>
-                <a href="new.do">[特惠]洗护节 跨品牌满199减100</a>
-                <a href="new.do">[特惠]仁怀政府开启“仁怀酱香酒馆”</a>
-                <a href="new.do">[特惠]洗护节 跨品牌满199减100</a>
-                <a href="new.do">逛商城赚话费，商城通信51城全线抢购 </a>
-                <a href="new.do">文艺蓝牙音箱 火热众筹中 </a>
-                <a href="new.do">[公告]第1000家商城帮服务店落户遵义</a>
-                <a href="new.do">[特惠]新一代Moto 360智能手表登陆</a>
-                <a href="new.do">[特惠]新一代Moto 360智能手表登陆</a>
-                <a href="new.do">[特惠]新一代Moto 360智能手表登陆</a>
-            </div>
-            <a href="new.do" style="position: absolute;right: 15px;top: 0;"> 更多资讯</a>
-        </div>
-    </div>
-</section>
-<!-- 商城资讯 End -->
 
 <!-- 卖场推荐 begin -->
 <div class="container-c time-lists clearfix">
     <div class="time-list fl">
         <div class="time-title time-clear"><h2>卖场推荐</h2><a href="javascript:;" class="pc-spin fr">换一换</a> </div>
         <div class="time-poued clearfix">
-            <a href="#"><img src="theme/img/ad/a2.png"></a>
-            <a href="#"><img src="theme/img/ad/a3.png"></a>
-            <a href="#"><img src="theme/img/ad/a4.png"></a>
-            <a href="#"><img src="theme/img/ad/a5.png"></a>
+            <a href="/ClassCommodityController/all-class.do?commodityType=护肤品"><img src="theme/img/ad/a2.png"></a>
+            <a href="/ClassCommodityController/all-class.do?commodityType=香水"><img src="resources/products/GUCCI.jpg"></a>
+            <a href="/ClassCommodityController/all-class.do?commodityType=衣服"><img src="theme/img/ad/a4.png"></a>
+            <a href="/ClassCommodityController/all-class.do?commodityType=口红"><img src="resources/products/MAC.jpg"></a>
         </div>
     </div>
     <div class="news-list fr">
         <div class="time-title time-clear"><h2>今日值得购买</h2></div>
-        <div class="news-right"><a href="#"><img src="theme/img/ad/a1.png"></a></div>
+        <div class="news-right"><a href="/ClassCommodityController/all-class.do?commodityType=手机"><img src="theme/img/ad/a1.png"></a></div>
     </div>
 </div>
 <!-- 卖场推荐 End -->
@@ -206,48 +175,17 @@
                 <div class="yScrollListIn">
                     <div style="display:block;" class="yScrollListInList yScrollListInList1">
                         <ul>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p1.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p2.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p3.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p4.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p5.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="theme/img/pd/p6.png">
-                                    <p class="head-name pc-pa10">TP-LINK TL-WN725N 微型150M无线USB网卡</p>
-                                    <p class="label-default">3.45折</p>
-                                </a>
-                            </li>
+                            <c:forEach var="hotCommodity" items="${hotCommodities}">
+                                <li>
+                                    <a href="/pageJump/page.do?storeId=${hotCommodity.storeId}&commodityId=${hotCommodity.commodityId}">
+                                        <img src="${hotCommodity.imageAddress}">
+                                        <p class="head-name pc-pa10">${hotCommodity.commodityName}</p>
+                                    
+                                        <p class="label-default">${hotCommodity.commodityPrice}元</p>
+                                    </a>
+                                </li>
+                            </c:forEach>
+
                         </ul>
                     </div>
                 </div>
@@ -256,173 +194,41 @@
     </div>
 </div>
 
-<div class="containers main-banner"><a href="#"><img src="theme/img/ad/br1.jpg" width="1200" height="105"></a> </div>
+<div class="containers main-banner"><a href="/pageJump/page.do"><img src="theme/img/ad/br1.jpg" width="1200" height="105"></a> </div>
 <div class="time-lists  clearfix">
     <div class="time-list time-list-w fl">
-        <div class="time-title time-clear-f2"><h2>美容护肤</h2>
+        <div class="time-title time-clear-f2"><h2>春季爆款</h2>
             <ul class="brand-tab H-table1 clearfix fr" id="H-table1">
-                <li class="cur"><a href="javascript:void(0);">男装</a></li>
-                <li><a href="javascript:void(0);">女装</a></li>
-                <li><a href="javascript:void(0);">鞋靴</a></li>
-                <li><a href="javascript:void(0);">箱包</a></li>
-                <li><a href="javascript:void(0);">内衣配饰</a></li>
-                <li><a href="javascript:void(0);">珠宝首饰</a></li>
-                <li><a href="javascript:void(0);">奢品礼品</a></li>
-                <li><a href="javascript:void(0);">奢华腕表</a></li>
+                <li class="cur"><a href="javascript:void(0);">潮鞋</a></li>
+
             </ul>
         </div>
         <div class="time-border time-border-h clearfix">
             <div class="brand-img fl">
                 <ul>
-                    <li><a href="#"><img src="theme/img/ad/p1.png" width="125" height="47"></a></li>
-                    <li><a href="#"><img src="theme/img/ad/p2.png" width="125" height="47"></a></li>
-                    <li><a href="#"><img src="theme/img/ad/p3.png" width="125" height="47"></a></li>
-                    <li><a href="#"><img src="theme/img/ad/p4.png" width="125" height="47"></a></li>
-                    <li><a href="#"><img src="theme/img/ad/p5.png" width="125" height="47"></a></li>
-                    <li><a href="#"><img src="theme/img/ad/p6.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p1.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p2.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p3.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p4.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p5.png" width="125" height="47"></a></li>
+                    <li><a href="/pageJump/page.do"><img src="theme/img/ad/p6.png" width="125" height="47"></a></li>
                 </ul>
             </div>
-            <div class="brand-bar fl"><a href="#"><img src="theme/img/ad/bar1.jpg" width="300" height="476"></a> </div>
+            <div class="brand-bar fl"><a href="/pageJump/page.do"><img src="theme/img/ad/bar1.jpg" width="300" height="476"></a> </div>
             <div class="brand-poa fl">
                 <div class="brand-poa H-over1 clearfix">
                     <ul>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar1.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar2.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar3.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar4.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar5.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar1.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="brand-poa H-over1 clearfix" style="display:none;">
-                    <ul>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar1.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被一羊毛蚕丝被</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar2.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar3.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar4.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar5.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
-                        <li>
-                            <div class="brand-imgss"><a href="#"><img src="theme/img/pd/bar1.png"></a></div>
-                            <div class="brand-title"><a href="#">罗莱家纺 暖融二合一羊毛蚕丝被 床上用品</a> </div>
-                            <div class="brand-price">￥599.00 </div>
-                        </li>
+                        <c:forEach var="shoe" items="${shoes}">
+                            <li>
+                                <div class="brand-imgss" ><a href="/pageJump/page.do?storeId=${shoe.storeId}&commodityId=${shoe.commodityId}"><img style="width: 150px;height: 150px;margin-left: 30px;" src="${shoe.imageAddress}"></a></div>
+                                <div class="brand-title"><a href="/pageJump/page.do?storeId=${shoe.storeId}&commodityId=${shoe.commodityId}">${shoe.commodityName}</a> </div>
+                                <div class="brand-price">￥${shoe.commodityPrice}</div>
+                            </li>
+                        </c:forEach>
+
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="containers main-banner"><a href="#"><img src="theme/img/ad/br1.jpg" width="1200" height="105"></a> </div>
-
-<div class="time-lists clearfix">
-    <div class="time-list fl">
-        <div class="time-title time-clear"><h2>好店推荐 </h2></div>
-        <div class="time-border time-border-h clearfix">
-            <div class="fl shop-img">
-                <div class="shop-title"><a href="#"><img src="theme/img/ad/shop1.png"></a></div>
-                <div class="shop-text"><h2>熊太子坚果炒货金冠店铺...</h2> <p>[正品 有赠品 如实描述]</p></div>
-                <div class="shop-work clearfix"><a href="#"><img src="theme/img/ad/shop2.png"></a><a href="#"><img src="theme/img/ad/shop3.png"></a> </div>
-            </div>
-            <div class="shop-bar clearfix fl">
-                <ul>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                    <li>
-                        <div class="shop-icn"><a href="#"><img src="theme/img/ad/shop4.png"></a></div>
-                        <div class="shop-tex"><a href="#">阿迪王品牌店铺</a> </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="news-list fr">
-        <div class="time-title time-clear"><h2>店铺销量top排行</h2></div>
-        <div style="border-left:none;" class="time-border time-border-h">
-            <ul class="shop-top">
-                <li class="clearfix">
-                    <div class="shop-name fl"><a href="#"><img src="theme/img/ad/top1.png"></a></div>
-                    <div class="shop-titl fl"><p><b>NO.1 阿卡官方旗舰店</b></p> <p>梦想会喜欢 <span class="fr red">已售出：3000+</span></p> </div>
-                </li>
-                <li class="clearfix">
-                    <div class="shop-name fl"><a href="#"><img src="theme/img/ad/top1.png"></a></div>
-                    <div class="shop-titl fl"><p><b>NO.1 阿卡官方旗舰店</b></p> <p>梦想会喜欢 <span class="fr red">已售出：3000+</span></p> </div>
-                </li>
-                <li class="clearfix">
-                    <div class="shop-name fl"><a href="#"><img src="theme/img/ad/top1.png"></a></div>
-                    <div class="shop-titl fl"><p><b>NO.1 阿卡官方旗舰店</b></p> <p>梦想会喜欢 <span class="fr red">已售出：3000+</span></p> </div>
-                </li>
-                <li class="clearfix">
-                    <div class="shop-name fl"><a href="#"><img src="theme/img/ad/top1.png"></a></div>
-                    <div class="shop-titl fl"><p><b>NO.1 阿卡官方旗舰店</b></p> <p>梦想会喜欢 <span class="fr red">已售出：3000+</span></p> </div>
-                </li>
-                <li class="clearfix">
-                    <div class="shop-name fl"><a href="#"><img src="theme/img/ad/top1.png"></a></div>
-                    <div class="shop-titl fl"><p><b>NO.1 阿卡官方旗舰店</b></p> <p>梦想会喜欢 <span class="fr red">已售出：3000+</span></p> </div>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
@@ -437,10 +243,10 @@
                 <em>消费者权益</em>
             </h4>
             <ul>
-                <li><a href="#">保障范围 </a> </li>
+
                 <li><a href="#">退货退款流程</a> </li>
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
+
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -451,7 +257,7 @@
             </h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
+
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
@@ -463,7 +269,7 @@
             </h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
+
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
@@ -476,7 +282,7 @@
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
+
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -486,10 +292,10 @@
         <div class="aui-footer-list clearfix">
             <h4>购物指南</h4>
             <ul>
-                <li><a href="#">保障范围 </a> </li>
+
                 <li><a href="#">购物流程</a> </li>
-                <li><a href="#">会员介绍 </a> </li>
-                <li><a href="#">生活旅行</a> </li>
+
+
                 <li><a href="#"> 常见问题 </a> </li>
                 <li><a href="#"> 联系客服购物指南 </a> </li>
             </ul>
@@ -498,11 +304,9 @@
             <h4>特色服务</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
+
                 <li><a href="#">服务中心</a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
+
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -510,11 +314,9 @@
             <h4>帮助中心</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
+
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
+
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -522,12 +324,9 @@
             <h4>新手指导</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
-                <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
+
             </ul>
         </div>
     </div>

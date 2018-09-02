@@ -7,4 +7,14 @@
     <select id="ShopLogindo"  resultType="org.uushopping.pojo.Store" >
       select * from store where storeMan = #{param1} and storePassword = #{param2}
     </select>
+    <select id="ShopOrdersAll" resultType="org.uushopping.pojo.Orders">
+        select * from orders;
+    </select>
+    <update id="updateOrderStatus" >
+
+        UPDATE orders set orderStatus =#{arg0}, ordersExpressDelivery =#{arg1} where orderId=#{arg2}
+    </update>
+    <delete id="deleteByOrderId" >
+        delete from orders  where orderId=#{arg0}
+    </delete>
 </mapper>

@@ -16,10 +16,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>UU购物</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
     <script type="text/javascript">
         $(function () {
             var  getname = $("#sucesslogin").children("a").text();

@@ -13,11 +13,11 @@
             <ul class="BHeaderl">
                 <li id="pc-nav" class="menu hdin" style="visibility: hidden"><a href="#" class="tit">我的商城</a>
                     <div class="subnav">
-                        <a href="my-d.do">我的订单</a>
-                        <a href="my-s.do">我的收藏</a>
-                        <a href="my-user.do">账户安全</a>
-                        <a href="my-add.do">地址管理</a>
-                        <a href="my-p.do">我要评价</a>
+                        <a href="/my-d.do">我的订单</a>
+                        <a href="/my-s.do">我的收藏</a>
+                        <a href="/my-user.do">账户安全</a>
+                        <a href="/my-add.do">地址管理</a>
+                        <a href="/my-p.do">我要评价</a>
                     </div>
                 </li>
                 <li id="dologin" ><a href="login.do" style="color:#ea4949;">请登录</a> </li>
@@ -26,51 +26,46 @@
                 <li id="doregister" ><a href="register.do">免费注册</a> </li>
                 <li id="successregister" style="display: none;"><a href="/logout.do">退出登录</a> </li>
                 <li class="headerul">|</li>
-                <li><a href="/pageJump/login-business.do">商家登陆</a></li>
+                <li><a href="/shopController/login-business.do">商家登陆</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container clearfix">
-        <div class="header-logo fl"><h1><a href="index.do"><img src="theme/icon/logo.png"></a> </h1></div>
+        <div class="header-logo fl"><h1><a href="${pageContext.request.contextPath}/index.jsp"><img src="../theme/icon/logo.png"></a> </h1></div>
         <div class="head-form fl">
             <form class="clearfix">
                 <input type="text" class="search-text" accesskey="" id="key" autocomplete="off"  placeholder="洗衣机">
                 <button class="button" onclick="search('key');return false;">搜索</button>
             </form>
         </div>
-        <div class="header-cart fr hdin" style="visibility: hidden"><a href="shopcart.do"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
+        <div class="header-cart fr hdin" style="visibility: hidden"><a href="/shopcart.do?getshopcarnum=${sessionScope.ShopCarNum}"><img src="../theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
         <div class="head-mountain"></div>
     </div>
     <div class="yHeader">
         <div class="yNavIndex">
-            <div class="pullDown">
-                <h2 class="pullDownTitle">
-                    全部商品分类
-                </h2>
-                <div class="yMenuListCon">
-                    <div class="yMenuListConin">
-                        <div class="yMenuLCinList fl">
-                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=手机">手机</a>
-                            &nbsp; &nbsp; &nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=电脑">电脑</a>
+            <%--<div class="pullDown">--%>
+                <%--<h2 class="pullDownTitle">--%>
+                    <%--全部商品分类--%>
+                <%--</h2>--%>
+                <%--<ul class="pullDownList">--%>
+                    <%--<c:forEach items="${commodityType}" var="type">--%>
+                        <%--<li>--%>
+                            <%--<i class="listi2"></i>--%>
+                            <%--<a href="/ClassCommodityController/all-class.do?commodityType=${type}" target="_blank">${type}</a>--%>
+                            <%--<span></span>--%>
+                        <%--</li>--%>
+                    <%--</c:forEach>--%>
+                <%--</ul>--%>
 
-                        </div>
-                    </div>
-
-                    <div class="yMenuListConin">
-                        <div class="yMenuLCinList fl">
-                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=男鞋">男鞋</a>
-                            &nbsp; &nbsp; &nbsp;<a href="/erji-class.do?oneClass=数码&erJiClass=女鞋">女鞋</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%--</div>--%>
             <ul class="yMenuIndex">
-                <li><a href="all-class.do?oneClass=服装" target="_blank">服装城</a></li>
-                <li><a href="all-class.do?oneClass=数码" target="_blank">数码城</a></li>
-                <li><a href="/all-cl.do" target="_blank">全部商品</a></li>
-
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=手机" target="_blank">手机城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=衣服" target="_blank">服装城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=香水" target="_blank">香水有毒</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=护肤品" target="_blank">护肤城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=鞋" target="_blank">潮鞋城</a></li>
+                <li><a href="/ClassCommodityController/all-class.do?commodityType=all" target="_blank">全部商品</a></li>
             </ul>
 
         </div>

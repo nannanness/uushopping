@@ -6,5 +6,7 @@
     <select id="findOrderAll" resultType="org.uushopping.pojo.Orders">
         select * from orders
     </select>
-
+    <select id="findOrderSum" resultType="_int">
+        select sum(orderAmount) from orders
+    </select>
 </mapper>

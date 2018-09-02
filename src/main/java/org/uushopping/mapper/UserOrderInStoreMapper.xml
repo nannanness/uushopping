@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.uushopping.mapper.UserOrderInStoreMapper">
+    <!--查询sql语句-->
+    <select id="findAllOrderInStore"  resultType="org.uushopping.pojo.UserOrderInStore">
+     SELECT cdig.imageAddress,co.commodityname,co.commodityDetails,co.commodityPrice,co.commoditySize,co.commodityVersion,co.commodityStock,u.userAddress,u.userPhone,u.username,s.storeName,oc.commodityId,oc.storeId,oc.commodityCount,oc.amountPrice,o.* FROM commodityimage cdig,commodity co,orders o,user u, store s, ordercommodity oc WHERE cdig.commodityImageId=co.commodityImageId AND co.commodityId = oc.commodityId AND u.userId = o.userId AND s.storeId = oc.storeId AND o.order_commodity_id = oc.orderCommodityId AND u.userId=#{arg0}
+</select>
+</mapper>

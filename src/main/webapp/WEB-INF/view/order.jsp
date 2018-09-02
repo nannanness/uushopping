@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tyq
@@ -16,10 +17,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>提交订单</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
     <script type="text/javascript">
         (function(a){
             a.fn.hoverClass=function(b){
@@ -151,7 +152,7 @@
         </div>
     </div>
     <div class="container clearfix">
-        <div class="header-logo fl" style="width:212px;"><h1><a href="/index.do"><img src="theme/icon/logo.png"></a></h1></div>
+        <div class="header-logo fl" style="width:212px;"><h1><a href="/index.do"><img src="../theme/icon/logo.png"></a></h1></div>
         <div class="pc-order-titlei fl"><h2>填写订单</h2></div>
         <div class="pc-step-title fl">
             <ul>
@@ -170,13 +171,13 @@
 <section>
     <div class="containers">
         <div class="pc-space">
-            <div class="pc-order-title clearfix"><h3 class="fl">收货人信息</h3> <a href="#" class="fr pc-order-add btn1">新增收货地址</a> </div>
+            <div class="pc-order-title clearfix"><h3 class="fl">收货人信息</h3> <a href="#" class="fr pc-order-add btn1">修改收货地址</a> </div>
             <div class="pc-border">
                 <div class="pc-order-text clearfix">
                     <ul class=" clearfix">
                         <li class="clearfix fl">
                             <div class="fl pc-frame pc-frams"> <a href="#">默认地址</a></div>
-                            <div class="fl pc-address"><span>嘻哈杂货铺</span> <span>186****4832 </span> <span>北京北京市海淀区首享科技大厦9层</span></div>
+                            <div class="fl pc-address"><span>${user.username}</span> <span>${user.userPhone} </span> <span>${user.userAddress}</span></div>
                         </li>
                         <li class="fr">
                             <div class="pc-click"><a href="#">设为默认地址</a> <a href="#">编辑</a> <a href="#">删除</a> </div>
@@ -190,7 +191,7 @@
          </div> -->
         <div class="pc-space clearfix">
             <div class="fl ">
-                <div class="pc-order-title clearfix"><h3 class="fl">选择快递</h3></div>
+                <div class="pc-order-title clearfix"><h3 class="fl">非常抱歉暂时无法由用户选择快递</h3></div>
                 <div class="fr pc-border">
                     <div class="pc-order-text pc-order-l clearfix">
                         <ul id="H-table" class="clearfix H-table"  >
@@ -214,18 +215,17 @@
                 <div class="pc-order-title clearfix"><h3 class="fl">商品信息</h3></div>
                 <div class="pc-border">
                     <div class="pc-order-text clearfix">
-                        <div class="pc-wares-t"><h4>商家：  阿卡官方旗舰店</h4></div>
+                        <c:forEach items="${userOrderInStores}" var="uois">
+                        <div class="pc-wares-t"><h4>商家：  ${uois.storeName}</h4></div>
+
                         <div class="clearfix pc-wares-p">
-                            <div class="fl pc-wares"><a href="#"><img src="theme/img/pd/pc1.png"></a></div>
-                            <div class="fl pc-wares-w"> <a href="#">小米（MI）小米USB插线板 3个USB充电口 支持2A快充 3重安全保护</a> <p class="clearfix"><span class="fl">颜色：白色</span><span class="fr">版本：联通高</span></p></div>
-                            <div class="fl pc-wares-s"><span class="reds">￥49.00</span><span>x1</span><span>有货</span></div>
+                            <div class="fl pc-wares"><a href="#"><img src="${uois.imageAddress}"style="width: 84px;height: 84px"></a></div>
+                            <div class="fl pc-wares-w"> <a href="#">${uois.commodityName}:${uois.commodityDetails}</a> <p class="clearfix"><span class="fl">尺寸：${uois.commoditySize}</span><span class="fr">版本：${uois.commodityVersion}</span></p></div>
+                            <div class="fl pc-wares-s"><span class="reds">￥${uois.commodityPrice}</span><span>库存：${uois.commodityStock}</span></div>
                         </div>
-                        <div class="clearfix pc-wares-p">
-                            <div class="fl pc-wares"><a href="#"><img src="theme/img/pd/pc1.png"></a></div>
-                            <div class="fl pc-wares-w"> <a href="#">小米（MI）小米USB插线板 3个USB充电口 支持2A快充 3重安全保护</a> <p class="clearfix"><span class="fl">颜色：白色</span><span class="fr">版本：联通高</span></p></div>
-                            <div class="fl pc-wares-s"><span class="reds">￥49.00</span><span>x1</span><span>有货</span></div>
-                        </div>
+                        </c:forEach>
                         <div class="pc-written"><p>订单留言</p></div>
+
                     </div>
                 </div>
             </div>
@@ -245,19 +245,17 @@
         <div class="clearfix">
             <div class="fr pc-list-t">
                 <ul>
-                    <li><span><b>2</b> 件商品，总商品金额：</span> <em>￥558.00</em></li>
-                    <li><span>减额：</span> <em>￥558.00</em></li>
-                    <li><span>运费：</span> <em>￥558.00</em></li>
-                    <li><span>应付总额：</span> <em>￥558.00</em></li>
-                    <li><span>减额：</span> <em>￥558.00</em></li>
+                    <li><span><b>${userOrderInStores.size()}</b> 件商品，总商品金额：</span> <em>￥${AllPrice}</em></li>
+                    <li><span>运费：</span> <em>￥8.00</em></li>
+                    <li><span>应付总额：</span> <em>￥${allSum}</em></li>
                 </ul>
             </div>
         </div>
         <div class="pc-space-n"></div>
         <div class="clearfix">
             <div class="fr pc-space-j">
-                <spna>应付总额：<strong>￥558.00</strong></spna>
-                <button class="pc-submit"><a href="d-success.do" style="color:#dedede">提交订单</a></button>
+                <spna>应付总额：<strong>￥${allSum}</strong></spna>
+                <button class="pc-submit"><a href="d-success.do?userId=${user.userId}" style="color:#dedede">提交订单</a></button>
             </div>
         </div>
     </div>
@@ -270,7 +268,7 @@
     <div class="time-lists aui-footer-pd clearfix">
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
@@ -283,7 +281,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d2.png"></span>
+                <span><img src="../theme/icon/icon-d2.png"></span>
                 <em>新手上路</em>
             </h4>
             <ul>
@@ -295,7 +293,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d3.png"></span>
+                <span><img src="../theme/icon/icon-d3.png"></span>
                 <em>保障正品</em>
             </h4>
             <ul>
@@ -307,7 +305,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
@@ -371,7 +369,7 @@
 </div>
 <!-- footer End -->
 
-<script type="text/javascript" src="theme/js/address.js"></script>
+<script type="text/javascript" src="../theme/js/address.js"></script>
 <script type="text/javascript">
     $(function(){
 

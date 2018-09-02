@@ -32,9 +32,5 @@ function validate(){
         // document.getElementById("formlogin").onsubmit;
         formlogin.submit();
     }
-    // var iserror = $("#erromissage").text();
-    // if (iserror != null) {
-    //     alert("用户名或密码错误");
-    //     $("#erromissage").text("");
-    // }
+   
 }  

@@ -15,4 +15,23 @@
     <update id="setFlag" >
         update commodity set commodityFlag = #{arg0} where commodityId = #{arg1};
     </update>
+    <select id="selectCommodityById" resultType="org.uushopping.pojo.CommodityInfo">
+        SELECT
+	c.commodityId,
+          c.commodityName,
+          c.commodityDetails,
+          c.commodityPrice,
+          c.commodityType,
+          c.commoditySize,
+          c.commodityVersion,
+          c.commodityImageId,
+          c.commodityStyle,
+          c.salesVolume,
+          c.cumulativeComment,
+          c.commodityStock,
+          c.commodityBrand,
+          c.commondityFrom,
+	ci.imageAddress
+        from commodity c ,commodityimage  ci WHERE commodityId =#{arg0} AND c.commodityImageId = ci.commodityImageId;
+    </select>
 </mapper>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dell00
@@ -8,7 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
     <meta charset="UTF-8">
     <meta name="Generator" content="EditPlus®">
     <meta name="Author" content="">
@@ -17,14 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>uu购物</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css"> <script type="text/javascript" src="theme/js/jquery.js"></script>
-    <script type="text/javascript" src="theme/js/index.js"></script>
-    <script type="text/javascript" src="theme/js/js-tab.js"></script>
-    <script type="text/javascript" src="theme/js/MSClass.js"></script>
-    <script type="text/javascript" src="theme/js/jcarousellite.js"></script>
-    <script type="text/javascript" src="theme/js/top.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
+    <script type="text/javascript" src="../theme/js/index.js"></script>
+    <script type="text/javascript" src="../theme/js/js-tab.js"></script>
+    <script type="text/javascript" src="../theme/js/MSClass.js"></script>
+    <script type="text/javascript" src="../theme/js/jcarousellite.js"></script>
+    <script type="text/javascript" src="../theme/js/top.js"></script>
     <script type="text/javascript">
         $(function () {
             var getname = $("#sucesslogin").children("a").text();
@@ -35,9 +36,7 @@
                 $(".hdin").css('visibility', 'visible');
                 $("#dologin").hide()
                 $("#doregister").hide()
-
             }
-
         });
     </script>
 
@@ -47,61 +46,45 @@
 <!-- header End -->
 
 <div class="containers"><div class="pc-nav-item"><a href="#">全部分类 </a> &gt; <a href="#">${oneClass}</a></div></div>
-
 <div class="containers clearfix">
     <div class="fl">
         <div id="firstpane" class="menu_list">
-            <h2>所有类目</h2>
-            <h3 class="menu_head current">手机</h3>
-            <h3 class="menu_head">电脑</h3>
-            <h3 class="menu_head"></h3>
+            <h2>所属类目</h2>
+            <h3 class="menu_head current">${oneClass}</h3>
         </div>
     </div>
     <div class="pc-info fr">
         <div class="pc-term">
             <dl class="pc-term-dl clearfix">
                 <dt>店铺：</dt>
-                <dd><a href="#">三星（SAMSUNG）</a></dd>
-                <dd><a href="#">华为（HUAWEI）</a></dd>
-                <dd><a href="#">联想（lenovo）</a></dd>
-                <dd><a href="#">索尼（SONY）</a></dd>
-                <dd><a href="#">飞利浦（Philips）</a></dd>
-                <dd><a href="#">Apppc-search clearfixle</a></dd>
-                <dd><a href="#">小米（MI）</a></dd>
-                <dd><a href="#">HTC</a></dd>
-                <dd><a href="#">酷派（Coolpad）</a></dd>
-                <dd><a href="#">诺基亚（NOKIA）</a></dd>
-                <dd><a href="#">中兴（ZTE）</a></dd>
+                <%--<c:out value="${list.size()}"></c:out>--%>
+                <%--<c:out value="${storeList.size()}"></c:out>--%>
+                <c:forEach var="store" items="${storeList}">
+                    <dd><a href="#">${store.storeName}</a></dd>
+                </c:forEach>
             </dl>
-            <div>
-                <a href="#">更多</a>
-            </div>
-
             <div class="pc-line"></div>
         </div>
-        <div class="pc-term">
-            <div class="clearfix pc-search-p">
-                <div class="fl pc-search-e"><a href="#" class="cur">销量</a><a href="#">价格</a><a href="#">评价</a><a href="#">上架时间</a></div>
-            </div>
-        </div>
+        <%--<div class="pc-term">--%>
+            <%--<div class="clearfix pc-search-p">--%>
+                <%--<div class="fl pc-search-e"><a href="#" class="cur">销量</a><a href="#">价格</a><a href="#">评价</a><a href="#">上架时间</a></div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
         <div class="time-border-list pc-search-list clearfix">
             <ul class="clearfix">
-                <li>
-                    <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
-                    <p class="head-name"><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框</a> </p>
-                    <p><span class="price">￥138.00</span></p>
-                    <p class="head-futi clearfix"><span class="fl">好评度：90% </span> <span class="fr">100人购买</span></p>
-                    <p class="clearfix"><span class="label-default fl">抢购</span> <a href="#" class="fr pc-search-c">收藏</a> </p>
-                </li>
+                <c:forEach var="commodity" items="${list}">
+                    <li>
+                        <div style="width: 200px;height: 240px">
+                            <a href="/pageJump/page.do?storeId=${commodity.storeId}&commodityId=${commodity.commodityId}"><img src="${commodity.imageAddress}" style="width:100%;max-height: 100%"></a>
+                        </div>
 
-                <li>
-                    <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
-                    <p class="head-name"><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框</a> </p>
-                    <p><span class="price">￥138.00</span></p>
-                    <p class="head-futi clearfix"><span class="fl">好评度：90% </span> <span class="fr">100人购买</span></p>
-                    <p class="clearfix"><span class="label-default fl">抢购</span> <a href="#" class="fr pc-search-c">收藏</a> </p>
-                </li>
-
+                        <p class="head-name"><a href="#"></a>${commodity.commodityName}</p>
+                        <p class="head-name"><a href="#">${commodity.commodityDetails}</a> </p>
+                        <p><span class="price">￥${commodity.commodityPrice}</span></p>
+                        <p class="head-futi clearfix"><span class="fl">品牌：${commodity.commodityBrand} </span> <span class="fr">销量：${commodity.salesVolume}</span></p>
+                        <p class="clearfix"><span class="label-default fl"><a href="#" >购买</a></span><%--<a href="#" class="fr pc-search-c">收藏</a>--%></p>
+                    </li>
+                </c:forEach>
             </ul>
             <div class="clearfix">
                 <div class="fr pc-search-g">
@@ -114,7 +97,7 @@
                     <a href="javascript:;">6</a>
                     <a href="javascript:;">7</a>
                     <span class="pc-search-di">…</span>
-                    <a title="使用方向键右键也可翻到下一页哦！" class="pc-search-n" href="javascript:;" onclick="SEARCH.page(3, true)">下一页</a>
+                    <a class="pc-search-n" href="javascript:;" onclick="SEARCH.page(3, true)">下一页</a>
                     <span class="pc-search-y">
                         <em>  共20页    到第</em>
                         <input type="text" class="pc-search-j" placeholder="1">

@@ -17,7 +17,7 @@ public class Commodity {
     // 商品单价
     private double commodityPrice;
     // 商品分类
-    private int commodityTypeId;
+    private String commodityType;
     // 商品尺寸
     private String commoditySize;
     // 商品版本
@@ -46,12 +46,12 @@ public class Commodity {
     public Commodity() {
     }
 
-    public Commodity(int storeId, String commodityName, String commodityDetails, double commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
+    public Commodity(int storeId, String commodityName, String commodityDetails, double commodityPrice, String commodityType, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
         this.storeId = storeId;
         this.commodityName = commodityName;
         this.commodityDetails = commodityDetails;
         this.commodityPrice = commodityPrice;
-        this.commodityTypeId = commodityTypeId;
+        this.commodityType = commodityType;
         this.commoditySize = commoditySize;
         this.commodityVersion = commodityVersion;
         this.commodityImageId = commodityImageId;
@@ -66,13 +66,13 @@ public class Commodity {
         this.commodityMaterial = commodityMaterial;
     }
 
-    public Commodity(int commodityId, int storeId, String commodityName, String commodityDetails, double commodityPrice, int commodityTypeId, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
+    public Commodity(int commodityId, int storeId, String commodityName, String commodityDetails, double commodityPrice, String commodityType, String commoditySize, String commodityVersion, int commodityImageId, String addedTime, String commodityStyle, String salesVolume, String cumulativeComment, String commodityStock, String commodityFlag, String commodityBrand, String commodityFrom, String commodityMaterial) {
         this.commodityId = commodityId;
         this.storeId = storeId;
         this.commodityName = commodityName;
         this.commodityDetails = commodityDetails;
         this.commodityPrice = commodityPrice;
-        this.commodityTypeId = commodityTypeId;
+        this.commodityType = commodityType;
         this.commoditySize = commoditySize;
         this.commodityVersion = commodityVersion;
         this.commodityImageId = commodityImageId;
@@ -127,12 +127,12 @@ public class Commodity {
         this.commodityPrice = commodityPrice;
     }
 
-    public int getCommodityTypeId() {
-        return commodityTypeId;
+    public String getCommodityType() {
+        return commodityType;
     }
 
-    public void setCommodityTypeId(int commodityTypeId) {
-        this.commodityTypeId = commodityTypeId;
+    public void setCommodityType(String commodityType) {
+        this.commodityType = commodityType;
     }
 
     public String getCommoditySize() {
@@ -239,7 +239,7 @@ public class Commodity {
         return commodityId == commodity.commodityId &&
                 storeId == commodity.storeId &&
                 Double.compare(commodity.commodityPrice, commodityPrice) == 0 &&
-                commodityTypeId == commodity.commodityTypeId &&
+                commodityType == commodity.commodityType &&
                 commodityImageId == commodity.commodityImageId &&
                 Objects.equals(commodityName, commodity.commodityName) &&
                 Objects.equals(commodityDetails, commodity.commodityDetails) &&
@@ -259,7 +259,7 @@ public class Commodity {
     @Override
     public int hashCode() {
 
-        return Objects.hash(commodityId, storeId, commodityName, commodityDetails, commodityPrice, commodityTypeId, commoditySize, commodityVersion, commodityImageId, addedTime, commodityStyle, salesVolume, cumulativeComment, commodityStock, commodityFlag, commodityBrand, commodityFrom, commodityMaterial);
+        return Objects.hash(commodityId, storeId, commodityName, commodityDetails, commodityPrice, commodityType, commoditySize, commodityVersion, commodityImageId, addedTime, commodityStyle, salesVolume, cumulativeComment, commodityStock, commodityFlag, commodityBrand, commodityFrom, commodityMaterial);
     }
 
     @Override
@@ -270,7 +270,7 @@ public class Commodity {
                 ", commodityName='" + commodityName + '\'' +
                 ", commodityDetails='" + commodityDetails + '\'' +
                 ", commodityPrice=" + commodityPrice +
-                ", commodityTypeId=" + commodityTypeId +
+                ", commodityTypeId=" + commodityType +
                 ", commoditySize='" + commoditySize + '\'' +
                 ", commodityVersion='" + commodityVersion + '\'' +
                 ", commodityImageId=" + commodityImageId +

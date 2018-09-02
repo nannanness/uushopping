@@ -4,21 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import org.uushopping.mapper.CarouselMapMapper;
+import org.uushopping.mapper.*;
 
 
-import org.uushopping.mapper.GuestbookBusinessMapper;
-import org.uushopping.mapper.StoreMapper;
-
-import org.uushopping.mapper.SuperManagerMapper;
-
-import org.uushopping.pojo.CarouselMap;
-import org.uushopping.pojo.Store;
-import org.uushopping.pojo.GuestbookBusiness;
-import org.uushopping.pojo.User;
+import org.uushopping.pojo.*;
+import org.uushopping.service.ICommodityService;
 import org.uushopping.service.ISuperManagerService;
 import org.uushopping.service.ISuperUserService;
+import org.uushopping.service.IUserOrderInStoreService;
 import org.uushopping.service.IUserService;
+import org.uushopping.service.impl.CommodityServiceImpl;
 
 
 import java.text.SimpleDateFormat;
@@ -31,11 +26,12 @@ public class TestDemo {
     @Autowired
     SuperManagerMapper superManagerMapper;
     @Autowired
-    CarouselMapMapper carouselMapMapper;
+    CommodityServiceImpl commodityService1;
 
     @Autowired
     StoreMapper storeMapper;
-
+    @Autowired
+    CommodityMapper commodityMapper;
     @Autowired
     GuestbookBusinessMapper guestbookBusinessMapper;
 
@@ -43,31 +39,63 @@ public class TestDemo {
     ISuperManagerService service;
     @Autowired
     IUserService iUserService;
-
+    @Autowired
+    ShopLoginMapper shopLoginMapper;
     @Autowired
     ISuperUserService iSuperUserService;
+
+    @Autowired
+    UserOrderInStoreMapper userOrderInStoreMapper;
+    @Autowired
+    IUserOrderInStoreService iUserOrderInStoreService;
+
+
+    @Autowired
+    ICommodityService commodityService;
+
     @Test
     public void superManagerTest() {
-        System.out.println(superManagerMapper.findSuperManagerInfoById(1));
-//        System.out.println(superManagerMapper.findSuperManagerInfoByNameAndPassword("大毛" , "qqq"));
-//        System.out.println(superManagerMapper.findManagerHistoryById(1));
-        System.out.println(service.findManagerHistoryByID(1));
-//        service.insertManagerHistory(1,"1234");
-//       List<User> list = iUserService.getUsers();
-//        System.out.println(list);
-//        User user = iSuperUserService.selectUser("张三","2018-09-12");
-//        System.out.println(user);
-
+        List<HotCommodity> hotCommodities = commodityMapper.selectShoe();
+        System.out.println(hotCommodities);
     }
-
     @Test
-    public void carouselMapTest(){
-        List<CarouselMap> carouselMaps=carouselMapMapper.findAllCarousel();
-        for (CarouselMap i:carouselMaps){
+    public  void ShopOrderAll(){
+        shopLoginMapper.updateOrderStatus("已发货","天天",160105012);
+        shopLoginMapper.deleteByOrderId(160105012);
+       List<Orders> orders = shopLoginMapper.ShopOrdersAll();
+        for (Orders i:orders){
             System.out.println(i);
         }
 
+    }
+    @Test
+    public void commodityMapper(){
 
+//        System.out.println(commodityMapper.selectCommodityById(1));
+//        System.out.println(commodityMapper.getCommodityByClass("手机"));
+
+//        System.out.println(commodityMapper.getStoreByClass("手机"));
+//        System.out.println(commodityMapper.getCommodityImageByCommodityId(1));
+//        System.out.println(commodityService.getCommodityImageByCommodityId(1));
+
+        System.out.println(commodityMapper.getCommodity_Image("手机").size());
+        System.out.println(commodityMapper.getALLCommodity_Image().size());
+    }
+
+
+    @Test
+    public void carouselMapTest(){
+
+        System.out.println(storeMapper.selectStoreById(1));
+
+
+    }
+    @Test
+    public void findAllOrderInStore(){
+        List<UserOrderInStore> userOrderInStores=iUserOrderInStoreService.findAllOrderInStore(27);
+        for (UserOrderInStore i:userOrderInStores){
+            System.out.println(i);
+        }
     }
     @Test
     public void guestbookBusinessTest(){
@@ -105,7 +133,7 @@ public class TestDemo {
 //        String dateStr = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
 //        carouselMapMapper.uploadCarouselAddress("/resources/img/ad/ll.jpg",dateStr);
 
-        carouselMapMapper.deleteCarouselMap(2);
+
     }
 
 }

@@ -39,7 +39,7 @@ public class StoreController {
     }
 
     @RequestMapping("/add_store.do")
-    public ModelAndView addStore(ModelAndView modelAndView, @RequestParam String storeName,@RequestParam String storeMan, @RequestParam String storePassword, @RequestParam String storePassword2, @RequestParam String storePhone, @RequestParam String storeEmail, @RequestParam String storeIntroduction){
+    public ModelAndView addStore(ModelAndView modelAndView, @RequestParam String storeName,@RequestParam String storeMan, @RequestParam String storePassword,@RequestParam String storePhone, @RequestParam String storeEmail, @RequestParam String storeIntroduction){
         Store store = new Store();
         store.setStoreName(storeName);
         store.setStoreMan(storeMan);

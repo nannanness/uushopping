@@ -15,4 +15,9 @@ public class OrderManagerSreviceImpl implements IOrderManagerService {
     public List<Orders> getOrdersAll() {
         return managerMapper.findOrderAll();
     }
+
+    @Override
+    public int sumOrderCount() {
+        return managerMapper.findOrderSum();
+    }
 }

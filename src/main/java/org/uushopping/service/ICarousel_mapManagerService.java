@@ -1,6 +1,7 @@
 package org.uushopping.service;
 
 
+import org.apache.ibatis.annotations.Select;
 import org.uushopping.pojo.CarouselMap;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface ICarousel_mapManagerService {
     public void uploadCarouselAddress(String address,String date);
     // 删除轮播图
     public void deleteCarouselMap(int id);
+    //查询首页轮播图
+    public List<String> getIndexMap();
 }

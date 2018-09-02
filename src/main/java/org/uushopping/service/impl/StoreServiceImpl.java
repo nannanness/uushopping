@@ -3,6 +3,7 @@ package org.uushopping.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.uushopping.mapper.StoreMapper;
+import org.uushopping.pojo.Commodity_Image;
 import org.uushopping.pojo.Store;
 import org.uushopping.service.IStoreService;
 
@@ -43,5 +44,11 @@ public class StoreServiceImpl implements IStoreService {
     @Override
     public void setFlag(String flag, int storeId) {
         storeMapper.setFlag(flag, storeId);
+    }
+
+    @Override
+    public Store findStoreById(int storeId) {
+        Store store = storeMapper.selectStoreById(storeId);
+        return store;
     }
 }

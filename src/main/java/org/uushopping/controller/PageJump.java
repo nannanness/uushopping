@@ -1,12 +1,47 @@
 package org.uushopping.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.uushopping.pojo.Commodity;
+import org.uushopping.pojo.CommodityInfo;
+import org.uushopping.pojo.Store;
+import org.uushopping.service.impl.CommodityServiceImpl;
+import org.uushopping.service.impl.Ifunclmpl;
+import org.uushopping.service.impl.StoreServiceImpl;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/pageJump")
 public class PageJump {
+    @Autowired
+    CommodityServiceImpl commodityService ;
+    @Autowired
+    StoreServiceImpl storeService;
+    @Autowired
+    Ifunclmpl ifunclmpl;
+    //商品页面
+    @RequestMapping("/page.do")
+    public ModelAndView toPage(@RequestParam int storeId,@RequestParam int commodityId, ModelAndView modelAndView){
+        System.out.println(storeId+"----"+commodityId);
+        //获取商品的详细信息
+        CommodityInfo commodity = commodityService.selectCommodityById(commodityId);
+        //获取店铺的信息
+        Store store = storeService.findStoreById(storeId);
+        modelAndView.addObject("commodity",commodity);
+        modelAndView.addObject("store",store);
+        modelAndView.setViewName("page");
+        return modelAndView;
+    }
+
     @RequestMapping("/index-system.do")
     public ModelAndView toManager(ModelAndView modelAndView){
         modelAndView.setViewName("index-system");
@@ -280,4 +315,12 @@ public class PageJump {
         modelAndView.setViewName("member-show");
         return modelAndView;
     }
+    @RequestMapping("/joinShopCar.do")
+    public void joinShopCar(HttpServletRequest request,@RequestParam int commodityId,@RequestParam int storeId, HttpServletResponse response,HttpSession session) throws ServletException, IOException {
+        int ShopCarNum = (int)session.getAttribute("ShopCarNum");
+        ifunclmpl.joinCommodity(ShopCarNum,commodityId);
+        request.getRequestDispatcher("/pageJump/page.do?storeId="+storeId+"&commodityId="+commodityId).forward(request,response);
+
+    }
+
 }

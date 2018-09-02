@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dell00
@@ -16,12 +17,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>商品详情</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
-    <script type="text/javascript" src="theme/js/index.js"></script>
-    <script type="text/javascript" src="theme/js/js-tab.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
+    <script type="text/javascript" src="../theme/js/index.js"></script>
+    <script type="text/javascript" src="../theme/js/js-tab.js"></script>
     <script>
         $(function(){
             $(".yScrollListInList1 ul").css({width:$(".yScrollListInList1 ul li").length*(160+84)+"px"});
@@ -136,10 +137,29 @@
                 $("#dologin").hide()
                 $("#doregister").hide()
             }
+            var joinShopCar = $("#joinShopCar");
+            joinShopCar.click(function () {
+                var ifLogin =$("#ifLogin").val();
+                var commodityId =$("#commodityId").val();
+                var storeId =$("#storeId").val();
+                if(ifLogin){
+                    $(this).attr("href","/pageJump/joinShopCar.do?commodityId="+commodityId+"&storeId="+storeId);
+                    alert("添加成功");
+                    // $.get(
+                    //     "/pageJump/joinShopCar.do?commodityId="+commodityId,
+                    //     function () {
+                    //         alert("添加成功")
+                    //     }
+                    // )
+                }else {
+                    alert("请登陆后再操作")
+                }
+            })
         });
     </script>
 </head>
 <body>
+<input type="hidden" id="ifLogin" value="${flage}">
 <!--- header begin-->
 <jsp:include page="index_head.jsp" flush="true"></jsp:include>
 <!-- header End -->
@@ -151,54 +171,23 @@
             <div class="pc-details-l">
                 <div class="pc-product clearfix">
                     <div class="pc-product-h">
-                        <div class="pc-product-top"><img src="../theme/img/pd/product.png" id="big_img" width="418" height="418"></div>
-                        <div class="pc-product-bop clearfix" id="pro_detail">
-                            <ul>
-                                <li><a href="javascript:void(0);" class="cur" simg="../theme/img/pd/product.png"><img src="../theme/img/pd/product.png" width="58" height="58"></a> </li>
-                                <li><a href="javascript:void(0);" simg="../theme/img/pd/product2.png"><img src="../theme/img/pd/product1.png" width="58" height="58"></a> </li>
-                                <li><a href="javascript:void(0);" simg="../theme/img/pd/product3.png"><img src="../theme/img/pd/product2.png" width="58" height="58"></a> </li>
-                                <li><a href="javascript:void(0);" simg="../theme/img/pd/produc4.png"><img src="../theme/img/pd/product3.png" width="58" height="58"></a> </li>
-                                <li><a href="javascript:void(0);" simg="../theme/img/pd/product5.png"><img src="../theme/img/pd/product4.png" width="58" height="58"></a> </li>
-                            </ul>
-                        </div>
+                        <div class="pc-product-top"><img src="${commodity.imageAddress}" id="big_img" width="418" height="418"></div>
+
                     </div>
                     <div class="pc-product-t">
                         <div class="pc-name-info">
-                            <h1>三星 Galaxy S3 (I939I) 白色 电信3G手机 双卡双待经典S3升级版，全新便捷双卡双待（GSM可上网)</h1>
-                            <p class="clearfix pc-rate"><strong>￥1900.00</strong> <span><em>限时抢购</em>抢购将于<b class="reds">18</b>小时<b class="reds">57</b>分<b class="reds">34</b>秒后结束</span></p>
-                            <p>由<a href="#" class="reds">神游官方旗舰店</a> 负责发货，并提供售后服务。</p>
+                            <h1>${commodity.commodityName}</h1>
+                            <br><br>
+                            <p>由<a href="javascript:void(0)" class="reds">${store.storeName}</a> 负责发货，并提供售后服务。</p>
                         </div>
                         <div class="pc-dashed clearfix">
-                            <span>累计销量：<em class="reds">3988</em> 件</span><b>|</b><span>累计评价：<em class="reds">3888</em></span>
+                            <span>累计销量：<em class="reds">${commodity.salesVolume}</em> 件</span><b>|</b><span>累计评价：<em class="reds">${commodity.cumulativeComment}</em></span>
                         </div>
                         <div class="pc-size">
                             <div class="attrdiv pc-telling clearfix">
                                 <div class="pc-version">版本</div>
                                 <div class="pc-adults">
-                                    <ul>
-                                        <li><a href="javascript:void(0);" class="cur">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                        <li><a href="javascript:void(0);">32</a> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="pc-telling clearfix">
-                                <div class="pc-version">颜色分类</div>
-                                <div class="pc-adults">
-                                    <ul>
-                                        <li><a href="#" title="黑色" class="cur"><img src="../theme/img/pd/product.png" width="35" height="35"></a> </li>
-                                        <li><a href="#" title="白色"><img src="../theme/img/pd/product1.png" width="35" height="35"></a> </li>
-                                        <li><a href="#" title="金色"><img src="../theme/img/pd/product2.png" width="35" height="35"></a> </li>
-
-                                    </ul>
+                                    ${commodity.commodityVersion}
                                 </div>
                             </div>
                             <div class="pc-telling clearfix">
@@ -210,22 +199,24 @@
                                         <a href="javascript:void(0);" class="amount2"></a>
                                     </div>
                                     <div class="fl pc-letter ">件</div>
-                                    <div class="fl pc-stock ">库存<em>988</em>件</div>
+                                    <div class="fl pc-stock ">库存<em>${commodity.commodityStock}</em>件</div>
                                 </div>
                             </div>
-                            <div class="pc-number clearfix"><span class="fl">商品编号：1654456   </span> <span class="fr">分享 收藏</span></div>
+                            <div class="pc-number clearfix"><span class="fl">商品编号：${commodity.commodityId}</span></div>
                         </div>
                         <div class="pc-emption">
                             <a href="#">立即购买</a>
-                            <a href="#" class="join">加入购物车</a>
+                            <input type="hidden" id="commodityId" value="${commodity.commodityId}">
+                            <input type="hidden" id="storeId" value="${store.storeId}">
+                            <a href="#" class="join" id="joinShopCar">加入购物车</a>
                         </div>
                     </div>
                     <div class="pc-product-s">
-                        <div class="pc-shoplo"><a href="#"><img src="../theme/icon/shop-logo.png"></a> </div>
+                        <div class="pc-shoplo"><a href="#"><img src="${store.storeLogo}" style="width:174px; height:43px; " ></a> </div>
                         <div class="pc-shopti">
-                            <h2>神游官方旗舰店</h2>
-                            <p>公司名称：优购科技有限公司</p>
-                            <p>所在地： 广东省   深圳市</p>
+                            <h2>${store.storeName}</h2>
+                            <p>公司简介：${store.storeIntroduction}</p>
+
                         </div>
                         <div class="pc-custom"><a href="#">联系客服</a> </div>
                         <div class="pc-trigger">
@@ -238,30 +229,6 @@
         </div>
     </div>
     <div class="containers clearfix" style="margin-top:20px;">
-        <div class="fl">
-            <div class="menu_list" id="firstpane">
-                <h2>店内分类</h2>
-                <h3 class="menu_head current">电玩</h3>
-                <div class="menu_body" style="display: none;">
-                    <a href="#">耳机耳麦</a>
-                    <a href="#">游戏机</a>
-                </div>
-                <h3 class="menu_head">手机</h3>
-                <div class="menu_body" style="display: none;">
-                    <a href="#">手机</a>
-                    <a href="#">手机</a>
-                    <a href="#">手机</a>
-                </div>
-
-                <h3 class="menu_head">耳机耳麦</h3>
-                <div class="menu_body" style="display: none;">
-                    <a href="#">耳机耳麦</a>
-                    <a href="#">耳机耳麦</a>
-                    <a href="#">耳机耳麦</a>
-                    <a href="#">耳机耳麦</a>
-                </div>
-            </div>
-        </div>
         <div class="pc-info fr">
             <div class="pc-overall">
                 <ul id="H-table1" class="brand-tab H-table1 H-table-shop clearfix ">
@@ -273,31 +240,19 @@
                     <div class="H-over1 pc-text-word clearfix">
                         <ul class="clearfix">
                             <li>
-                                <p>屏幕尺寸：4.8英寸</p>
-                                <p>分辨率：1280×720(HD,720P) </p>
+                                <p>商品的产地：${commodity.commondityFrom}</p>
                             </li>
                             <li>
-                                <p>后置摄像头：800万像素</p>
-                                <p>分辨率：1280×720(HD,720P) </p>
+                                <p>商品品牌：${commodity.commodityBrand}</p>
                             </li>
                             <li>
-                                <p>前置摄像头：190万像素</p>
-                                <p>分辨率：1280×720(HD,720P) </p>
-                            </li>
-                            <li>
-                                <p>3G：电信(CDMA2000)</p>
-                                <p>2G：移动/联通(GSM)/电信(CDMA </p>
+                                <p>商品详情：${commodity.commodityDetails}</p>
                             </li>
                         </ul>
                         <div class="pc-line"></div>
                         <div>
-                            <div><img src="../theme/pa/ad-4.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-2.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-3.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-4.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-5.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-6.jpg" width="100%"></div>
-                            <div><img src="../theme/pa/ad-7.jpg" width="100%"></div>
+                            <div><img src="${commodity.imageAddress}" width="100%"></div>
+
                         </div>
                     </div>
                     <div class="H-over1" style="display:none">

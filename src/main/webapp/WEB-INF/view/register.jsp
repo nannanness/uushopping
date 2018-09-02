@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,9 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>用户注册</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/login.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/login.css">
     <script type="text/javascript" src="..\resources\js\jquery-1.7.2.min.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -154,7 +155,7 @@
 <!--- header begin-->
 <header id="pc-header">
     <div class="login-header" style="padding-bottom:0">
-        <div><h1><a href="index.do"><img src="theme/icon/logo.png"></a></h1></div>
+        <div><h1><a href="index.do"><img src="../theme/icon/logo.png"></a></h1></div>
     </div>
 </header>
 <!-- header End -->

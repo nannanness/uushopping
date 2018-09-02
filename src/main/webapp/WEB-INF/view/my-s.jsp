@@ -18,10 +18,10 @@
     <meta content="UU购物, 购物, 大家电, 手机" name="keywords">
     <meta content="UU购物，购物商城。" name="description">
     <title>用户系统我的收藏</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/member.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/member.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
     <script type="text/javascript">
         (function(a){
             a.fn.hoverClass=function(b){
@@ -95,7 +95,7 @@
         </div>
     </div>
     <div class="container clearfix">
-        <div class="header-logo fl"><h1><a href="index.do"><img src="theme/icon/logo.png"></a> </h1></div>
+        <div class="header-logo fl"><h1><a href="index.do"><img src="../theme/icon/logo.png"></a> </h1></div>
         <div class="member-title fl"><h2></h2></div>
         <div class="head-form fl">
             <form class="clearfix">
@@ -104,7 +104,8 @@
             </form>
 
         </div>
-        <!-- <div class="header-cart fr"><a href="#"><img src="theme/icon/car.png"></a> <i class="head-amount">99</i></div> -->
+        <!-- <div class="header-cart fr"><a href="#"><img src="../theme/icon/car.png"></a> <i class="head-amount">99</i></div> -->
+        <div class="header-cart fr hdin" ><a href="shopcart.do?getshopcarnum=${sessionScope.ShopCarNum}"><img src="theme/icon/car.png"></a> <i class="head-amount">${sessionScope.CurrUserShopCarCommdiNun}</i></div>
     </div>
 </header>
 <!-- header End -->
@@ -116,12 +117,12 @@
     <div class="member-center clearfix">
         <div class="member-left fl">
             <div class="member-apart clearfix">
-                <div class="fl"><a href="#"><img src="theme/img/bg/mem.png"></a></div>
+                <div class="fl"><a href="#"><img src="${sessionScope.userimg}"></a></div>
                 <div class="fl">
                     <p>用户名：</p>
-                    <p><a href="#">亚里士多德</a></p>
+                    <p><a href="#">${sessionScope.username}</a></p>
                     <p>搜悦号：</p>
-                    <p>389323080</p>
+                    <p>${sessionScope.userId}</p>
                 </div>
             </div>
             <div class="member-lists">
@@ -165,42 +166,42 @@
                     <div class="time-border-list pc-search-list member-all1 clearfix">
                         <ul class="clearfix">
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b class="on"></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b class="on"></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
                             <li>
-                                <a href="#"> <img src="theme/img/pd/hot2.png"></a>
+                                <a href="#"> <img src="../theme/img/pd/hot2.png"></a>
                                 <p class="head-name"><b></b><a href="#">小米 4 2GB内存版 白色 移动4G手机不锈钢金属边框、 5英寸屏窄边，工艺和手感</a> </p>
                                 <p><span class="price">￥138.00</span></p>
                             </li>
@@ -219,7 +220,7 @@
                                 <div class="member-tenant fl clearfix">
                                     <div class="fl member-all1 member-all2"><b class="on"></b></div>
                                     <div class="fr">
-                                        <a href="#"><img src="theme/icon/shop-ll.png" width="114" height="114" title=""></a>
+                                        <a href="#"><img src="../theme/icon/shop-ll.png" width="114" height="114" title=""></a>
                                         <p>秋水伊人官方旗舰店</p>
                                         <p><a href="#" class="member-shops">进入店铺</a> </p>
                                         <p>关注人气：1000+</p>
@@ -232,19 +233,19 @@
                                     <div class="member-cakes fl">
                                         <ul>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m3.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m3.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m4.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m4.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m5.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m5.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m3.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m3.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                         </ul>
@@ -256,7 +257,7 @@
                                 <div class="member-tenant fl clearfix">
                                     <div class="fl member-all1 member-all2"><b class="on"></b></div>
                                     <div class="fr">
-                                        <a href="#"><img src="theme/icon/shop-ll.png" width="114" height="114" title=""></a>
+                                        <a href="#"><img src="../theme/icon/shop-ll.png" width="114" height="114" title=""></a>
                                         <p>秋水伊人官方旗舰店</p>
                                         <p><a href="#" class="member-shops">进入店铺</a> </p>
                                         <p>关注人气：1000+</p>
@@ -269,19 +270,19 @@
                                     <div class="member-cakes fl">
                                         <ul>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m3.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m3.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m4.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m4.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m5.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m5.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                             <li>
-                                                <a href="#"><img src="theme/img/pd/m3.png" width="125" height="125" title=""></a>
+                                                <a href="#"><img src="../theme/img/pd/m3.png" width="125" height="125" title=""></a>
                                                 <p>￥78.00</p>
                                             </li>
                                         </ul>
@@ -322,7 +323,7 @@
     <div class="time-lists aui-footer-pd clearfix">
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
@@ -335,7 +336,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d2.png"></span>
+                <span><img src="../theme/icon/icon-d2.png"></span>
                 <em>新手上路</em>
             </h4>
             <ul>
@@ -347,7 +348,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d3.png"></span>
+                <span><img src="../theme/icon/icon-d3.png"></span>
                 <em>保障正品</em>
             </h4>
             <ul>
@@ -359,7 +360,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>

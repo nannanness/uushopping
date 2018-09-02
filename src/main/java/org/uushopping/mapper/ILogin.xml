@@ -15,4 +15,17 @@
     <select id="currutUserShopCartel" resultType="Int">
         select shopCarId from shopcar where userId = #{currUserId}
     </select>
+    <select id="orderShopCarCommdi"  resultType="org.uushopping.pojo.Commodity">
+        SELECT * FROM commodity
+        <where>
+            commodityId in
+        <foreach collection="array"   item="commodityId" index="index" open="(" close=")" separator=",">
+             #{commodityId}
+        </foreach>
+         </where>
+
+    </select>
+    <insert id="joinCommodity" >
+        INSERT into shopcarcommodity(shopCarId,commodityId) VALUES(#{arg0},#{arg1})
+    </insert>
 </mapper>

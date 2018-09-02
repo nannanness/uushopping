@@ -16,16 +16,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>立即登录</title>
-    <link rel="stylesheet" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/login.css">
-    <script src="theme/js/jquery-3.1.1.min.js"></script>
-    <script src="theme/js/checkcode.js"></script>
+    <link rel="stylesheet" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/login.css">
+    <script src="../theme/js/jquery-3.1.1.min.js"></script>
+    <script src="../theme/js/checkcode.js"></script>
 </head>
 <body>
 <div class="w">
     <div id="logo">
         <a href="index.do">
-            <img src="theme/icon/logo.png" alt="">
+            <img src="../theme/icon/logo.png" alt="">
         </a>
         <b></b>
     </div>
@@ -105,7 +105,7 @@
                         <div class="qrcode-main">
 
                             <div class="qrcode-img" style="">
-                                <img src="theme/login/code.png" alt="">
+                                <img src="../theme/login/code.png" alt="">
                                 <div class="qrcode-error-02 hide" id="J-qrcodeerror" style="display: none;">
                                     <a href="#none">
                                         <span class="error-icon"></span>

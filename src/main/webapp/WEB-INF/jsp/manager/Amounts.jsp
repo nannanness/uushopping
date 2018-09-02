@@ -30,7 +30,7 @@
 <div class="margin clearfix">
  <div class="amounts_style">
    <div class="transaction_Money clearfix">
-       <div class="Money"><span >成交总额：23960元</span><p>最新统计时间:<span>${dateNew}</span></p></div>
+       <div class="Money"><span >成交总额：<b>${sumCount}</b></span><p>最新统计时间:<span>${dateNew}</span></p></div>
        <div class="l_f Statistics_btn">
      </div>
     </div>

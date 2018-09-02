@@ -15,4 +15,8 @@ public interface Ifunc {
     public List<Commodity> funCurrUserShopCarCommdiInfor(int getuserid);
     //当前用户购物车的编号
     public int funCurrUserShopCarNum(int getuserid);
+    //当前用户购买购物车里的商品
+    public List<Commodity> funorderShopCarCommdi(Integer[] ordershopcarcommId);
+
+    public void joinCommodity(int shopCarId,int commodityId);
 }

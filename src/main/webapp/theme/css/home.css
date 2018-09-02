@@ -102,7 +102,7 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 }
 
 .MarqueeDiv{margin-top: 4px;overflow: auto;height: 30px;width: 300px;}
-.MarqueeDiv a{color: #ea4949;padding: 0 14px;width: 185px;font-size: 13px; background:url("//theme/icon/list.png") no-repeat left;}
+.MarqueeDiv a{color: #ea4949;padding: 0 14px;width: 185px;font-size: 13px; background:url("../theme/icon/list.png") no-repeat left;}
 .jCarouselLite {float:left;width:834px;height:275px;overflow:hidden;}
 .jCarouselLite li{height:275px;width:169px;text-align:center; }
 
@@ -122,8 +122,8 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 
 .pullDown{z-index: 10;position: absolute;}
 .pullDownTitle{height: 35px;width: 190px; background:#ea4949;color: #ffffff;font-size: 16px;font-weight: normal;text-align: center;line-height: 35px;}
-.pullDownList{width: 190px;height: 100px;background:rgba(25, 25, 25, 0.6) none repeat scroll 0 0; position: relative;z-index: 2;}
-.pullDownList li{height: 34px; line-height:35px;  color: #fefcfc;font-size: 13px;padding-left:70px;position: relative;}
+.pullDownList{width: 190px;height: 483px;background:rgba(25, 25, 25, 0.6) none repeat scroll 0 0; position: relative;z-index: 2;}
+.pullDownList li{height: 34px; line-height:35px;  color: #fefcfc;font-size: 13px;padding-left:5px;position: relative;}
 .pullDownList li i{display: inline-block;position:relative;top:4px;left:0;height: 19px;}
 .pullDownList li.menulihover i{margin-left:0px;}
 
@@ -140,7 +140,7 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 .yMenuListCon p a{color: #222;font-size: 12px;padding: 0 8px;display: inline-block;float: left;margin-top: 5px;}
 .yMenuListCon p a.ecolor610{color: #222;}
 .yMenuListCon p a:hover{color: #a90000;text-decoration: underline;}
-.yMenuListConin{display: none; background: #d2d1d0;width:500px;height:200px;position: absolute;left: 0;top: 0; opacity:0.9;font-size: 15px}
+.yMenuListConin{display: none; background: #d2d1d0;width:811px;height:483px;position: absolute;left: 0;top: 0; opacity:0.9}
 .yMenuLCinList{overflow: hidden; width:689px; padding-top:40px;}
 
 .yMenuLCinLisi { opacity:0.9; background:#f7f6f6; width:90px; height:483px; text-align:left; padding-top:60px; padding-left:30px}
@@ -198,11 +198,11 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 .button    { background:#ea4949; width:82px; height:36px; border:none; color:#fff; cursor: pointer; float: left; font-size: 16px; line-height: 1; font-weight:normal}
 .button:hover{ background:#ea3232}
 .head-amount   { background:url("../icon/cart.png") no-repeat; width:22px;  height:29px;  position:absolute; left:-1em; top:-14px; font-size:11px; color:#fff; display:inline-block; text-align:center; line-height:24px; }
-.head-mountain { background:url("//icon/shan.png") no-repeat; width:312px; height:104px; position:absolute; right:0; bottom:-35px;}
+.head-mountain { width:312px; height:104px; position:absolute; right:0; bottom:-35px;}
 .time-title h2   { background:url("../icon/time.png") no-repeat left; height:34px; line-height:34px; font-size:18px; padding-left:40px; font-weight:normal; float:left;}
 .time-clear-f h2 { background:url("../icon/1f.png") no-repeat left;   height:28px; line-height:28px; font-size:18px; padding-left:84px; font-weight:normal; float:left;}
 .time-clear-f2 h2 {background:url("../icon/2f.png") no-repeat left;   height:28px; line-height:28px; font-size:18px; padding-left:84px; font-weight:normal; float:left;}
-.search-text {border-color:#ea4949; border-style:solid; border-width:2px 0 2px 2px; color:#666; float:left; font-size:14px;  height:36px; line-height:24px; margin-bottom:4px; outline:none; padding:4px;  width:460px;}
+.search-text {border-color:#ea4949; border-style:solid; border-width:2px 0 2px 2px; color:#666; float:left; font-size:14px;  height:36px; line-height:24px; margin-bottom:4px; outline:none; padding:4px;  width:454px;}
 .words-text a {color:#666; font-size:12px; float: left;  margin-right:15px; white-space: nowrap;}
 .words-text a:hover { color:#ea4949;}
 .header-cart {margin-right:22px; position:relative; z-index:1;}
@@ -386,8 +386,8 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
     background: #fff none repeat scroll 0 0;
     border: 1px solid #ccc;
     color: #999;
-    height: 20px;
-    line-height: 20px;
+    height: 32px;
+    line-height: 32px;
     margin-right: 5px;
     padding: 5px;
     width: 360px;}
@@ -506,7 +506,7 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 .pc-space-j strong {color:#c81623; padding-right:20px;}
 
 .pc-details  { background:#b0947f url("../img/bg/xq.png") no-repeat center top; height:585px;}
-.pc-details-l{ background:#fafafa url("//img/bg/xq-b.png") repeat-x bottom; height:538px;}
+.pc-details-l{ background:#fafafa url("../img/bg/xq-b.png") repeat-x bottom; height:538px;}
 .pc-comment {width:130px; text-align:center; padding:20px 0;}
 .pc-comment strong {font: 400 46px/30px arial;color: #e4393c;}
 .pc-comment strong span {color: #e4393c; font-size: 24px;}
@@ -590,8 +590,8 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 .pc-adults ul li .cur {border:2px solid #c40000; padding:4px 7px;}
 .pc-adults-p {width:68px;}
 .pc-adults-p input {width:40px; height:30px; border:1px solid #a4a3a9; padding-left:3px; float:left;}
-.pc-adults-p .amount1 {width:18px; height:14px; display:block; background:url("//icon/a-top.png") no-repeat; float:left; margin-left:4px; margin-bottom:4px;}
-.pc-adults-p .amount2 {width:18px; height:14px; display:block; background:url("//icon/a-bop.png") no-repeat; float:left; margin-left:4px;}
+.pc-adults-p .amount1 {width:18px; height:14px; display:block; background:url("../icon/a-top.png") no-repeat; float:left; margin-left:4px; margin-bottom:4px;}
+.pc-adults-p .amount2 {width:18px; height:14px; display:block; background:url("../icon/a-bop.png") no-repeat; float:left; margin-left:4px;}
 .pc-letter {height:30px; line-height:30px; padding-left:10px;}
 .pc-stock {height:30px; line-height:30px; padding-left:40px;}
 .pc-number {padding-top:15px; color:#999;}
@@ -624,7 +624,7 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 
 
 /* m_zlxg */
-.m_zlxg{ width:93px; height:30px; line-height:30px;cursor:pointer;float:left;margin:0 10px 0 0;display:inline;background:url("//icon/zlxg2.jpg") no-repeat;}
+.m_zlxg{ width:93px; height:30px; line-height:30px;cursor:pointer;float:left;margin:0 10px 0 0;display:inline;background:url("../icon/zlxg2.jpg") no-repeat;}
 .m_zlxg p{ width:71px; padding-left:10px; overflow:hidden; line-height:30px; color:#333333; font-size:12px; font-family:"微软雅黑";text-overflow:ellipsis; white-space:nowrap;}
 .m_zlxg2{ position:absolute; top:52px; border:1px solid #ded3c1;background:#fff; width:91px; display:none; max-height:224px;-height:224px; overflow-x:hidden; overflow-y:auto;white-space:nowrap;}
 .m_zlxg2 li{line-height:28px;white-space:nowrap; padding-left:4px;font-family:"微软雅黑";color:#333333; font-size:12px;}
@@ -728,4 +728,3 @@ body{min-width: 1200px; _width:expression(document.documentElement.clientWidth>1
 .time-lists-ls .aui-footer-list ul li{
     float:none;
 }
-

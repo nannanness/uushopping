@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tyq
@@ -16,11 +17,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="renderer" content="webkit">
     <title>订单提交成功</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
-    <script type="text/javascript" src="theme/js/js-tab.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
+    <script type="text/javascript" src="../js/js-tab.js"></script>
     <script>
         $(function(){
 
@@ -90,7 +91,7 @@
         </div>
     </div>
     <div class="container clearfix">
-        <div class="header-logo fl" style="width:212px;"><h1><a href="index.do"><img src="theme/icon/logo.png"></a></h1></div>
+        <div class="header-logo fl" style="width:212px;"><h1><a href="index.do"><img src="../theme/icon/logo.png"></a></h1></div>
         <div class="pc-order-titlei fl"><h2>填写订单</h2></div>
         <div class="pc-step-title fl">
             <ul>
@@ -111,103 +112,27 @@
         <div class="pc-order-title"><h3>您的订单已提交成功!</h3></div>
         <div class="pc-border">
             <div class="pc-order-text">
-                <p>订单提交成功，请您尽快付款！   订单号 ：<em>1234567890</em></p>
+                <p>订单提交成功，请您尽快付款！   订单号 ：<em>${orderId}</em></p>
                 <p class="reds"><em>请您在提交订单后24小时内完成付款，否则订单自动取消。</em></p>
             </div>
             <div class="pc-line"></div>
+            <c:forEach items="${userOIS}" var="ois">
             <div class="pc-order-text">
-                <p>商品名称：KOSE高丝药用雪肌精化妆水200ml(进口），KOSE高丝药用雪肌精乳液140ml，BELLE/百丽夏季黑灰亮片布/黑色小牛皮女皮凉鞋3ZFB3BL4 黑色 ...    </p>
-                <p>收货地址：北京海淀区三环到四环之间学院路51号首享科技大厦9层中搜网络科技 收货人：刘杰 186****4832</p>
+                <p>商品名称：${ois.commodityName}  </p>
+                <p>收货地址：${ois.userAddress} 收货人：${ois.username} ${ois.userPhone}</p>
             </div>
+            </c:forEach>
         </div>
     </div>
 </section>
 <!-- 订单提交成功 End-->
-
 <div class="pc-buying clearfix" style="margin-top:30px">
     <div class="time-list time-list-w fl">
         <div class="time-title">
             <ul class="brand-tab H-table H-table-shop clearfix fl" id="H-table">
-                <li class="cur"><a href="javascript:void(0);" class="cur">支付宝</a></li>
-                <li><a href="javascript:void(0);">储蓄卡</a></li>
-                <li><a href="javascript:void(0);">信用卡</a></li>
+
             </ul>
-            <span class="pc-order-price">总价：￥689.00</span>
-        </div>
-        <div class="time-border time-border-h clearfix">
-            <div class="time-border-list pc-shop-clear pc-order-clear H-over clearfix">
-                <ul class="pc-order-list clearfix">
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                </ul>
-            </div>
-            <div style="display:none;" class="time-border-list  pc-shop-clear pc-order-clear H-over clearfix">
-                <ul class="pc-order-list">
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                </ul>
-            </div>
-            <div style="display:none;" class="time-border-list  pc-shop-clear pc-order-clear H-over clearfix">
-                <ul class="pc-order-list">
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                    <li><a href="#"><img src="theme/bank/1.png"></a> </li>
-                </ul>
-            </div>
-            <div class="pc-order-go"><a href="#">去网银支付</a></div>
+            <span class="pc-order-price">总价：￥${allSum}</span>
         </div>
     </div>
 </div>
@@ -217,49 +142,46 @@
     <div class="time-lists aui-footer-pd clearfix">
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
                 <li><a href="#">保障范围 </a> </li>
                 <li><a href="#">退货退款流程</a> </li>
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
+                <%--<li><a href="#">服务中心</a> </li>--%>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d2.png"></span>
+                <span><img src="../theme/icon/icon-d2.png"></span>
                 <em>新手上路</em>
             </h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d3.png"></span>
+                <span><img src="../theme/icon/icon-d3.png"></span>
                 <em>保障正品</em>
             </h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
@@ -282,11 +204,7 @@
             <h4>特色服务</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
                 <li><a href="#">服务中心</a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
-                <li><a href="#"> 更多特色服务 </a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -294,11 +212,7 @@
             <h4>帮助中心</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
                 <li><a href="#">服务中心 </a> </li>
-                <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>
             </ul>
         </div>
@@ -306,8 +220,7 @@
             <h4>新手指导</h4>
             <ul>
                 <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">退货退款流程</a> </li>
-                <li><a href="#">服务中心 </a> </li>
+
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#">服务中心</a> </li>
                 <li><a href="#"> 更多特色服务 </a> </li>

@@ -15,20 +15,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>购物车页面</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link href="theme/css/amazeui.css" rel="stylesheet" type="text/css" />
-    <link href="theme/css/demo.css" rel="stylesheet" type="text/css" />
-    <link href="theme/css/cartstyle.css" rel="stylesheet" type="text/css" />
-    <link href="theme/css/optstyle.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/home.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link href="../theme/css/amazeui.css" rel="stylesheet" type="text/css" />
+    <link href="../theme/css/demo.css" rel="stylesheet" type="text/css" />
+    <link href="../theme/css/cartstyle.css" rel="stylesheet" type="text/css" />
+    <link href="../theme/css/optstyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/home.css">
 
-    <script type="text/javascript" src="theme/js/index.js"></script>
-    <script type="text/javascript" src="theme/js/js-tab.js"></script>
-    <script type="text/javascript" src="theme/js/MSClass.js"></script>
-    <script type="text/javascript" src="theme/js/jcarousellite.js"></script>
+    <script type="text/javascript" src="../theme/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../theme/js/js-tab.js"></script>
+    <script type="text/javascript" src="../theme/js/MSClass.js"></script>
+    <script type="text/javascript" src="../theme/js/jcarousellite.js"></script>
 
-    <script type="text/javascript" src="/theme/js/jquery.js"></script>
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#J_Go").click(function () {
+                var  arr = [];
+                var  ischeckbox = [];
+                var ischeckbox = $(".ischecked");
+                for (var i = 0 ,j = 0;i < ischeckbox.length;i++) {
+                    if (ischeckbox[i].checked == true){
+                        arr[j] = ischeckbox[i].value;
+                        j++;
+                    }
+                }
+                // $("input :checked").each(function (i) {
+                //     arr[i] = $(this).val();
+                //     alert($(this));
+                // });
+                var price = $(this).parent().prev().children("#price").children().text();
+                var commdinum = $(this).parent().prev().prev().children("#J_SelectedItemsCount").text();
+                if(price*1 > 0){
+                    if (arr.length > 0){
+                        var  jsonCheckId = arr.join(",");
+                        $(this).attr("href","accountcommdi.do?jsoncheckId="+jsonCheckId+"&commdiprice="+price+"&commdinum="+commdinum);
+                        // $.get(
+                        //     "accountcommdi.do",
+                        //     {
+                        //         "jsoncheckId": jsonCheckId,
+                        //         "commdiprice": price,
+                        //         "commdinum":commdinum
+                        //     }
+                        //
+                        // )
+                    }
+
+                }else {
+                    alert("请选择宝贝，否则无法结算")
+                }
+            })
+        })
+    </script>
     <script type="text/javascript">
         $(function () {
             $(".tit").mouseenter(function(){
@@ -37,6 +76,63 @@
             $(".subnav").mouseleave(function(){
                 $(".subnav").hide();
             })
+            $(".min").click(function () {
+                var cutNum = $(this).next().val();
+                var price = $(this).parent().parent().parent().parent().prev().children().children().children().children("em").html();
+                var checkant = $(this).parent().parent().parent().parent().prev().prev().prev().prev().children().children();
+                if(checkant.prop("checked")){
+                    $(this).parent().parent().parent().parent().prev().prev().prev().prev().children().children().attr('checked',false);
+                    var comdinum = $("#J_SelectedItemsCount").text();
+                    var comdmoney = $("#J_Total").text();
+                    $("#J_SelectedItemsCount").text(comdinum*1-1);
+                    $("#J_Total").text(comdmoney-price*cutNum);
+                }
+                if (cutNum <= 1){
+                    alert("您要删除商品吗")
+                    $(this).parent().parent().parent().parent().next().children().children("em").text(price);
+                } else {
+                    var crruntredc = --cutNum
+                    var summoney =price*crruntredc
+                    $(this).next().attr("value",crruntredc)
+                    $(this).parent().parent().parent().parent().next().children().children("em").text(summoney);
+
+                }
+            })
+            $(".add").click(function () {
+                var cutNum = $(this).prev().val();
+                var price = $(this).parent().parent().parent().parent().prev().children().children().children().children("em").text();
+                var checkant = $(this).parent().parent().parent().parent().prev().prev().prev().prev().children().children();
+                var crruntadd = ++cutNum;
+                var summoney =price*crruntadd
+                if(checkant.prop("checked")){
+                    $(this).parent().parent().parent().parent().prev().prev().prev().prev().children().children().attr('checked',false);
+                    var comdinum = $("#J_SelectedItemsCount").text();
+                    var comdmoney = $("#J_Total").text();
+                    $("#J_SelectedItemsCount").text(comdinum*1-1);
+                    $("#J_Total").text(comdmoney-price*(cutNum-1));
+                }
+                $(this).prev().attr("value",crruntadd)
+                $(this).parent().parent().parent().parent().next().children().children("em").text(summoney);
+            })
+
+            $(".check").click(function () {
+                var comdinum = $("#J_SelectedItemsCount").text();
+                var comdmoney = $("#J_Total").text();
+                if ($(this).prop("checked")) {
+                    var money = $(this).parent().parent().next().next().next().next().next().children().children("em").text();
+                    var cursuncomdimoney = comdmoney*1+money*1;
+                    var curcomdinum = ++comdinum
+                    $("#J_SelectedItemsCount").text(curcomdinum);
+                    $("#J_Total").text(cursuncomdimoney);
+                }else{
+                    var money = $(this).parent().parent().next().next().next().next().next().children().children("em").text();
+                    var cursuncomdimoney = comdmoney*1-money*1;
+                    var curcomdinum = --comdinum
+                    $("#J_SelectedItemsCount").text(curcomdinum);
+                    $("#J_Total").text(cursuncomdimoney);
+                }
+            })
+
         })
     </script>
 </head>
@@ -74,7 +170,7 @@
     <div class="nav white">
 
         <div class="logoBig">
-            <li><a href="index.do"><img src="theme/icon/logo.png"></a></li>
+            <li><a href="index.do"><img src="../theme/icon/logo.png"></a></li>
         </div>
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="#"></a>
@@ -116,7 +212,7 @@
             </div>
             <div class="clear"></div>
 
-            <tr class="item-list">
+            <tr class="item-list" id="item-list">
                 <%--购物车的展示--%>
                 <c:forEach items="${sessionScope.commodity}" var="commodity">
                 <div class="bundle  bundle-last ">
@@ -133,9 +229,7 @@
                         <ul class="item-content clearfix">
                             <li class="td td-chk">
                                 <div class="cart-checkbox ">
-                                    <%--@declare id="j_checkbox_170037950254"--%>
-                                    <input class="check" id="J_CheckBox" name="items[]" value="170037950254" type="checkbox">
-                                    <label for="J_CheckBox_170037950254"></label>
+                                    <input class="check ischecked" id="ischecked" name="ischecked" value="${commodity.commodityId}" type="checkbox">
                                 </div>
                             </li>
                             <li class="td td-item">
@@ -153,15 +247,12 @@
                                 <div class="item-props item-props-can">
                                     <span class="sku-line">尺寸：${commodity.commoditySize}</span>
                                     <span class="sku-line">款式：${commodity.commodityStyle}</span>
-                                    <i class="theme-login am-icon-sort-desc"></i>
+                                    <i class="../theme-login am-icon-sort-desc"></i>
                                 </div>
                             </li>
                             <li class="td td-price">
                                 <div class="item-price price-promo-promo">
                                     <div class="price-content">
-                                        <div class="price-line">
-                                            <em class="price-original">699.00</em>
-                                        </div>
                                         <div class="price-line">
                                             <em class="J_Price price-now" tabindex="0">${commodity.commodityPrice}</em>
                                         </div>
@@ -172,9 +263,9 @@
                                 <div class="amount-wrapper ">
                                     <div class="item-amount ">
                                         <div class="sl">
-                                            <input class="min am-btn" name="" type="button" value="-" />
-                                            <input class="text_box" name="" type="text" value="3" style="width:30px;" />
-                                            <input class="add am-btn" name="" type="button" value="+" />
+                                            <input class="min am-btn" name="" id="reduce" type="button" value="-" />
+                                            <input class="text_box" name="" type="text" value="1" style="width:30px;" />
+                                            <input class="add am-btn" name="" id="add" type="button" value="+" />
                                         </div>
                                     </div>
                                 </div>
@@ -203,14 +294,14 @@
     <div class="float-bar-wrapper">
         <div id="J_SelectAll2" class="select-all J_SelectAll">
             <div class="cart-checkbox">
-                <input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">
-                <label for="J_SelectAllCbx2"></label>
+                <%--<input class="check-all check" id="J_SelectAllCbx2" name="select-all" value="true" type="checkbox">--%>
+                <%--<label for="J_SelectAllCbx2"></label>--%>
             </div>
-            <span>全选</span>
+            <span></span>
         </div>
         <div class="operations">
-            <a href="#" hidefocus="true" class="deleteAll">删除</a>
-            <a href="#" hidefocus="true" class="J_BatchFav">移入收藏夹</a>
+            <%--<a href="#" hidefocus="true" class="deleteAll"></a>--%>
+            <%--<a href="#" hidefocus="true" class="J_BatchFav"></a>--%>
         </div>
         <div class="float-bar-right">
             <div class="amount-sum">
@@ -223,10 +314,10 @@
             </div>
             <div class="price-sum">
                 <span class="txt">合计:</span>
-                <strong class="price">¥<em id="J_Total">0.00</em></strong>
+                <strong class="price" id="price">¥<em id="J_Total">0.00</em></strong>
             </div>
             <div class="btn-area">
-                <a href="pay.do" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
+                <a href="#" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
                     <span>结&nbsp;算</span></a>
             </div>
         </div>

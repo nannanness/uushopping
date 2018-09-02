@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IOrderManagerService {
     public List<Orders> getOrdersAll();
+    public int sumOrderCount();
 }

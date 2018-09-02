@@ -114,7 +114,7 @@
 		<div class="form-group">
 			<label class="form-label "><span class="c-red">*</span>确认密码：</label>
 			<div class="formControls ">
-		<input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="storePassword" id="storePassword2" name="storePassword2">
+		<input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="storePassword" id="storePassword2">
 			</div>
 			<div class="col-4"> <span class="Validform_checktip"></span></div>
 		</div>

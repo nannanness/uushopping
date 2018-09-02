@@ -56,7 +56,7 @@
 										<ul>
    <li class="frame_style form_error"><label class="user_icon"></label><input name="name" type="text"  id="username"/><i>用户名</i></li>
    <li class="frame_style form_error"><label class="password_icon"></label><input name="password" type="password"   id="userpwd"/><i>密码</i></li>
-   <li class="frame_style form_error"><label class="Codes_icon"></label><input name="verificationCode" type="text"   id="Codes_text"/><i>验证码</i><div class="Codes_region">${code}</div></li>
+   <%--<li class="frame_style form_error"><label class="Codes_icon"></label><input name="verificationCode" type="text"   id="Codes_text"/><i>验证码</i><div class="Codes_region">${code}</div></li>--%>
    
   </ul>
 													<div class="space"></div>

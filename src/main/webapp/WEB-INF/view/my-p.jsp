@@ -18,10 +18,10 @@
     <meta content="UU购物, 购物, 大家电, 手机" name="keywords">
     <meta content="UU购物，购物商城。" name="description">
     <title>用户系统我的评价</title>
-    <link rel="shortcut icon" type="image/x-icon" href="theme/icon/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="theme/css/base.css">
-    <link rel="stylesheet" type="text/css" href="theme/css/member.css">
-    <script type="text/javascript" src="theme/js/jquery.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../theme/icon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../theme/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../theme/css/member.css">
+    <script type="text/javascript" src="../theme/js/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
             $(".tit").mouseenter(function(){
@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="container clearfix">
-        <div class="header-logo fl"><h1><a href="index.do"><img src="theme/icon/logo.png"></a> </h1></div>
+        <div class="header-logo fl"><h1><a href="index.do"><img src="../theme/icon/logo.png"></a> </h1></div>
         <div class="member-title fl"><h2></h2></div>
         <div class="head-form fl">
             <form class="clearfix">
@@ -66,7 +66,7 @@
             </form>
 
         </div>
-        <!-- <div class="header-cart fr"><a href="#"><img src="theme/icon/car.png"></a> <i class="head-amount">99</i></div> -->
+        <!-- <div class="header-cart fr"><a href="#"><img src="../theme/icon/car.png"></a> <i class="head-amount">99</i></div> -->
     </div>
 </header>
 <!-- header End -->
@@ -78,12 +78,12 @@
     <div class="member-center clearfix">
         <div class="member-left fl">
             <div class="member-apart clearfix">
-                <div class="fl"><a href="#"><img src="theme/img/bg/mem.png"></a></div>
+                <div class="fl"><a href="#"><img src="${sessionScope.userimg}"></a></div>
                 <div class="fl">
                     <p>用户名：</p>
-                    <p><a href="#">亚里士多德</a></p>
+                    <p><a href="#">${sessionScope.username}</a></p>
                     <p>搜悦号：</p>
-                    <p>389323080</p>
+                    <p>${sessionScope.userId}</p>
                 </div>
             </div>
             <div class="member-lists">
@@ -121,7 +121,7 @@
                     <ul>
                         <li class="clearfix">
                             <div class="sp1">
-                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="theme/img/pd/m1.png"></a></span>
+                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="../theme/img/pd/m1.png"></a></span>
                                 <span class="gr2"><a href="#">红米Note2 标准版 白色 移动4G手机 双卡双待</a></span>
                                 <span class="gr3">X1</span>
                             </div>
@@ -155,9 +155,9 @@
                         <li class="clearfix">
                             <div class="member-score fl">晒单：</div>
                             <div class="member-star fl">
-                                <a href="#"><img src="theme/img/pd/m2.png"></a>
-                                <a href="#"><img src="theme/img/pd/m2.png"></a>
-                                <a href="#"><img src="theme/img/pd/m2.png"></a>
+                                <a href="#"><img src="../theme/img/pd/m2.png"></a>
+                                <a href="#"><img src="../theme/img/pd/m2.png"></a>
+                                <a href="#"><img src="../theme/img/pd/m2.png"></a>
                             </div>
                         </li>
                         <li class="clearfix">
@@ -169,7 +169,7 @@
                     <ul>
                         <li class="clearfix">
                             <div class="sp1">
-                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="theme/img/pd/m1.png"></a></span>
+                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="../theme/img/pd/m1.png"></a></span>
                                 <span class="gr2"><a href="#">红米Note2 标准版 白色 移动4G手机 双卡双待</a></span>
                                 <span class="gr3">X1</span>
                             </div>
@@ -178,7 +178,7 @@
                         </li>
                         <li class="clearfix">
                             <div class="sp1">
-                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="theme/img/pd/m1.png"></a></span>
+                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="../theme/img/pd/m1.png"></a></span>
                                 <span class="gr2"><a href="#">红米Note2 标准版 白色 移动4G手机 双卡双待</a></span>
                                 <span class="gr3">X1</span>
                             </div>
@@ -187,7 +187,7 @@
                         </li>
                         <li class="clearfix">
                             <div class="sp1">
-                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="theme/img/pd/m1.png"></a></span>
+                                <span class="gr1"><a href="#"><img width="60" height="60" about="" title="" src="../theme/img/pd/m1.png"></a></span>
                                 <span class="gr2"><a href="#">红米Note2 标准版 白色 移动4G手机 双卡双待</a></span>
                                 <span class="gr3">X1</span>
                             </div>
@@ -229,7 +229,7 @@
     <div class="time-lists aui-footer-pd clearfix">
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
@@ -242,7 +242,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d2.png"></span>
+                <span><img src="../theme/icon/icon-d2.png"></span>
                 <em>新手上路</em>
             </h4>
             <ul>
@@ -254,7 +254,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d3.png"></span>
+                <span><img src="../theme/icon/icon-d3.png"></span>
                 <em>保障正品</em>
             </h4>
             <ul>
@@ -266,7 +266,7 @@
         </div>
         <div class="aui-footer-list clearfix">
             <h4>
-                <span><img src="theme/icon/icon-d1.png"></span>
+                <span><img src="../theme/icon/icon-d1.png"></span>
                 <em>消费者权益</em>
             </h4>
             <ul>
